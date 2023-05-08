@@ -1,5 +1,6 @@
 package com.mohamedrejeb.ksoup.scripts.trie
 
+import kotlin.math.abs
 import kotlin.math.ceil
 import kotlin.math.log2
 
@@ -21,8 +22,8 @@ fun encodeNode(
 
     encodeCache[node] = startIndex
 
-    val nodeIdx = 0
     enc.add(0)
+    val nodeIdx = enc.lastIndex
 
     node.value?.let { nodeValue ->
         var valueLength = 0
@@ -54,14 +55,19 @@ fun encodeNode(
         }
     }
 
-    if (node.next != null) addBranches(
-        next = node.next!!,
-        nodeIdx = nodeIdx,
-        encodeCache = encodeCache,
-        enc = enc,
-        maxJumpTableOverhead = maxJumpTableOverhead,
-    )
+    node.next?.let {
+        addBranches(
+            next = it,
+            nodeIdx = nodeIdx,
+            encodeCache = encodeCache,
+            enc = enc,
+            maxJumpTableOverhead = maxJumpTableOverhead,
+        )
+    }
 
+    println("Node: $nodeIdx")
+    println("Start: $startIndex")
+    println("Value: ${node.value}")
     check(nodeIdx == startIndex) { "Has expected location" }
 
     return startIndex
@@ -78,6 +84,8 @@ fun addBranches(
 
     // Sort branches ASC by key
     branches.sortedBy { it.first }
+
+    println(branches)
 
     check(binaryLength(branches.size) <= 6) { "Too many bits for branches" }
 
@@ -109,11 +117,16 @@ fun addBranches(
      */
 
     val jumpOffset = branches[0].first
-    val jumpEndValue = branches[branches.size - 1].first
+    val jumpEndValue = branches[branches.lastIndex].first
+
+    println("jumpOffset: $jumpOffset")
+    println("jumpEndValue: $jumpEndValue")
 
     val jumpTableLength = jumpEndValue - jumpOffset + 1
 
-    val jumpTableOverhead = jumpTableLength.toDouble() / branches.size
+    val jumpTableOverhead = jumpTableLength / branches.size
+
+    println("jumpTableOverhead: $jumpTableOverhead")
 
     if (jumpTableOverhead <= maxJumpTableOverhead) {
         check(binaryLength(jumpOffset) <= 16) { "Offset $jumpOffset too large at ${binaryLength(jumpOffset)}" }
@@ -121,6 +134,7 @@ fun addBranches(
         // Write the length of the adjusted table, plus jump offset
         enc[nodeIdx] = enc[nodeIdx] or ((jumpTableLength shl 7) or jumpOffset)
 
+        println("jumpTableLength: $jumpTableLength")
         check(binaryLength(jumpTableLength) <= 7) { "Too many bits (${binaryLength(jumpTableLength)}) for branches" }
 
         // Reserve space for the jump table
@@ -128,16 +142,25 @@ fun addBranches(
             enc.add(0)
         }
 
+        println("branches.size: ${branches.size}")
+        println("enc.size: ${enc.size}")
+
         // Write the jump table
         for ((char, next) in branches) {
             val index = char - jumpOffset
             // Write all values + 1, so 0 will result in a -1 when decoding
-            enc[branchIndex + index] = encodeNode(
+            println("index: $index")
+            println("newIndex: ${branchIndex + index}")
+
+            println("enc.size before: ${enc.size}")
+            val offset = encodeNode(
                 node = next,
                 encodeCache = encodeCache,
                 enc = enc,
                 maxJumpTableOverhead = maxJumpTableOverhead,
             ) + 1
+            println("enc.size after: ${enc.size}")
+            enc[branchIndex + index] = offset
         }
 
         return

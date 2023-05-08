@@ -1,15 +1,12 @@
 package com.mohamedrejeb.ksoup.parser
 
-import com.mohamedrejeb.ksoup.tokenizer.Callbacks
-import com.mohamedrejeb.ksoup.tokenizer.QuoteType
 import com.mohamedrejeb.ksoup.tokenizer.Tokenizer
 import com.mohamedrejeb.ksoup.entities.fromCodePoint
 
 class Parser internal constructor(
-    private val cbs: Handler,
-    private val options: ParserOptions,
-    private val tokenizer: Tokenizer
-): Callbacks {
+    private val cbs: Handler = Handler.Default,
+    private val options: ParserOptions = ParserOptions.Default,
+): Tokenizer.Callbacks {
 
     /** The start index of the last event. */
     var startIndex = 0
@@ -38,15 +35,9 @@ class Parser internal constructor(
     private val lowerCaseTagNames get() = options.lowerCaseTags
     private val lowerCaseAttributeNames get() = options.lowerCaseAttributeNames
 
-    constructor(
-        cbs: Handler = Handler.Default,
-        options: ParserOptions = ParserOptions.Default
-    ) : this(
-        cbs = cbs,
+    private val tokenizer = options.tokenizer ?: Tokenizer(
         options = options,
-        tokenizer = options.tokenizer ?: Tokenizer(
-            // TODO()
-        )
+        cbs = this
     )
 
     // Tokenizer events
@@ -214,15 +205,15 @@ class Parser internal constructor(
         this.attribValue += fromCodePoint(codepoint)
     }
 
-    override fun onAttribEnd(quote: QuoteType, endIndex: Int) {
+    override fun onAttribEnd(quote: Tokenizer.QuoteType, endIndex: Int) {
         this.endIndex = endIndex
 
         this.cbs.onAttribute(
             name = this.attribName,
             value = this.attribValue,
             quote = when (quote) {
-                QuoteType.Double -> "\""
-                QuoteType.Single -> "'"
+                Tokenizer.QuoteType.Double -> "\""
+                Tokenizer.QuoteType.Single -> "'"
                 else -> null
             }
         )
@@ -389,7 +380,7 @@ class Parser internal constructor(
      *
      * @param chunk Optional final chunk to parse.
      */
-    fun end(chunk: String?) {
+    fun end(chunk: String? = null) {
         if (this.ended) {
             this.cbs.onError(Exception(".end() after done!"))
             return
@@ -415,7 +406,7 @@ class Parser internal constructor(
 
         while (
             this.tokenizer.running &&
-            this.writeIndex < this.buffers.length
+            this.writeIndex < this.buffers.size
         ) {
             this.tokenizer.write(this.buffers[this.writeIndex++]);
         }

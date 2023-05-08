@@ -65,7 +65,11 @@ fun getTrie(
 
         var nodeIdx = 0
         while (nodeIdx < nodes.size) {
-            val next = nodes[nodeIdx].next ?: continue
+            val next = nodes[nodeIdx].next
+            if (next == null) {
+                nodeIdx++
+                continue
+            }
 
             for ((char, node) in next.toList()) {
                 val idx = nodes.indexOfFirst { isEqual(it, node) }
@@ -81,7 +85,10 @@ fun getTrie(
         }
     }
 
+
+    println("enter mergeDuplicates")
     mergeDuplicates(root)
+    println("end mergeDuplicates")
 
     return root
 }

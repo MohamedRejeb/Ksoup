@@ -561,7 +561,7 @@ class EntityDecoder @OptIn(ExperimentalUnsignedTypes::class) constructor(
         }
 
         @OptIn(ExperimentalUnsignedTypes::class)
-        val htmlDecoder = getDecoder(decodeDataHtml)
+        val htmlDecoder = getDecoder(ushortArrayOf())
 //        val htmlDecoder = getDecoder(htmlDecodeTree)
         @OptIn(ExperimentalUnsignedTypes::class)
         val xmlDecoder = getDecoder(ushortArrayOf())
