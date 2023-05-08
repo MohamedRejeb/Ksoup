@@ -1,0 +1,25 @@
+[versions]
+plugin-kotlin = "1.8.20"
+
+kotlinx-serialization = "1.5.0"
+kotlinx-coroutines = "1.6.4"
+
+touchlab-kermit = "1.2.2"
+
+[libraries]
+plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "plugin-kotlin" }
+plugin-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "plugin-kotlin" }
+
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
+
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+
+touchlab-kermit = { module = "co.touchlab:kermit", version.ref = "touchlab-kermit" }
+
+[bundles]
+plugins = [
+    "plugin-kotlin",
+    "plugin-kotlin-serialization",
+]
