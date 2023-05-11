@@ -1,4 +1,4 @@
-rootProject.name = "Ksoup_-_Kotlin_HTML_Parser"
+rootProject.name = "Ksoup"
 
 pluginManagement {
     repositories {
@@ -15,4 +15,7 @@ dependencyResolutionManagement {
     }
 }
 
-include(":html-parser")
+include(
+    ":ksoup-html",
+    ":ksoup-entites",
+)
