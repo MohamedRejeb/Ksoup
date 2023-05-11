@@ -2,6 +2,7 @@ package com.mohamedrejeb.ksoup.html.tokenizer
 
 import com.mohamedrejeb.ksoup.entities.KsoupEntities
 import com.mohamedrejeb.ksoup.html.parser.KsoupHtmlOptions
+import com.mohamedrejeb.ksoup.html.parser.KsoupHtmlParser
 
 /**
  * KsoupTokenizer is a HTML Tokenizer which is able to receive HTML string, breaks it up into individual tokens, and return those token with the [Callbacks]
@@ -9,9 +10,9 @@ import com.mohamedrejeb.ksoup.html.parser.KsoupHtmlOptions
  * @param options KsoupHtmlOptions
  *
  */
-class KsoupTokenizer(
+internal class KsoupTokenizer(
     options: KsoupHtmlOptions,
-    private val cbs: Callbacks
+    private val callbacks: Callbacks
 ) {
     private val xmlMode = options.xmlMode
     private val decodeEntities = options.decodeEntities
@@ -31,7 +32,7 @@ class KsoupTokenizer(
     /** For special parsing behavior inside of script and style tags. */
     private var isSpecial = false
     /** Indicates whether the tokenizer has been paused. */
-    public var running = true
+    public var running: Boolean = true
     /** The offset of the current buffer. */
     private var offset = 0
 
@@ -73,7 +74,7 @@ class KsoupTokenizer(
             (!this.decodeEntities && this.fastForwardTo(CharCodes.Lt.code))
         ) {
             if (this.index > this.sectionStart) {
-                this.cbs.onText(this.sectionStart, this.index)
+                this.callbacks.onText(this.sectionStart, this.index)
             }
             this.state = State.BeforeTagName
             this.sectionStart = this.index
@@ -124,7 +125,7 @@ class KsoupTokenizer(
                     // Spoof the index so that reported locations match up.
                     val actualIndex = this.index
                     this.index = endOfText
-                    this.cbs.onText(this.sectionStart, endOfText)
+                    this.callbacks.onText(this.sectionStart, endOfText)
                     this.index = actualIndex
                 }
 
@@ -211,9 +212,9 @@ class KsoupTokenizer(
         if (c == currentSequence[sequenceIndex].toInt()) {
             if (++sequenceIndex == currentSequence.size) {
                 if (currentSequence == Sequences.CdataEnd) {
-                    cbs.onCData(sectionStart, index, 2)
+                    callbacks.onCData(sectionStart, index, 2)
                 } else {
-                    cbs.onComment(sectionStart, index, 2)
+                    callbacks.onComment(sectionStart, index, 2)
                 }
 
                 sequenceIndex = 0
@@ -286,7 +287,7 @@ class KsoupTokenizer(
 
     private fun stateInTagName(c: Int) {
         if (isEndOfTagSection(c)) {
-            cbs.onOpenTagName(sectionStart, index)
+            callbacks.onOpenTagName(sectionStart, index)
             sectionStart = -1
             state = State.BeforeAttributeName
             stateBeforeAttributeName(c)
@@ -310,7 +311,7 @@ class KsoupTokenizer(
 
     private fun stateInClosingTagName(c: Int) {
         if (c == CharCodes.Gt.code || isWhitespace(c)) {
-            cbs.onCloseTag(sectionStart, index)
+            callbacks.onCloseTag(sectionStart, index)
             sectionStart = -1
             state = State.AfterClosingTagName
             this.stateAfterClosingTagName(c)
@@ -327,7 +328,7 @@ class KsoupTokenizer(
 
     private fun stateBeforeAttributeName(c: Int) {
         if (c == CharCodes.Gt.code) {
-            this.cbs.onOpenTagEnd(this.index)
+            this.callbacks.onOpenTagEnd(this.index)
             if (this.isSpecial) {
                 this.state = State.InSpecialTag
                 this.sequenceIndex = 0
@@ -345,7 +346,7 @@ class KsoupTokenizer(
 
     private fun stateInSelfClosingTag(c: Int) {
         if (c == CharCodes.Gt.code) {
-            this.cbs.onSelfClosingTag(this.index)
+            this.callbacks.onSelfClosingTag(this.index)
             this.state = State.Text
             this.sectionStart = this.index + 1
             this.isSpecial = false // Reset special state, in case of self-closing special tags
@@ -357,7 +358,7 @@ class KsoupTokenizer(
 
     private fun stateInAttributeName(c: Int) {
         if (c == CharCodes.Eq.code || isEndOfTagSection(c)) {
-            this.cbs.onAttribName(this.sectionStart, this.index)
+            this.callbacks.onAttribName(this.sectionStart, this.index)
             this.sectionStart = -1
             this.state = State.AfterAttributeName
             this.stateAfterAttributeName(c)
@@ -368,11 +369,11 @@ class KsoupTokenizer(
         if (c == CharCodes.Eq.code) {
             this.state = State.BeforeAttributeValue
         } else if (c == CharCodes.Slash.code || c == CharCodes.Gt.code) {
-            this.cbs.onAttribEnd(QuoteType.NoValue, this.index)
+            this.callbacks.onAttribEnd(KsoupHtmlParser.QuoteType.NoValue, this.index)
             this.state = State.BeforeAttributeName
             this.stateBeforeAttributeName(c)
         } else if (!isWhitespace(c)) {
-            this.cbs.onAttribEnd(QuoteType.NoValue, this.index)
+            this.callbacks.onAttribEnd(KsoupHtmlParser.QuoteType.NoValue, this.index)
             this.state = State.InAttributeName
             this.sectionStart = this.index
         }
@@ -397,11 +398,11 @@ class KsoupTokenizer(
             c == quote ||
             (!this.decodeEntities && this.fastForwardTo(quote))
         ) {
-            this.cbs.onAttribData(this.sectionStart, this.index)
+            this.callbacks.onAttribData(this.sectionStart, this.index)
             this.sectionStart = -1
-            this.cbs.onAttribEnd(
-                if (quote == CharCodes.DoubleQuote.code) QuoteType.Double
-                else QuoteType.Single,
+            this.callbacks.onAttribEnd(
+                if (quote == CharCodes.DoubleQuote.code) KsoupHtmlParser.QuoteType.Double
+                else KsoupHtmlParser.QuoteType.Single,
                 this.index
             )
             this.state = State.BeforeAttributeName
@@ -417,9 +418,9 @@ class KsoupTokenizer(
     }
     private fun stateInAttributeValueNoQuotes(c: Int) {
         if (isWhitespace(c) || c == CharCodes.Gt.code) {
-            this.cbs.onAttribData(this.sectionStart, this.index)
+            this.callbacks.onAttribData(this.sectionStart, this.index)
             this.sectionStart = -1
-            this.cbs.onAttribEnd(QuoteType.Unquoted, this.index)
+            this.callbacks.onAttribEnd(KsoupHtmlParser.QuoteType.Unquoted, this.index)
             this.state = State.BeforeAttributeName
             this.stateBeforeAttributeName(c)
         } else if (this.decodeEntities && c == CharCodes.Amp.code) {
@@ -441,7 +442,7 @@ class KsoupTokenizer(
 
     private fun stateInDeclaration(c: Int) {
         if (c == CharCodes.Gt.code || this.fastForwardTo(CharCodes.Gt.code)) {
-            this.cbs.onDeclaration(this.sectionStart, this.index)
+            this.callbacks.onDeclaration(this.sectionStart, this.index)
             this.state = State.Text
             this.sectionStart = this.index + 1
         }
@@ -449,7 +450,7 @@ class KsoupTokenizer(
 
     private fun stateInProcessingInstruction(c: Int) {
         if (c == CharCodes.Gt.code || this.fastForwardTo(CharCodes.Gt.code)) {
-            this.cbs.onProcessingInstruction(this.sectionStart, this.index)
+            this.callbacks.onProcessingInstruction(this.sectionStart, this.index)
             this.state = State.Text
             this.sectionStart = this.index + 1
         }
@@ -473,7 +474,7 @@ class KsoupTokenizer(
         currentSequence?.let { currentSequence ->
             if (c == CharCodes.Gt.code) {
                 if (sequenceIndex == currentSequence.size - 1) {
-                    cbs.onComment(sectionStart, index - currentSequence.size + 1, 3)
+                    callbacks.onComment(sectionStart, index - currentSequence.size + 1, 3)
                     sectionStart = -1
                     state = State.Text
                 }
@@ -539,14 +540,14 @@ class KsoupTokenizer(
                 this.state == State.Text ||
                 (this.state == State.InSpecialTag && this.sequenceIndex == 0)
             ) {
-                this.cbs.onText(this.sectionStart, this.index)
+                this.callbacks.onText(this.sectionStart, this.index)
                 this.sectionStart = this.index
             } else if (
                 this.state == State.InAttributeValueDq ||
                 this.state == State.InAttributeValueSq ||
                 this.state == State.InAttributeValueNq
             ) {
-                this.cbs.onAttribData(this.sectionStart, this.index)
+                this.callbacks.onAttribData(this.sectionStart, this.index)
                 this.sectionStart = this.index
             }
         }
@@ -630,7 +631,7 @@ class KsoupTokenizer(
 
         this.handleTrailingData()
 
-        this.cbs.onEnd()
+        this.callbacks.onEnd()
     }
 
     /** Handle any trailing data. */
@@ -645,9 +646,9 @@ class KsoupTokenizer(
 
         if (this.state == State.InCommentLike) {
             if (this.currentSequence == Sequences.CdataEnd) {
-                this.cbs.onCData(this.sectionStart, endIndex, 0)
+                this.callbacks.onCData(this.sectionStart, endIndex, 0)
             } else {
-                this.cbs.onComment(this.sectionStart, endIndex, 0)
+                this.callbacks.onComment(this.sectionStart, endIndex, 0)
             }
         } else if (
             this.state == State.InTagName ||
@@ -665,7 +666,7 @@ class KsoupTokenizer(
              * respective callback signals that the tag should be ignored.
              */
         } else {
-            this.cbs.onText(this.sectionStart, endIndex)
+            this.callbacks.onText(this.sectionStart, endIndex)
         }
     }
 
@@ -675,24 +676,24 @@ class KsoupTokenizer(
             this.baseState != State.InSpecialTag
         ) {
             if (this.sectionStart < this.entityStart) {
-                this.cbs.onAttribData(this.sectionStart, this.entityStart)
+                this.callbacks.onAttribData(this.sectionStart, this.entityStart)
             }
             this.sectionStart = this.entityStart + consumed
             this.index = this.sectionStart - 1
 
-            this.cbs.onAttribEntity(cp)
+            this.callbacks.onAttribEntity(cp)
         } else {
             if (this.sectionStart < this.entityStart) {
-                this.cbs.onText(this.sectionStart, this.entityStart)
+                this.callbacks.onText(this.sectionStart, this.entityStart)
             }
             this.sectionStart = this.entityStart + consumed
             this.index = this.sectionStart - 1
 
-            this.cbs.onTextEntity(cp, this.sectionStart)
+            this.callbacks.onTextEntity(cp, this.sectionStart)
         }
     }
 
-    enum class CharCodes(val code: Int) {
+    internal enum class CharCodes(val code: Int) {
         Tab(0x9), // "\t"
         NewLine(0xa), // "\n"
         FormFeed(0xc), // "\f"
@@ -723,7 +724,7 @@ class KsoupTokenizer(
     }
 
     /** All the states the tokenizer can be in. */
-    enum class State {
+    internal enum class State {
         Text,
         BeforeTagName, // After <
         InTagName,
@@ -762,14 +763,7 @@ class KsoupTokenizer(
         InEntity,
     }
 
-    enum class QuoteType(val code: Int) {
-        NoValue(0),
-        Unquoted(1),
-        Single(2),
-        Double(3),
-    }
-
-    interface Callbacks {
+    internal interface Callbacks {
 
         fun onAttribData(
             start: Int,
@@ -778,7 +772,7 @@ class KsoupTokenizer(
 
         fun onAttribEntity(codepoint: Int)
 
-        fun onAttribEnd(quote: QuoteType, endIndex: Int)
+        fun onAttribEnd(quote: KsoupHtmlParser.QuoteType, endIndex: Int)
 
         fun onAttribName(start: Int, endIndex: Int)
 
@@ -810,7 +804,7 @@ class KsoupTokenizer(
     }
 
     @OptIn(ExperimentalUnsignedTypes::class)
-    object Sequences {
+    private object Sequences {
         val Cdata = ubyteArrayOf(67u, 68u, 65u, 84u, 65u, 91u)
 
         val CdataEnd = ubyteArrayOf(93u, 93u, 62u)
@@ -824,7 +818,7 @@ class KsoupTokenizer(
         val TitleEnd = ubyteArrayOf(60u, 47u, 116u, 105u, 116u, 108u, 101u)
     }
 
-    companion object {
+    private companion object {
         const val LONGEST_HTML_ENTITY_LENGTH = "&CounterClockwiseContourIntegral;".length
 
         /**

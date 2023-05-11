@@ -2,7 +2,7 @@ package com.mohamedrejeb.ksoup.html.parser
 
 import com.mohamedrejeb.ksoup.html.tokenizer.KsoupTokenizer
 
-data class KsoupHtmlOptions(
+public data class KsoupHtmlOptions(
 
     /**
      * Indicates whether special tags (`<script>`, `<style>`, and `<title>`) should get special treatment
@@ -50,14 +50,44 @@ data class KsoupHtmlOptions(
      * @default xmlMode
      */
     val recognizeSelfClosing: Boolean = xmlMode,
-
-    /**
-     * Allows the default tokenizer to be overwritten.
-     */
-    val ksoupTokenizer: KsoupTokenizer? = null,
-
 ) {
-    companion object {
-        val Default = KsoupHtmlOptions()
+    public class Builder {
+        private var options = KsoupHtmlOptions()
+
+        public fun xmlMode(xmlMode: Boolean): Builder {
+            options = options.copy(xmlMode = xmlMode)
+            return this
+        }
+
+        public fun decodeEntities(decodeEntities: Boolean): Builder {
+            options = options.copy(decodeEntities = decodeEntities)
+            return this
+        }
+
+        public fun lowerCaseTags(lowerCaseTags: Boolean): Builder {
+            options = options.copy(lowerCaseTags = lowerCaseTags)
+            return this
+        }
+
+        public fun lowerCaseAttributeNames(lowerCaseAttributeNames: Boolean): Builder {
+            options = options.copy(lowerCaseAttributeNames = lowerCaseAttributeNames)
+            return this
+        }
+
+        public fun recognizeCDATA(recognizeCDATA: Boolean): Builder {
+            options = options.copy(recognizeCDATA = recognizeCDATA)
+            return this
+        }
+
+        public fun recognizeSelfClosing(recognizeSelfClosing: Boolean): Builder {
+            options = options.copy(recognizeSelfClosing = recognizeSelfClosing)
+            return this
+        }
+
+        public fun build(): KsoupHtmlOptions = options
+    }
+
+    public companion object {
+        public val Default: KsoupHtmlOptions = KsoupHtmlOptions()
     }
 }

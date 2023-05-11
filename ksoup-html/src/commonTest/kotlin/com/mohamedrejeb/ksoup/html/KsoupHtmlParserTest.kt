@@ -1,6 +1,5 @@
 package com.mohamedrejeb.ksoup.html
 
-import com.mohamedrejeb.ksoup.entities.KsoupEntities
 import com.mohamedrejeb.ksoup.html.parser.KsoupHtmlHandler
 import com.mohamedrejeb.ksoup.html.parser.KsoupHtmlParser
 import com.mohamedrejeb.ksoup.html.parser.KsoupHtmlOptions
@@ -14,40 +13,43 @@ class KsoupHtmlParserTest {
         options: KsoupHtmlOptions = KsoupHtmlOptions.Default,
         expectedString: String? = null,
         expectedOpenTags: List<String>,
+        expectedComment: String? = null
     ) {
         val openTagsList = mutableListOf<String>()
         val unclosedTagList = mutableListOf<String>()
         var string = ""
+        var comment = ""
+        val handler = KsoupHtmlHandler
+            .Builder()
+            .onOpenTag { name, attributes, isImplied ->
+                openTagsList.add(name)
+                unclosedTagList.add(name)
+            }
+            .onText {  text ->
+                if (text.isBlank()) return@onText
+                if (unclosedTagList.lastOrNull() == "style") return@onText
+                if (unclosedTagList.lastOrNull() == "script") return@onText
+                if (unclosedTagList.lastOrNull() == "link") return@onText
+                if (unclosedTagList.lastOrNull() == "meta") return@onText
+
+                string += text
+            }
+            .onCloseTag { name, isImplied ->
+                assertEquals(
+                    unclosedTagList.removeLast(),
+                    name
+                )
+            }
+            .onComment {
+                comment += it
+            }
+            .build()
+
         val ksoupHtmlParser = KsoupHtmlParser(
-            cbs = object : KsoupHtmlHandler {
-                override fun onOpenTag(name: String, attributes: Map<String, String>, isImplied: Boolean) {
-                    openTagsList.add(name)
-                    unclosedTagList.add(name)
-                }
-
-                override fun onText(text: String) {
-                    if (text.isBlank()) return
-                    if (unclosedTagList.lastOrNull() == "style") return
-                    if (unclosedTagList.lastOrNull() == "script") return
-                    if (unclosedTagList.lastOrNull() == "link") return
-                    if (unclosedTagList.lastOrNull() == "meta") return
-
-//                    string += KsoupEntities.decodeHtml5(text)
-                    string += text
-                }
-
-                override fun onCloseTag(name: String, isImplied: Boolean) {
-                    assertEquals(
-                        unclosedTagList.removeLast(),
-                        name
-                    )
-                }
-            },
+            handler = handler,
             options = options
         )
-        ksoupHtmlParser.write(
-            input
-        )
+        ksoupHtmlParser.write(input)
         ksoupHtmlParser.end()
 
 
@@ -59,6 +61,12 @@ class KsoupHtmlParserTest {
             assertEquals(
                 it,
                 string
+            )
+        }
+        expectedComment?.let {
+            assertEquals(
+                it,
+                comment
             )
         }
     }
@@ -225,19 +233,12 @@ class KsoupHtmlParserTest {
     }
 
     @Test
-    fun entityTest() {
-        assertEquals(
-            "<p>asdf & ÿ ü '</p>",
-            KsoupEntities.decodeHtml5("<p>asdf &amp; &yuml; &uuml; &apos;</p>")
-        )
-    }
-
-    @Test
-    fun entityTest2() {
+    fun entityTest1() {
         runHtmlTest(
-            input = "<p>&ampa hhh &amp fsdfsdf &amp</p>",
+            input = "<p>&ampa hhh &amp fsdfsdf &amp <!--Test Comment--></p>",
             expectedOpenTags = listOf("p"),
-            expectedString = "&ampa hhh &amp fsdfsdf &amp",
+            expectedString = "&ampa hhh &amp fsdfsdf &amp ",
+            expectedComment = "Test Comment"
         )
     }
 }
