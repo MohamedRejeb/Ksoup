@@ -6,6 +6,7 @@ Ksoup is a lightweight Kotlin Multiplatform library for parsing HTML, extracting
 [![MohamedRejeb](https://raw.githubusercontent.com/MohamedRejeb/MohamedRejeb/main/badges/mohamedrejeb.svg)](https://github.com/MohamedRejeb)
 [![Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 [![BuildPassing](https://shields.io/badge/build-passing-brightgreen)](https://github.com/MohamedRejeb/ksoup/actions)
+[![Maven Central](https://img.shields.io/maven-central/v/com.mohamedrejeb.ksoup/ksoup-html)](https://search.maven.org/search?q=g:%22com.mohamedrejeb.ksoup%22%20AND%20a:%22ksoup-html%22)
 
 ![Slide 16_9 - 1 (1)](https://github.com/MohamedRejeb/ksoup/assets/41842296/fc352215-c8fd-4274-8fc0-ee1c587bb930)
 
@@ -21,10 +22,12 @@ Ksoup is a lightweight Kotlin Multiplatform library for parsing HTML, extracting
 
 ## Installation
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.mohamedrejeb.ksoup/ksoup-html)](https://search.maven.org/search?q=g:%22com.mohamedrejeb.ksoup%22%20AND%20a:%22ksoup-html%22)
+
 Add the dependency below to your **module**'s `build.gradle.kts` or `build.gradle` file:
 
 ```kotlin
-val version = "0.1.1"
+val version = "0.1.2"
 
 // For parsing HTML
 implementation("com.mohamedrejeb.ksoup:ksoup-html:$version")

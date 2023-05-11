@@ -37,16 +37,16 @@ internal class LookupTranslator(lookupMap: Map<String, String>) : StringTranslat
         longest = currentLongest
     }
 
-    override fun translate(input: String, index: Int, stringBuilder: StringBuilder): Int {
-        // check if translation exists for the input at position index
-        if (prefixSet.contains(input[index].code.toUShort())) {
+    override fun translate(input: String, offset: Int, stringBuilder: StringBuilder): Int {
+        // check if translation exists for the input at position offset
+        if (prefixSet.contains(input[offset].code.toUShort())) {
             var max = longest
-            if (index + longest > input.length) {
-                max = input.length - index
+            if (offset + longest > input.length) {
+                max = input.length - offset
             }
             // implement greedy algorithm by trying maximum match first
             for (i in max downTo shortest) {
-                val subSeq = input.subSequence(index, index + i)
+                val subSeq = input.subSequence(offset, offset + i)
                 val result = lookupMap[subSeq.toString()]
                 if (result != null) {
                     stringBuilder.append(result)
