@@ -160,6 +160,8 @@ Both `encodeHtml` and `decodeHtml` methods support all HTML5 entities, XML entit
 If you've found an error in this sample, please file an issue. <br>
 Feel free to help out by sending a pull request :heart:.
 
+[Code of Conduct](https://github.com/MohamedRejeb/ksoup/blob/main/CODE_OF_CONDUCT.md)
+
 ## Find this library useful? :heart:
 Support it by joining __[stargazers](https://github.com/MohamedRejeb/Ksoup/stargazers)__ for this repository. :star: <br>
 Also, __[follow me](https://github.com/MohamedRejeb)__ on GitHub for more libraries! 🤩
