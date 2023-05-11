@@ -74,9 +74,6 @@ class KsoupHtmlParser internal constructor(
         this.openTagStart = this.startIndex
         this.tagName = name
 
-        println("emitOpenTag: $name")
-        println("stack: $stack")
-
         val impliesClose = openImpliesClose[name]
 
         if (!this.options.xmlMode && impliesClose != null) {
@@ -84,18 +81,13 @@ class KsoupHtmlParser internal constructor(
                 this.stack.isNotEmpty() &&
                 impliesClose.contains(this.stack.last())
             ) {
-                println("this.stack: ${this.stack}")
                 val element = this.stack.removeLast()
-                println("element: $element")
 
-                println("onCloseTag call 1")
                 this.cbs.onCloseTag(element, true)
             }
         }
         if (!this.isVoidElement(name)) {
-            println("this.stack: ${this.stack}")
             this.stack.add(name)
-            println("add to stack: $name")
 
             if (name in foreignContextElements) {
                 this.foreignContext.add(true)
@@ -115,7 +107,6 @@ class KsoupHtmlParser internal constructor(
             this.attribs = null
         }
         if (this.isVoidElement(this.tagName)) {
-            println("onCloseTag call 2")
             this.cbs.onCloseTag(this.tagName, true)
         }
 
@@ -139,8 +130,6 @@ class KsoupHtmlParser internal constructor(
             name = name.lowercase()
         }
 
-        println("name: $name")
-
         if (
             name in foreignContextElements &&
             name in htmlIntegrationElements
@@ -151,18 +140,14 @@ class KsoupHtmlParser internal constructor(
         if (!this.isVoidElement(name)) {
             val pos = this.stack.lastIndexOf(name)
 
-            println("stack: ${this.stack}")
-
             if (pos != -1) {
                 var count = this.stack.size - pos
                 while (count-- > 0) {
                     val element = this.stack.removeLast()
-                    println("onCloseTag call 3")
                     this.cbs.onCloseTag(element, count != 0)
                 }
             } else if (!this.options.xmlMode && name == "p") {
                 // Implicit open before close
-                println("Implicit open before close p $name")
                 this.emitOpenTag("p")
                 this.closeCurrentTag(true)
             }
@@ -170,7 +155,6 @@ class KsoupHtmlParser internal constructor(
             // We can't use `emitOpenTag` for implicit open, as `br` would be implicitly closed.
             this.cbs.onOpenTagName("br")
             this.cbs.onOpenTag("br", emptyMap(), true)
-            println("onCloseTag call 4")
             this.cbs.onCloseTag("br", false)
         }
 
@@ -201,7 +185,6 @@ class KsoupHtmlParser internal constructor(
 
         // Self-closing tags will be on the top of the stack
         if (this.stack[this.stack.size - 1] == name) {
-            println("onCloseTag call 5")
             // If the opening tag isn't implied, the closing tag has to be implied.
             this.cbs.onCloseTag(name, !isOpenImplied)
             this.stack.removeLast()
@@ -316,7 +299,6 @@ class KsoupHtmlParser internal constructor(
         this.endIndex = this.startIndex
         this.stack.indices.forEach { i ->
             val index = this.stack.lastIndex - i
-            println("onCloseTag call 6")
             this.cbs.onCloseTag(this.stack[index], true)
         }
         this.cbs.onEnd()

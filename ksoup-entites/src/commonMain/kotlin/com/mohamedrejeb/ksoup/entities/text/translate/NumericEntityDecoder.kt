@@ -57,17 +57,14 @@ internal class NumericEntityDecoder(vararg options: Option) : StringTranslator()
         return options.contains(option)
     }
 
-    override fun translate(input: String, index: Int, stringBuilder: StringBuilder): Int {
+    override fun translate(input: String, offset: Int, stringBuilder: StringBuilder): Int {
         val seqEnd = input.length
-        println("numeric entity decoder")
-        println("input: $input")
-        println("index: $index")
         // Uses -2 to ensure there is something after the &#
-        if (input[index] == '&' && index < seqEnd - 2 && input[index + 1] == '#') {
-            var start = index + 2
+        if (input[offset] == '&' && offset < seqEnd - 2 && input[offset + 1] == '#') {
+            var start = offset + 2
             var isHex = false
             val firstChar = input[start]
-            println("firstChar: $firstChar")
+
             if (firstChar == 'x' || firstChar == 'X') {
                 start++
                 isHex = true
@@ -89,10 +86,7 @@ internal class NumericEntityDecoder(vararg options: Option) : StringTranslator()
                 end++
             }
 
-            println("end: $end")
             val semiNext = end != seqEnd && input[end] == ';'
-
-            println("semiNext: $semiNext")
 
             if (!semiNext) {
                 if (isSet(Option.SemiColonRequired)) {
@@ -116,8 +110,6 @@ internal class NumericEntityDecoder(vararg options: Option) : StringTranslator()
                 val chars: CharArray = CharsUtils.toChars(entityValue)
                 stringBuilder.append(chars[0])
                 stringBuilder.append(chars[1])
-
-                println(chars)
             } else {
                 stringBuilder.append(Char(entityValue))
             }

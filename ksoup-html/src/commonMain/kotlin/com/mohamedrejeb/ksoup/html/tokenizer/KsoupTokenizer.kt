@@ -78,7 +78,6 @@ class KsoupTokenizer(
             this.state = State.BeforeTagName
             this.sectionStart = this.index
         } else if (this.decodeEntities && c == CharCodes.Amp.code) {
-            println("start entity: ${c.toChar()}")
             this.startEntity()
         }
     }
@@ -108,8 +107,6 @@ class KsoupTokenizer(
 
         this.sequenceIndex = 0
         this.state = State.InTagName
-
-        println("stateInTagName call 1")
 
         this.stateInTagName(c)
     }
@@ -244,6 +241,13 @@ class KsoupTokenizer(
         return if (xmlMode) !isEndOfTagSection(c) else isASCIIAlpha(c)
     }
 
+    /**
+     * Check if `c` is a valid character of an HTML Entity.
+     */
+    private fun isInEntityChar(c: Int): Boolean {
+        return isASCIIAlpha(c) || isDigit(c) || c == CharCodes.Semi.code
+    }
+
     @OptIn(ExperimentalUnsignedTypes::class)
     private fun startSpecial(sequence: UByteArray, offset: Int) {
         this.isSpecial = true
@@ -306,7 +310,6 @@ class KsoupTokenizer(
 
     private fun stateInClosingTagName(c: Int) {
         if (c == CharCodes.Gt.code || isWhitespace(c)) {
-            println("stateInClosingTagName: ${c.toChar()}}")
             cbs.onCloseTag(sectionStart, index)
             sectionStart = -1
             state = State.AfterClosingTagName
@@ -476,7 +479,6 @@ class KsoupTokenizer(
                 }
             } else if (c != currentSequence[sequenceIndex].toInt()) {
                 state = State.InTagName
-                println("stateInTagName call 2")
                 stateInTagName(c) // Reconsume the character
             }
         }
@@ -493,7 +495,6 @@ class KsoupTokenizer(
             }
             else -> {
                 this.state = State.InTagName
-                println("stateInTagName call 3")
                 this.stateInTagName(c) // Consume the token again
             }
         }
@@ -503,23 +504,9 @@ class KsoupTokenizer(
         this.baseState = this.state
         this.state = State.InEntity
         this.entityStart = this.index
-        // TODO change startEntity
-//        this.entityDecoder.startEntity(
-//            if (this.xmlMode)
-//                EntityDecoder.DecodingMode.Strict
-//            else if (
-//                this.baseState == State.Text ||
-//                this.baseState == State.InSpecialTag
-//            )
-//                EntityDecoder.DecodingMode.Legacy
-//            else
-//                EntityDecoder.DecodingMode.Attribute
-//        )
     }
 
     private fun stateInEntity(c: Int) {
-        println("stateInEntity call")
-        println("c = ${Char(c)}")
         if (c == CharCodes.Semi.code) {
             val decoded = KsoupEntities.decodeHtml(
                 this.buffer.substring(this.entityStart, this.index + 1)
@@ -535,27 +522,11 @@ class KsoupTokenizer(
 
         if (
             this.index + 1 - this.entityStart > LONGEST_HTML_ENTITY_LENGTH ||
-            c == CharCodes.Lt.code ||
-            c == CharCodes.Gt.code ||
-            c == CharCodes.Amp.code ||
-            c == CharCodes.OpeningSquareBracket.code ||
-            c == ' '.code
+            !isInEntityChar(c)
         ) {
             this.state = this.baseState
             this.index = this.entityStart
         }
-
-        // If `length` is positive, we are done with the entity.
-//        if (length >= 0) {
-//            this.state = this.baseState
-//
-//            if (length == 0) {
-//                this.index = this.entityStart
-//            }
-//        } else {
-//            // Mark buffer as consumed.
-//            this.index = this.offset + this.buffer.length - 1
-//        }
     }
 
     /**
@@ -889,6 +860,17 @@ class KsoupTokenizer(
                 (c >= CharCodes.LowerA.code && c <= CharCodes.LowerZ.code) ||
                 (c >= CharCodes.UpperA.code && c <= CharCodes.UpperZ.code)
             )
+        }
+
+        /**
+         * Returns true if the given code point is a valid character for a tag name.
+         * [See this link](https://html.spec.whatwg.org/multipage/syntax.html#tag-name-state) for reference.
+         *
+         * @param c The code point to check.
+         * @return True if the code point is a valid digit.
+         */
+        fun isDigit(c: Int): Boolean {
+            return c >= CharCodes.Zero.code && c <= CharCodes.Nine.code
         }
     }
 

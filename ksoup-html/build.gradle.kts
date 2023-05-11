@@ -1,6 +1,5 @@
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -27,10 +26,9 @@ kotlin {
         /* Main source sets */
         val commonMain by getting {
             dependencies {
+                // The library is lightweight, we don't use any other dependencies :D
+
                 implementation(project(":ksoup-entites"))
-                implementation(libs.kotlinx.coroutines.core)
-                implementation(libs.touchlab.kermit)
-                implementation(libs.kotlinx.serialization.json)
             }
         }
         val nativeMain by creating
