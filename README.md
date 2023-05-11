@@ -5,8 +5,9 @@ Ksoup is a lightweight Kotlin Multiplatform library for parsing HTML, extracting
 [![Kotlin](https://img.shields.io/badge/kotlin-1.8.20-blue.svg?logo=kotlin)](http://kotlinlang.org)
 [![MohamedRejeb](https://raw.githubusercontent.com/MohamedRejeb/MohamedRejeb/main/badges/mohamedrejeb.svg)](https://github.com/MohamedRejeb)
 [![Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
+[![BuildPassing](https://shields.io/badge/build-passing-brightgreen)](https://github.com/MohamedRejeb/ksoup/actions)
 
-![Slide 16_9 - 1](https://github.com/MohamedRejeb/ksoup/assets/41842296/7933a478-9d3e-4ee7-baf6-c49be9932481)
+![Slide 16_9 - 1 (1)](https://github.com/MohamedRejeb/ksoup/assets/41842296/fc352215-c8fd-4274-8fc0-ee1c587bb930)
 
 ## Features
 
