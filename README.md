@@ -39,6 +39,7 @@ implementation("com.mohamedrejeb.ksoup:ksoup-entites:$version")
 To parse HTML from a String, use the `KsoupHtmlParser` class, and provide an implementation of the `KsoupHtmlHandler` interface, and a `KsoupHtmlOptions` object.
 Both of them are optional, you can use the default ones if you want.
 
+
 #### KsoupHtmlParser
 
 You can create a parser using the `KsoupHtmlParser()`, there are several methods that you can use, for example `write` to parse a String, and `end` to close the parser when you are done:
@@ -55,6 +56,7 @@ ksoupHtmlParser.write(input)
 // Close the parser when you are done
 ksoupHtmlParser.end()
 ```
+
 
 #### KsoupHtmlHandler
 
@@ -116,6 +118,7 @@ ksoupHtmlParser.end()
 
 You can also use `onOpenTag` and `onCloseTag` to know when a tag is opened or closed, it can be used for scrapping data from a website or powering a rich text editor,
 Also you can use `onComment` to know when a comment is found in the HTML and `onAttribute` to know when attributes are found in a tag.
+
 
 #### KsoupHtmlOptions
 
