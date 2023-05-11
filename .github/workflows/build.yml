@@ -38,8 +38,8 @@ jobs:
         run: ./gradlew allTests
 
   build:
-    runs-on: ${{ matrix.config.os }}
-    name: Build ${{ matrix.config.target }}
+    runs-on: macos-11
+    name: Build on macOS
     needs: check
     steps:
       - uses: actions/checkout@v3
@@ -51,6 +51,3 @@ jobs:
 
       - name: Setup gradle
         uses: gradle/gradle-build-action@v2
-        with:
-          java-version: '17'
-          distribution: 'temurin'
