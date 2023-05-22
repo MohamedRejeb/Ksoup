@@ -79,7 +79,8 @@ val secondHandler = KsoupHtmlHandler
     .Builder()
     .onOpenTag { name, attributes, isImplied ->
         println("Open tag: $name")
-    }.build()
+    }
+    .build()
 ```
 
 There are several methods that you can override, for example is you want to just extract the text from the HTML, you can override the `onText` method:
@@ -106,7 +107,8 @@ val handler = KsoupHtmlHandler
     .Builder()
     .onText { text ->
         string += text
-    }.build()
+    }
+    .build()
 
 // Create a parser
 val ksoupHtmlParser = KsoupHtmlParser(
