@@ -30,9 +30,8 @@ kotlin {
         /* Main source sets */
         val commonMain by getting {
             dependencies {
-                // The library is lightweight, we don't use any other dependencies :D
-
                 implementation(project(":ksoup-entites"))
+                // The library is lightweight, we don't use any other dependencies :D
             }
         }
         val nativeMain by creating
@@ -85,7 +84,6 @@ kotlin {
         /* Test source sets */
         val commonTest by getting {
             dependencies {
-//                implementation(project(":ksoup-entities"))
                 implementation(kotlin("test"))
             }
         }
