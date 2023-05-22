@@ -26,6 +26,12 @@ kotlin {
     macosArm64()
     mingwX64()
 
+    sourceSets.all {
+        languageSettings {
+            languageVersion = "2.0"
+        }
+    }
+
     sourceSets {
         /* Main source sets */
         val commonMain by getting {

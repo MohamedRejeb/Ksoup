@@ -1,5 +1,5 @@
 [versions]
-plugin-kotlin = "1.8.20"
+plugin-kotlin = "1.8.21"
 
 [libraries]
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "plugin-kotlin" }
