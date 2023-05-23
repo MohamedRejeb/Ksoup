@@ -36,6 +36,7 @@ internal class KsoupTokenizer(
     /** The offset of the current buffer. */
     private var offset = 0
 
+    @OptIn(ExperimentalUnsignedTypes::class)
     fun reset() {
         this.state = State.Text
         this.buffer = ""

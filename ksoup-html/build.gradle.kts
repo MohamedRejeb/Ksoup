@@ -3,6 +3,12 @@ plugins {
 }
 
 kotlin {
+    sourceSets.all {
+        languageSettings {
+            languageVersion = "2.0"
+        }
+    }
+
     explicitApi()
 
     jvm {
@@ -25,12 +31,6 @@ kotlin {
     macosX64()
     macosArm64()
     mingwX64()
-
-    sourceSets.all {
-        languageSettings {
-            languageVersion = "2.0"
-        }
-    }
 
     sourceSets {
         /* Main source sets */
