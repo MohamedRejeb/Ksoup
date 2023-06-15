@@ -153,7 +153,7 @@ public object KsoupEntities {
      *      `&quot;bread&quot; &amp;amp; &quot;butter&quot;`.
      *
      * Supports all known HTML 4.0 entities, including funky accents.
-     * Support that the commonly used apostrophe encode character (&amp;apos;)
+     * Support for the commonly used apostrophe encode character (&amp;apos;)
      *
      * @param input  the `String` to encode
      * @return a new encoded `String`
@@ -199,7 +199,7 @@ public object KsoupEntities {
      *      `&quot;bread&quot; &amp;amp; &quot;butter&quot;`.
      *
      * Supports all known HTML 4.0 entities, including funky accents.
-     * Support that the commonly used apostrophe encode character (&amp;apos;)
+     * Support for the commonly used apostrophe encode character (&amp;apos;)
      *
      * @param input  the `String` to encode
      * @return a new encoded `String`
@@ -219,7 +219,7 @@ public object KsoupEntities {
      *      `&quot;bread&quot; &amp;amp; &quot;butter&quot;`.
      *
      * Supports all known HTML 4.0 entities, including funky accents.
-     * Support that the commonly used apostrophe encode character (&amp;apos;)
+     * Support for the commonly used apostrophe encode character (&amp;apos;)
      *
      * @param input String that is being translated
      * @param offset Int representing the current point of translation
@@ -246,14 +246,6 @@ public object KsoupEntities {
      *
      * XML 1.1 can represent certain control characters, but it cannot represent
      * the null byte or unpaired Unicode surrogate code points, even after escaping.
-     * `encodeXml11` will remove characters that do not fit in the following
-     * ranges:
-     *
-     * `[#x1-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]`
-     *
-     * `encodeXml11` will encode characters in the following ranges:
-     *
-     * `[#x1-#x8] | [#xB-#xC] | [#xE-#x1F] | [#x7F-#x84] | [#x86-#x9F]`
      *
      * The returned string can be inserted into a valid XML 1.1 document. Do not
      * use it for XML 1.0 documents.
@@ -269,7 +261,7 @@ public object KsoupEntities {
     /**
      * Decodes a string containing entity encodes to a string
      * containing the actual Unicode characters corresponding to the
-     * encodes. Supports HTML 4.0 entities.
+     * encoding. Supports HTML 4.0 entities.
      *
      * Example:
      *
@@ -299,7 +291,8 @@ public object KsoupEntities {
     /**
      * Decodes a string containing entity encodes to a string
      * containing the actual Unicode characters corresponding to the
-     * encodes. Supports HTML 4.0 entities.
+     * encoding.
+     * Supports HTML 4.0 entities.
      *
      * Example:
      *
@@ -328,7 +321,8 @@ public object KsoupEntities {
     /**
      * Decodes a string containing entity encodes to a string
      * containing the actual Unicode characters corresponding to the
-     * encodes. Supports HTML 4.0 entities.
+     * encoding.
+     * Supports HTML 4.0 entities.
      *
      * Example:
      *
@@ -357,7 +351,7 @@ public object KsoupEntities {
     /**
      * Decodes a string containing XML entity encodes to a string
      * containing the actual Unicode characters corresponding to the
-     * encodes.
+     * encoding.
      *
      *
      * Supports only the five basic XML entities (gt, lt, quot, amp, apos).
@@ -369,7 +363,6 @@ public object KsoupEntities {
      *
      * @param input the `String` to decode
      * @return a new decoded `String`
-     * @see [encodeXml10]
      * @see [encodeXml]
      */
     public fun decodeXml(input: String): String {

@@ -21,7 +21,7 @@ class KsoupHtmlParserTest {
         var comment = ""
         val handler = KsoupHtmlHandler
             .Builder()
-            .onOpenTag { name, attributes, isImplied ->
+            .onOpenTag { name, _, _ ->
                 openTagsList.add(name)
                 unclosedTagList.add(name)
             }
@@ -34,7 +34,7 @@ class KsoupHtmlParserTest {
 
                 string += text
             }
-            .onCloseTag { name, isImplied ->
+            .onCloseTag { name, _ ->
                 assertEquals(
                     unclosedTagList.removeLast(),
                     name

@@ -17,10 +17,10 @@ kotlin {
     iosSimulatorArm64()
     tvosX64()
     tvosArm64()
-//    tvosSimulatorArm64()
+    tvosSimulatorArm64()
     watchosX64()
     watchosArm64()
-//    watchosSimulatorArm64()
+    watchosSimulatorArm64()
     linuxX64()
     macosX64()
     macosArm64()
@@ -47,10 +47,10 @@ kotlin {
         val iosSimulatorArm64Main by getting
         val tvosX64Main by getting
         val tvosArm64Main by getting
-//        val tvosSimulatorArm64Main by getting
+        val tvosSimulatorArm64Main by getting
         val watchosX64Main by getting
         val watchosArm64Main by getting
-//        val watchosSimulatorArm64Main by getting
+        val watchosSimulatorArm64Main by getting
         val linuxX64Main by getting
         val macosX64Main by getting
         val macosArm64Main by getting
@@ -67,11 +67,11 @@ kotlin {
         tvosMain.dependsOn(nativeMain)
         tvosX64Main.dependsOn(tvosMain)
         tvosArm64Main.dependsOn(tvosMain)
-//        tvosSimulatorArm64Main.dependsOn(tvosMain)
+        tvosSimulatorArm64Main.dependsOn(tvosMain)
         watchosMain.dependsOn(nativeMain)
         watchosX64Main.dependsOn(watchosMain)
         watchosArm64Main.dependsOn(watchosMain)
-//        watchosSimulatorArm64Main.dependsOn(watchosMain)
+        watchosSimulatorArm64Main.dependsOn(watchosMain)
         linuxMain.dependsOn(nativeMain)
         linuxX64Main.dependsOn(linuxMain)
         macosMain.dependsOn(nativeMain)

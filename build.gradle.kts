@@ -1,13 +1,6 @@
-buildscript {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath(libs.bundles.plugins)
-    }
+plugins {
+    alias(libs.plugins.multiplatform).apply(false)
+    alias(libs.plugins.kotlinx.kover).apply(false)
 }
 
 allprojects {
@@ -17,10 +10,11 @@ allprojects {
     }
 
     group = "com.mohamedrejeb.ksoup"
-    version = "0.1.2"
+    version = "0.1.3"
 
     apply(plugin = "maven-publish")
     apply(plugin = "signing")
+    apply(plugin = "org.jetbrains.kotlinx.kover")
 
     extensions.configure<PublishingExtension> {
         repositories {
