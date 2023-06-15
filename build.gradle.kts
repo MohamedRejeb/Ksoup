@@ -1,13 +1,6 @@
-buildscript {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath(libs.bundles.plugins)
-    }
+plugins {
+    alias(libs.plugins.multiplatform).apply(false)
+    alias(libs.plugins.kotlinx.kover).apply(false)
 }
 
 allprojects {
