@@ -14,6 +14,7 @@ allprojects {
 
     apply(plugin = "maven-publish")
     apply(plugin = "signing")
+    apply(plugin = "org.jetbrains.kotlinx.kover")
 
     extensions.configure<PublishingExtension> {
         repositories {
