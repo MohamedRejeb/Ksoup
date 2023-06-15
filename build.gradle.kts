@@ -10,7 +10,7 @@ allprojects {
     }
 
     group = "com.mohamedrejeb.ksoup"
-    version = "0.1.2"
+    version = "0.1.3"
 
     apply(plugin = "maven-publish")
     apply(plugin = "signing")
