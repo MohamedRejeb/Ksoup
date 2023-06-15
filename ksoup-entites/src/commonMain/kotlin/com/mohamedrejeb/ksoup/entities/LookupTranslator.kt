@@ -23,7 +23,7 @@ internal class LookupTranslator(lookupMap: Map<String, String>) : StringTranslat
         var currentShortest = Int.MAX_VALUE
         var currentLongest = 0
         for ((key, value) in lookupMap) {
-            this.lookupMap[key.toString()] = value.toString()
+            this.lookupMap[key] = value
             prefixSet.add(key[0].code.toUShort())
             val sz = key.length
             if (sz < currentShortest) {

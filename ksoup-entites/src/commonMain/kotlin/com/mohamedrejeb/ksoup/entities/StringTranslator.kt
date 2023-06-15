@@ -55,7 +55,7 @@ internal abstract class StringTranslator {
                 }
                 continue
             }
-            // contract with translators is that they have to understand code points
+            // contract with translators is that they have to understand code points,
             // and they just took care of a surrogate pair
             for (pt in 0 until consumed) {
                 pos++
@@ -74,11 +74,4 @@ internal abstract class StringTranslator {
         val newArray = arrayOf(this, *translators)
         return AggregateTranslator(*newArray)
     }
-
-//    companion object {
-//        /**
-//         * Array containing the hexadecimal alphabet.
-//         */
-//        val HEX_DIGITS = charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F')
-//    }
 }

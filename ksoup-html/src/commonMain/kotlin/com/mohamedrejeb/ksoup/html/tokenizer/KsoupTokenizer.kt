@@ -5,7 +5,8 @@ import com.mohamedrejeb.ksoup.html.parser.KsoupHtmlOptions
 import com.mohamedrejeb.ksoup.html.parser.KsoupHtmlParser
 
 /**
- * KsoupTokenizer is a HTML Tokenizer which is able to receive HTML string, breaks it up into individual tokens, and return those token with the [Callbacks]
+ * KsoupTokenizer is an HTML Tokenizer which is able to receive HTML string,
+ * breaks it up into individual tokens, and return those tokens with the [Callbacks]
  *
  * @param options KsoupHtmlOptions
  *
@@ -27,15 +28,19 @@ internal class KsoupTokenizer(
     private var index = 0
     /** The start of the last entity. */
     private var entityStart = 0
-    /** Some behavior, eg. when decoding entities, is done while we are in another state. This keeps track of the other state type. */
+    /**
+     * Some behavior, e.g., When decoding entities, is done while we are in another state.
+     * This keeps track of the other state type.
+     */
     private var baseState = State.Text
-    /** For special parsing behavior inside of script and style tags. */
+    /** For special parsing behavior inside script and style tags. */
     private var isSpecial = false
     /** Indicates whether the tokenizer has been paused. */
     public var running: Boolean = true
     /** The offset of the current buffer. */
     private var offset = 0
 
+    @OptIn(ExperimentalUnsignedTypes::class)
     fun reset() {
         this.state = State.Text
         this.buffer = ""
@@ -147,7 +152,7 @@ internal class KsoupTokenizer(
                     this.startEntity()
                 }
             } else if (this.fastForwardTo(CharCodes.Lt.code)) {
-                // Outside of <title> tags, we can fast-forward.
+                // Outside <title> tags, we can fast-forward.
                 this.sequenceIndex = 1
             }
         } else {
@@ -168,7 +173,7 @@ internal class KsoupTokenizer(
         } else {
             this.sequenceIndex = 0
             this.state = State.InDeclaration
-            this.stateInDeclaration(c) // Reconsume the character
+            this.stateInDeclaration(c) // Re-Consume the character
         }
     }
 
@@ -262,7 +267,7 @@ internal class KsoupTokenizer(
         if (c == CharCodes.ExclamationMark.code) {
             state = State.BeforeDeclaration
             sectionStart = index + 1
-        } else if (c == CharCodes.Questionmark.code) {
+        } else if (c == CharCodes.QuestionMark.code) {
             state = State.InProcessingInstruction
             sectionStart = index + 1
         } else if (isTagStartChar(c)) {
@@ -389,7 +394,7 @@ internal class KsoupTokenizer(
         } else if (!isWhitespace(c)) {
             this.sectionStart = this.index
             this.state = State.InAttributeValueNq
-            this.stateInAttributeValueNoQuotes(c) // Reconsume token
+            this.stateInAttributeValueNoQuotes(c) // Re-Consume token
         }
     }
 
@@ -480,7 +485,7 @@ internal class KsoupTokenizer(
                 }
             } else if (c != currentSequence[sequenceIndex].toInt()) {
                 state = State.InTagName
-                stateInTagName(c) // Reconsume the character
+                stateInTagName(c) // Re-Consume the character
             }
         }
     }
@@ -534,7 +539,7 @@ internal class KsoupTokenizer(
      * Remove data that has already been consumed from the buffer.
      */
     private fun cleanup() {
-        // If we are inside of text or attributes, emit what we already have.
+        // If we are inside text or attributes, emit what we already have.
         if (this.running && this.sectionStart != this.index) {
             if (
                 this.state == State.Text ||
@@ -712,7 +717,7 @@ internal class KsoupTokenizer(
         Lt(0x3c), // "<"
         Eq(0x3d), // "="
         Gt(0x3e), // ">"
-        Questionmark(0x3f), // "?"
+        QuestionMark(0x3f), // "?"
         UpperA(0x41), // "A"
         LowerA(0x61), // "a"
         UpperF(0x46), // "F"
