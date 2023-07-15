@@ -35,10 +35,12 @@ class KsoupHtmlParserTest {
                 string += text
             }
             .onCloseTag { name, _ ->
-                assertEquals(
-                    unclosedTagList.removeLast(),
-                    name
-                )
+                unclosedTagList.removeLastOrNull()?.let {
+                    assertEquals(
+                        it,
+                        name
+                    )
+                }
             }
             .onComment {
                 comment += it
@@ -239,6 +241,24 @@ class KsoupHtmlParserTest {
             expectedOpenTags = listOf("p"),
             expectedString = "&ampa hhh &amp fsdfsdf &amp ",
             expectedComment = "Test Comment"
+        )
+    }
+
+    @Test
+    fun testWrongHtml1() {
+        runHtmlTest(
+            input = "<p>&ampa hhh</p><a>dude<a/",
+            expectedOpenTags = listOf("p", "a"),
+            expectedString = "&ampa hhhdude",
+        )
+    }
+
+    @Test
+    fun testWrongHtml2() {
+        runHtmlTest(
+            input = "<p>&ampa hhh</p><a>dude</a> test<br/",
+            expectedOpenTags = listOf("p", "a"),
+            expectedString = "&ampa hhhdude test",
         )
     }
 }

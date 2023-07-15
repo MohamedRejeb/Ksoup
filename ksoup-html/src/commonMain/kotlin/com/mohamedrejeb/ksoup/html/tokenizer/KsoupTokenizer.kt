@@ -664,7 +664,8 @@ internal class KsoupTokenizer(
             this.state == State.InAttributeValueSq ||
             this.state == State.InAttributeValueDq ||
             this.state == State.InAttributeValueNq ||
-            this.state == State.InClosingTagName
+            this.state == State.InClosingTagName ||
+            this.state == State.InSelfClosingTag
         ) {
             /*
              * If we are currently in an opening or closing tag, us not calling the
