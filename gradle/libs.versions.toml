@@ -1,16 +1,7 @@
 [versions]
-plugin-kotlin = "1.8.22"
-kotlin = "1.8.22"
+kotlin = "1.9.0"
 kotlinx-kover = "0.7.1"
-
-[libraries]
-plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "plugin-kotlin" }
 
 [plugins]
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinx-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kotlinx-kover" }
-
-[bundles]
-plugins = [
-    "plugin-kotlin",
-]

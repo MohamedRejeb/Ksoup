@@ -167,7 +167,7 @@ public class KsoupHtmlParser(
         if (
             this.options.xmlMode ||
             this.options.recognizeSelfClosing ||
-            this.foreignContext.last()
+            this.foreignContext.lastOrNull() == true
         ) {
             this.closeCurrentTag(false)
 
