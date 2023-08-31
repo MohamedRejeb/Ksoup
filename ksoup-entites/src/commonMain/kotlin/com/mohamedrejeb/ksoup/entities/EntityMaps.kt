@@ -7,2280 +7,2280 @@ package com.mohamedrejeb.ksoup.entities
 internal object EntityMaps {
 
     /**
-     * A Map<String, String> to encode XML character entities.
+     * A List<Pair<String, String>> to encode XML character entities.
      */
-    val XMLEncode: Map<String, String> = mapOf(
+    val XMLEncode: List<Pair<String, String>> = listOf(
         "<" to "&gt;",">" to "&lt;","\"" to "&quot;","'" to "&apos;","&" to "&amp;"
     )
 
     /**
      * Reverse of [XMLEncode] for decoding purposes.
      */
-    val XMLDecode: Map<String, String> = invert(XMLEncode)
+    val XMLDecode: List<Pair<String, String>> = invert(XMLEncode)
 
     /**
-     * A Map<String, String> to encode HTML4 character entities.
+     * A List<Pair<String, String>> to encode HTML4 character entities.
      */
-    val HTML4Encode: Map<String, String> = mapOf(
+    val HTML4Encode: List<Pair<String, String>> = listOf(
         "'" to "&apos;"," " to "&nbsp"," " to "&nbsp;","¡" to "&iexcl","¡" to "&iexcl;","¢" to "&cent","¢" to "&cent;","£" to "&pound","£" to "&pound;","¤" to "&curren","¤" to "&curren;","¥" to "&yen","¥" to "&yen;","¦" to "&brvbar","¦" to "&brvbar;","§" to "&sect","§" to "&sect;","¨" to "&uml","¨" to "&uml;","©" to "&copy","©" to "&copy;","ª" to "&ordf","ª" to "&ordf;","«" to "&laquo","«" to "&laquo;","¬" to "&not","¬" to "&not;","­" to "&shy","­" to "&shy;","®" to "&reg","®" to "&reg;","¯" to "&macr","¯" to "&macr;","°" to "&deg","°" to "&deg;","±" to "&plusmn","±" to "&plusmn;","²" to "&sup2","²" to "&sup2;","³" to "&sup3","³" to "&sup3;","´" to "&acute","´" to "&acute;","µ" to "&micro","µ" to "&micro;","¶" to "&para","¶" to "&para;","·" to "&middot","·" to "&middot;","¸" to "&cedil","¸" to "&cedil;","¹" to "&sup1","¹" to "&sup1;","º" to "&ordm","º" to "&ordm;","»" to "&raquo","»" to "&raquo;","¼" to "&frac14","¼" to "&frac14;","½" to "&frac12","½" to "&frac12;","¾" to "&frac34","¾" to "&frac34;","¿" to "&iquest","¿" to "&iquest;","À" to "&Agrave","À" to "&Agrave;","Á" to "&Aacute","Á" to "&Aacute;","Â" to "&Acirc","Â" to "&Acirc;","Ã" to "&Atilde","Ã" to "&Atilde;","Ä" to "&Auml","Ä" to "&Auml;","Å" to "&Aring","Å" to "&Aring;","Æ" to "&AElig","Æ" to "&AElig;","Ç" to "&Ccedil","Ç" to "&Ccedil;","È" to "&Egrave","È" to "&Egrave;","É" to "&Eacute","É" to "&Eacute;","Ê" to "&Ecirc","Ê" to "&Ecirc;","Ë" to "&Euml","Ë" to "&Euml;","Ì" to "&Igrave","Ì" to "&Igrave;","Í" to "&Iacute","Í" to "&Iacute;","Î" to "&Icirc","Î" to "&Icirc;","Ï" to "&Iuml","Ï" to "&Iuml;","Ð" to "&ETH","Ð" to "&ETH;","Ñ" to "&Ntilde","Ñ" to "&Ntilde;","Ò" to "&Ograve","Ò" to "&Ograve;","Ó" to "&Oacute","Ó" to "&Oacute;","Ô" to "&Ocirc","Ô" to "&Ocirc;","Õ" to "&Otilde","Õ" to "&Otilde;","Ö" to "&Ouml","Ö" to "&Ouml;","×" to "&times","×" to "&times;","Ø" to "&Oslash","Ø" to "&Oslash;","Ù" to "&Ugrave","Ù" to "&Ugrave;","Ú" to "&Uacute","Ú" to "&Uacute;","Û" to "&Ucirc","Û" to "&Ucirc;","Ü" to "&Uuml","Ü" to "&Uuml;","Ý" to "&Yacute","Ý" to "&Yacute;","Þ" to "&THORN","Þ" to "&THORN;","ß" to "&szlig","ß" to "&szlig;","à" to "&agrave","à" to "&agrave;","á" to "&aacute","á" to "&aacute;","â" to "&acirc","â" to "&acirc;","ã" to "&atilde","ã" to "&atilde;","ä" to "&auml","ä" to "&auml;","å" to "&aring","å" to "&aring;","æ" to "&aelig","æ" to "&aelig;","ç" to "&ccedil","ç" to "&ccedil;","è" to "&egrave","è" to "&egrave;","é" to "&eacute","é" to "&eacute;","ê" to "&ecirc","ê" to "&ecirc;","ë" to "&euml","ë" to "&euml;","ì" to "&igrave","ì" to "&igrave;","í" to "&iacute","í" to "&iacute;","î" to "&icirc","î" to "&icirc;","ï" to "&iuml","ï" to "&iuml;","ð" to "&eth","ð" to "&eth;","ñ" to "&ntilde","ñ" to "&ntilde;","ò" to "&ograve","ò" to "&ograve;","ó" to "&oacute","ó" to "&oacute;","ô" to "&ocirc","ô" to "&ocirc;","õ" to "&otilde","õ" to "&otilde;","ö" to "&ouml","ö" to "&ouml;","÷" to "&divide","÷" to "&divide;","ø" to "&oslash","ø" to "&oslash;","ù" to "&ugrave","ù" to "&ugrave;","ú" to "&uacute","ú" to "&uacute;","û" to "&ucirc","û" to "&ucirc;","ü" to "&uuml","ü" to "&uuml;","ý" to "&yacute","ý" to "&yacute;","þ" to "&thorn","þ" to "&thorn;","ÿ" to "&yuml","ÿ" to "&yuml;","\"" to "&quot","\"" to "&quot;","&" to "&amp","&" to "&amp;","<" to "&lt","<" to "&lt;",">" to "&gt",">" to "&gt;","Œ" to "&OElig;","œ" to "&oelig;","Š" to "&Scaron;","š" to "&scaron;","Ÿ" to "&Yuml;","ˆ" to "&circ;","˜" to "&tilde;"," " to "&ensp;"," " to "&emsp;"," " to "&thinsp;","‌" to "&zwnj;","‍" to "&zwj;","‎" to "&lrm;","‏" to "&rlm;","–" to "&ndash;","—" to "&mdash;","‘" to "&lsquo;","’" to "&rsquo;","‚" to "&sbquo;","“" to "&ldquo;","”" to "&rdquo;","„" to "&bdquo;","†" to "&dagger;","‡" to "&Dagger;","‰" to "&permil;","‹" to "&lsaquo;","›" to "&rsaquo;","€" to "&euro;","ƒ" to "&fnof;","Α" to "&Alpha;","Β" to "&Beta;","Γ" to "&Gamma;","Δ" to "&Delta;","Ε" to "&Epsilon;","Ζ" to "&Zeta;","Η" to "&Eta;","Θ" to "&Theta;","Ι" to "&Iota;","Κ" to "&Kappa;","Λ" to "&Lambda;","Μ" to "&Mu;","Ν" to "&Nu;","Ξ" to "&Xi;","Ο" to "&Omicron;","Π" to "&Pi;","Ρ" to "&Rho;","Σ" to "&Sigma;","Τ" to "&Tau;","Υ" to "&Upsilon;","Φ" to "&Phi;","Χ" to "&Chi;","Ψ" to "&Psi;","Ω" to "&Omega;","α" to "&alpha;","β" to "&beta;","γ" to "&gamma;","δ" to "&delta;","ε" to "&epsilon;","ζ" to "&zeta;","η" to "&eta;","θ" to "&theta;","ι" to "&iota;","κ" to "&kappa;","λ" to "&lambda;","μ" to "&mu;","ν" to "&nu;","ξ" to "&xi;","ο" to "&omicron;","π" to "&pi;","ρ" to "&rho;","ς" to "&sigmaf;","σ" to "&sigma;","τ" to "&tau;","υ" to "&upsilon;","φ" to "&phi;","χ" to "&chi;","ψ" to "&psi;","ω" to "&omega;","ϑ" to "&thetasym;","ϒ" to "&upsih;","ϖ" to "&piv;","•" to "&bull;","…" to "&hellip;","′" to "&prime;","″" to "&Prime;","‾" to "&oline;","⁄" to "&frasl;","℘" to "&weierp;","ℑ" to "&image;","ℜ" to "&real;","™" to "&trade;","ℵ" to "&alefsym;","←" to "&larr;","↑" to "&uarr;","→" to "&rarr;","↓" to "&darr;","↔" to "&harr;","↵" to "&crarr;","⇐" to "&lArr;","⇑" to "&uArr;","⇒" to "&rArr;","⇓" to "&dArr;","⇔" to "&hArr;","∀" to "&forall;","∂" to "&part;","∃" to "&exist;","∅" to "&empty;","∇" to "&nabla;","∈" to "&isin;","∉" to "&notin;","∋" to "&ni;","∏" to "&prod;","∑" to "&sum;","−" to "&minus;","∗" to "&lowast;","√" to "&radic;","∝" to "&prop;","∞" to "&infin;","∠" to "&ang;","∧" to "&and;","∨" to "&or;","∩" to "&cap;","∪" to "&cup;","∫" to "&int;","∴" to "&there4;","∼" to "&sim;","≅" to "&cong;","≈" to "&asymp;","≠" to "&ne;","≡" to "&equiv;","≤" to "&le;","≥" to "&ge;","⊂" to "&sub;","⊃" to "&sup;","⊄" to "&nsub;","⊆" to "&sube;","⊇" to "&supe;","⊕" to "&oplus;","⊗" to "&otimes;","⊥" to "&perp;","⋅" to "&sdot;","⌈" to "&lceil;","⌉" to "&rceil;","⌊" to "&lfloor;","⌋" to "&rfloor;","〈" to "&lang;","〉" to "&rang;","◊" to "&loz;","♠" to "&spades;","♣" to "&clubs;","♥" to "&hearts;","♦" to "&diams;"
     )
 
     /**
-     * A Map<String, String> to decode all HTML4 entities into their original characters.
+     * A List<Pair<String, String>> to decode all HTML4 entities into their original characters.
      */
-    val HTML4Decode: Map<String, String> = invert(HTML4Encode)
+    val HTML4Decode: List<Pair<String, String>> = invert(HTML4Encode)
 
     /**
-     * A Map<String, String> to encode HTML5 entities
+     * A List<Pair<String, String>> to encode HTML5 entities
      */
-    val HTML5Encode: Map<String, String> = run {
-        val encodeMap = mutableMapOf<String, String>()
-        encodeMap["Æ"]="&AElig"
-        encodeMap["Æ"]="&AElig;"
-        encodeMap["&"]="&AMP"
-        encodeMap["&"]="&AMP;"
-        encodeMap["Á"]="&Aacute"
-        encodeMap["Á"]="&Aacute;"
-        encodeMap["Ă"]="&Abreve;"
-        encodeMap["Â"]="&Acirc"
-        encodeMap["Â"]="&Acirc;"
-        encodeMap["А"]="&Acy;"
-        encodeMap["𝔄"]="&Afr;"
-        encodeMap["À"]="&Agrave"
-        encodeMap["À"]="&Agrave;"
-        encodeMap["Α"]="&Alpha;"
-        encodeMap["Ā"]="&Amacr;"
-        encodeMap["⩓"]="&And;"
-        encodeMap["Ą"]="&Aogon;"
-        encodeMap["𝔸"]="&Aopf;"
-        encodeMap["⁡"]="&ApplyFunction;"
-        encodeMap["Å"]="&Aring"
-        encodeMap["Å"]="&Aring;"
-        encodeMap["𝒜"]="&Ascr;"
-        encodeMap["≔"]="&Assign;"
-        encodeMap["Ã"]="&Atilde"
-        encodeMap["Ã"]="&Atilde;"
-        encodeMap["Ä"]="&Auml"
-        encodeMap["Ä"]="&Auml;"
-        encodeMap["∖"]="&Backslash;"
-        encodeMap["⫧"]="&Barv;"
-        encodeMap["⌆"]="&Barwed;"
-        encodeMap["Б"]="&Bcy;"
-        encodeMap["∵"]="&Because;"
-        encodeMap["ℬ"]="&Bernoullis;"
-        encodeMap["Β"]="&Beta;"
-        encodeMap["𝔅"]="&Bfr;"
-        encodeMap["𝔹"]="&Bopf;"
-        encodeMap["˘"]="&Breve;"
-        encodeMap["ℬ"]="&Bscr;"
-        encodeMap["≎"]="&Bumpeq;"
-        encodeMap["Ч"]="&CHcy;"
-        encodeMap["©"]="&COPY"
-        encodeMap["©"]="&COPY;"
-        encodeMap["Ć"]="&Cacute;"
-        encodeMap["⋒"]="&Cap;"
-        encodeMap["ⅅ"]="&CapitalDifferentialD;"
-        encodeMap["ℭ"]="&Cayleys;"
-        encodeMap["Č"]="&Ccaron;"
-        encodeMap["Ç"]="&Ccedil"
-        encodeMap["Ç"]="&Ccedil;"
-        encodeMap["Ĉ"]="&Ccirc;"
-        encodeMap["∰"]="&Cconint;"
-        encodeMap["Ċ"]="&Cdot;"
-        encodeMap["¸"]="&Cedilla;"
-        encodeMap["·"]="&CenterDot;"
-        encodeMap["ℭ"]="&Cfr;"
-        encodeMap["Χ"]="&Chi;"
-        encodeMap["⊙"]="&CircleDot;"
-        encodeMap["⊖"]="&CircleMinus;"
-        encodeMap["⊕"]="&CirclePlus;"
-        encodeMap["⊗"]="&CircleTimes;"
-        encodeMap["∲"]="&ClockwiseContourIntegral;"
-        encodeMap["”"]="&CloseCurlyDoubleQuote;"
-        encodeMap["’"]="&CloseCurlyQuote;"
-        encodeMap["∷"]="&Colon;"
-        encodeMap["⩴"]="&Colone;"
-        encodeMap["≡"]="&Congruent;"
-        encodeMap["∯"]="&Conint;"
-        encodeMap["∮"]="&ContourIntegral;"
-        encodeMap["ℂ"]="&Copf;"
-        encodeMap["∐"]="&Coproduct;"
-        encodeMap["∳"]="&CounterClockwiseContourIntegral;"
-        encodeMap["⨯"]="&Cross;"
-        encodeMap["𝒞"]="&Cscr;"
-        encodeMap["⋓"]="&Cup;"
-        encodeMap["≍"]="&CupCap;"
-        encodeMap["ⅅ"]="&DD;"
-        encodeMap["⤑"]="&DDotrahd;"
-        encodeMap["Ђ"]="&DJcy;"
-        encodeMap["Ѕ"]="&DScy;"
-        encodeMap["Џ"]="&DZcy;"
-        encodeMap["‡"]="&Dagger;"
-        encodeMap["↡"]="&Darr;"
-        encodeMap["⫤"]="&Dashv;"
-        encodeMap["Ď"]="&Dcaron;"
-        encodeMap["Д"]="&Dcy;"
-        encodeMap["∇"]="&Del;"
-        encodeMap["Δ"]="&Delta;"
-        encodeMap["𝔇"]="&Dfr;"
-        encodeMap["´"]="&DiacriticalAcute;"
-        encodeMap["˙"]="&DiacriticalDot;"
-        encodeMap["˝"]="&DiacriticalDoubleAcute;"
-        encodeMap["`"]="&DiacriticalGrave;"
-        encodeMap["˜"]="&DiacriticalTilde;"
-        encodeMap["⋄"]="&Diamond;"
-        encodeMap["ⅆ"]="&DifferentialD;"
-        encodeMap["𝔻"]="&Dopf;"
-        encodeMap["¨"]="&Dot;"
-        encodeMap["⃜"]="&DotDot;"
-        encodeMap["≐"]="&DotEqual;"
-        encodeMap["∯"]="&DoubleContourIntegral;"
-        encodeMap["¨"]="&DoubleDot;"
-        encodeMap["⇓"]="&DoubleDownArrow;"
-        encodeMap["⇐"]="&DoubleLeftArrow;"
-        encodeMap["⇔"]="&DoubleLeftRightArrow;"
-        encodeMap["⫤"]="&DoubleLeftTee;"
-        encodeMap["⟸"]="&DoubleLongLeftArrow;"
-        encodeMap["⟺"]="&DoubleLongLeftRightArrow;"
-        encodeMap["⟹"]="&DoubleLongRightArrow;"
-        encodeMap["⇒"]="&DoubleRightArrow;"
-        encodeMap["⊨"]="&DoubleRightTee;"
-        encodeMap["⇑"]="&DoubleUpArrow;"
-        encodeMap["⇕"]="&DoubleUpDownArrow;"
-        encodeMap["∥"]="&DoubleVerticalBar;"
-        encodeMap["↓"]="&DownArrow;"
-        encodeMap["⤓"]="&DownArrowBar;"
-        encodeMap["⇵"]="&DownArrowUpArrow;"
-        encodeMap["̑"]="&DownBreve;"
-        encodeMap["⥐"]="&DownLeftRightVector;"
-        encodeMap["⥞"]="&DownLeftTeeVector;"
-        encodeMap["↽"]="&DownLeftVector;"
-        encodeMap["⥖"]="&DownLeftVectorBar;"
-        encodeMap["⥟"]="&DownRightTeeVector;"
-        encodeMap["⇁"]="&DownRightVector;"
-        encodeMap["⥗"]="&DownRightVectorBar;"
-        encodeMap["⊤"]="&DownTee;"
-        encodeMap["↧"]="&DownTeeArrow;"
-        encodeMap["⇓"]="&Downarrow;"
-        encodeMap["𝒟"]="&Dscr;"
-        encodeMap["Đ"]="&Dstrok;"
-        encodeMap["Ŋ"]="&ENG;"
-        encodeMap["Ð"]="&ETH"
-        encodeMap["Ð"]="&ETH;"
-        encodeMap["É"]="&Eacute"
-        encodeMap["É"]="&Eacute;"
-        encodeMap["Ě"]="&Ecaron;"
-        encodeMap["Ê"]="&Ecirc"
-        encodeMap["Ê"]="&Ecirc;"
-        encodeMap["Э"]="&Ecy;"
-        encodeMap["Ė"]="&Edot;"
-        encodeMap["𝔈"]="&Efr;"
-        encodeMap["È"]="&Egrave"
-        encodeMap["È"]="&Egrave;"
-        encodeMap["∈"]="&Element;"
-        encodeMap["Ē"]="&Emacr;"
-        encodeMap["◻"]="&EmptySmallSquare;"
-        encodeMap["▫"]="&EmptyVerySmallSquare;"
-        encodeMap["Ę"]="&Eogon;"
-        encodeMap["𝔼"]="&Eopf;"
-        encodeMap["Ε"]="&Epsilon;"
-        encodeMap["⩵"]="&Equal;"
-        encodeMap["≂"]="&EqualTilde;"
-        encodeMap["⇌"]="&Equilibrium;"
-        encodeMap["ℰ"]="&Escr;"
-        encodeMap["⩳"]="&Esim;"
-        encodeMap["Η"]="&Eta;"
-        encodeMap["Ë"]="&Euml"
-        encodeMap["Ë"]="&Euml;"
-        encodeMap["∃"]="&Exists;"
-        encodeMap["ⅇ"]="&ExponentialE;"
-        encodeMap["Ф"]="&Fcy;"
-        encodeMap["𝔉"]="&Ffr;"
-        encodeMap["◼"]="&FilledSmallSquare;"
-        encodeMap["▪"]="&FilledVerySmallSquare;"
-        encodeMap["𝔽"]="&Fopf;"
-        encodeMap["∀"]="&ForAll;"
-        encodeMap["ℱ"]="&Fouriertrf;"
-        encodeMap["ℱ"]="&Fscr;"
-        encodeMap["Ѓ"]="&GJcy;"
-        encodeMap[">"]="&GT"
-        encodeMap[">"]="&GT;"
-        encodeMap["Γ"]="&Gamma;"
-        encodeMap["Ϝ"]="&Gammad;"
-        encodeMap["Ğ"]="&Gbreve;"
-        encodeMap["Ģ"]="&Gcedil;"
-        encodeMap["Ĝ"]="&Gcirc;"
-        encodeMap["Г"]="&Gcy;"
-        encodeMap["Ġ"]="&Gdot;"
-        encodeMap["𝔊"]="&Gfr;"
-        encodeMap["⋙"]="&Gg;"
-        encodeMap["𝔾"]="&Gopf;"
-        encodeMap["≥"]="&GreaterEqual;"
-        encodeMap["⋛"]="&GreaterEqualLess;"
-        encodeMap["≧"]="&GreaterFullEqual;"
-        encodeMap["⪢"]="&GreaterGreater;"
-        encodeMap["≷"]="&GreaterLess;"
-        encodeMap["⩾"]="&GreaterSlantEqual;"
-        encodeMap["≳"]="&GreaterTilde;"
-        encodeMap["𝒢"]="&Gscr;"
-        encodeMap["≫"]="&Gt;"
-        encodeMap["Ъ"]="&HARDcy;"
-        encodeMap["ˇ"]="&Hacek;"
-        encodeMap["^"]="&Hat;"
-        encodeMap["Ĥ"]="&Hcirc;"
-        encodeMap["ℌ"]="&Hfr;"
-        encodeMap["ℋ"]="&HilbertSpace;"
-        encodeMap["ℍ"]="&Hopf;"
-        encodeMap["─"]="&HorizontalLine;"
-        encodeMap["ℋ"]="&Hscr;"
-        encodeMap["Ħ"]="&Hstrok;"
-        encodeMap["≎"]="&HumpDownHump;"
-        encodeMap["≏"]="&HumpEqual;"
-        encodeMap["Е"]="&IEcy;"
-        encodeMap["Ĳ"]="&IJlig;"
-        encodeMap["Ё"]="&IOcy;"
-        encodeMap["Í"]="&Iacute"
-        encodeMap["Í"]="&Iacute;"
-        encodeMap["Î"]="&Icirc"
-        encodeMap["Î"]="&Icirc;"
-        encodeMap["И"]="&Icy;"
-        encodeMap["İ"]="&Idot;"
-        encodeMap["ℑ"]="&Ifr;"
-        encodeMap["Ì"]="&Igrave"
-        encodeMap["Ì"]="&Igrave;"
-        encodeMap["ℑ"]="&Im;"
-        encodeMap["Ī"]="&Imacr;"
-        encodeMap["ⅈ"]="&ImaginaryI;"
-        encodeMap["⇒"]="&Implies;"
-        encodeMap["∬"]="&Int;"
-        encodeMap["∫"]="&Integral;"
-        encodeMap["⋂"]="&Intersection;"
-        encodeMap["⁣"]="&InvisibleComma;"
-        encodeMap["⁢"]="&InvisibleTimes;"
-        encodeMap["Į"]="&Iogon;"
-        encodeMap["𝕀"]="&Iopf;"
-        encodeMap["Ι"]="&Iota;"
-        encodeMap["ℐ"]="&Iscr;"
-        encodeMap["Ĩ"]="&Itilde;"
-        encodeMap["І"]="&Iukcy;"
-        encodeMap["Ï"]="&Iuml"
-        encodeMap["Ï"]="&Iuml;"
-        encodeMap["Ĵ"]="&Jcirc;"
-        encodeMap["Й"]="&Jcy;"
-        encodeMap["𝔍"]="&Jfr;"
-        encodeMap["𝕁"]="&Jopf;"
-        encodeMap["𝒥"]="&Jscr;"
-        encodeMap["Ј"]="&Jsercy;"
-        encodeMap["Є"]="&Jukcy;"
-        encodeMap["Х"]="&KHcy;"
-        encodeMap["Ќ"]="&KJcy;"
-        encodeMap["Κ"]="&Kappa;"
-        encodeMap["Ķ"]="&Kcedil;"
-        encodeMap["К"]="&Kcy;"
-        encodeMap["𝔎"]="&Kfr;"
-        encodeMap["𝕂"]="&Kopf;"
-        encodeMap["𝒦"]="&Kscr;"
-        encodeMap["Љ"]="&LJcy;"
-        encodeMap["<"]="&LT"
-        encodeMap["<"]="&LT;"
-        encodeMap["Ĺ"]="&Lacute;"
-        encodeMap["Λ"]="&Lambda;"
-        encodeMap["⟪"]="&Lang;"
-        encodeMap["ℒ"]="&Laplacetrf;"
-        encodeMap["↞"]="&Larr;"
-        encodeMap["Ľ"]="&Lcaron;"
-        encodeMap["Ļ"]="&Lcedil;"
-        encodeMap["Л"]="&Lcy;"
-        encodeMap["⟨"]="&LeftAngleBracket;"
-        encodeMap["←"]="&LeftArrow;"
-        encodeMap["⇤"]="&LeftArrowBar;"
-        encodeMap["⇆"]="&LeftArrowRightArrow;"
-        encodeMap["⌈"]="&LeftCeiling;"
-        encodeMap["⟦"]="&LeftDoubleBracket;"
-        encodeMap["⥡"]="&LeftDownTeeVector;"
-        encodeMap["⇃"]="&LeftDownVector;"
-        encodeMap["⥙"]="&LeftDownVectorBar;"
-        encodeMap["⌊"]="&LeftFloor;"
-        encodeMap["↔"]="&LeftRightArrow;"
-        encodeMap["⥎"]="&LeftRightVector;"
-        encodeMap["⊣"]="&LeftTee;"
-        encodeMap["↤"]="&LeftTeeArrow;"
-        encodeMap["⥚"]="&LeftTeeVector;"
-        encodeMap["⊲"]="&LeftTriangle;"
-        encodeMap["⧏"]="&LeftTriangleBar;"
-        encodeMap["⊴"]="&LeftTriangleEqual;"
-        encodeMap["⥑"]="&LeftUpDownVector;"
-        encodeMap["⥠"]="&LeftUpTeeVector;"
-        encodeMap["↿"]="&LeftUpVector;"
-        encodeMap["⥘"]="&LeftUpVectorBar;"
-        encodeMap["↼"]="&LeftVector;"
-        encodeMap["⥒"]="&LeftVectorBar;"
-        encodeMap["⇐"]="&Leftarrow;"
-        encodeMap["⇔"]="&Leftrightarrow;"
-        encodeMap["⋚"]="&LessEqualGreater;"
-        encodeMap["≦"]="&LessFullEqual;"
-        encodeMap["≶"]="&LessGreater;"
-        encodeMap["⪡"]="&LessLess;"
-        encodeMap["⩽"]="&LessSlantEqual;"
-        encodeMap["≲"]="&LessTilde;"
-        encodeMap["𝔏"]="&Lfr;"
-        encodeMap["⋘"]="&Ll;"
-        encodeMap["⇚"]="&Lleftarrow;"
-        encodeMap["Ŀ"]="&Lmidot;"
-        encodeMap["⟵"]="&LongLeftArrow;"
-        encodeMap["⟷"]="&LongLeftRightArrow;"
-        encodeMap["⟶"]="&LongRightArrow;"
-        encodeMap["⟸"]="&Longleftarrow;"
-        encodeMap["⟺"]="&Longleftrightarrow;"
-        encodeMap["⟹"]="&Longrightarrow;"
-        encodeMap["𝕃"]="&Lopf;"
-        encodeMap["↙"]="&LowerLeftArrow;"
-        encodeMap["↘"]="&LowerRightArrow;"
-        encodeMap["ℒ"]="&Lscr;"
-        encodeMap["↰"]="&Lsh;"
-        encodeMap["Ł"]="&Lstrok;"
-        encodeMap["≪"]="&Lt;"
-        encodeMap["⤅"]="&Map;"
-        encodeMap["М"]="&Mcy;"
-        encodeMap[" "]="&MediumSpace;"
-        encodeMap["ℳ"]="&Mellintrf;"
-        encodeMap["𝔐"]="&Mfr;"
-        encodeMap["∓"]="&MinusPlus;"
-        encodeMap["𝕄"]="&Mopf;"
-        encodeMap["ℳ"]="&Mscr;"
-        encodeMap["Μ"]="&Mu;"
-        encodeMap["Њ"]="&NJcy;"
-        encodeMap["Ń"]="&Nacute;"
-        encodeMap["Ň"]="&Ncaron;"
-        encodeMap["Ņ"]="&Ncedil;"
-        encodeMap["Н"]="&Ncy;"
-        encodeMap["​"]="&NegativeMediumSpace;"
-        encodeMap["​"]="&NegativeThickSpace;"
-        encodeMap["​"]="&NegativeThinSpace;"
-        encodeMap["​"]="&NegativeVeryThinSpace;"
-        encodeMap["≫"]="&NestedGreaterGreater;"
-        encodeMap["≪"]="&NestedLessLess;"
-        encodeMap["\n"]="&NewLine;"
-        encodeMap["𝔑"]="&Nfr;"
-        encodeMap["⁠"]="&NoBreak;"
-        encodeMap[" "]="&NonBreakingSpace;"
-        encodeMap["ℕ"]="&Nopf;"
-        encodeMap["⫬"]="&Not;"
-        encodeMap["≢"]="&NotCongruent;"
-        encodeMap["≭"]="&NotCupCap;"
-        encodeMap["∦"]="&NotDoubleVerticalBar;"
-        encodeMap["∉"]="&NotElement;"
-        encodeMap["≠"]="&NotEqual;"
-        encodeMap["≂̸"]="&NotEqualTilde;"
-        encodeMap["∄"]="&NotExists;"
-        encodeMap["≯"]="&NotGreater;"
-        encodeMap["≱"]="&NotGreaterEqual;"
-        encodeMap["≧̸"]="&NotGreaterFullEqual;"
-        encodeMap["≫̸"]="&NotGreaterGreater;"
-        encodeMap["≹"]="&NotGreaterLess;"
-        encodeMap["⩾̸"]="&NotGreaterSlantEqual;"
-        encodeMap["≵"]="&NotGreaterTilde;"
-        encodeMap["≎̸"]="&NotHumpDownHump;"
-        encodeMap["≏̸"]="&NotHumpEqual;"
-        encodeMap["⋪"]="&NotLeftTriangle;"
-        encodeMap["⧏̸"]="&NotLeftTriangleBar;"
-        encodeMap["⋬"]="&NotLeftTriangleEqual;"
-        encodeMap["≮"]="&NotLess;"
-        encodeMap["≰"]="&NotLessEqual;"
-        encodeMap["≸"]="&NotLessGreater;"
-        encodeMap["≪̸"]="&NotLessLess;"
-        encodeMap["⩽̸"]="&NotLessSlantEqual;"
-        encodeMap["≴"]="&NotLessTilde;"
-        encodeMap["⪢̸"]="&NotNestedGreaterGreater;"
-        encodeMap["⪡̸"]="&NotNestedLessLess;"
-        encodeMap["⊀"]="&NotPrecedes;"
-        encodeMap["⪯̸"]="&NotPrecedesEqual;"
-        encodeMap["⋠"]="&NotPrecedesSlantEqual;"
-        encodeMap["∌"]="&NotReverseElement;"
-        encodeMap["⋫"]="&NotRightTriangle;"
-        encodeMap["⧐̸"]="&NotRightTriangleBar;"
-        encodeMap["⋭"]="&NotRightTriangleEqual;"
-        encodeMap["⊏̸"]="&NotSquareSubset;"
-        encodeMap["⋢"]="&NotSquareSubsetEqual;"
-        encodeMap["⊐̸"]="&NotSquareSuperset;"
-        encodeMap["⋣"]="&NotSquareSupersetEqual;"
-        encodeMap["⊂⃒"]="&NotSubset;"
-        encodeMap["⊈"]="&NotSubsetEqual;"
-        encodeMap["⊁"]="&NotSucceeds;"
-        encodeMap["⪰̸"]="&NotSucceedsEqual;"
-        encodeMap["⋡"]="&NotSucceedsSlantEqual;"
-        encodeMap["≿̸"]="&NotSucceedsTilde;"
-        encodeMap["⊃⃒"]="&NotSuperset;"
-        encodeMap["⊉"]="&NotSupersetEqual;"
-        encodeMap["≁"]="&NotTilde;"
-        encodeMap["≄"]="&NotTildeEqual;"
-        encodeMap["≇"]="&NotTildeFullEqual;"
-        encodeMap["≉"]="&NotTildeTilde;"
-        encodeMap["∤"]="&NotVerticalBar;"
-        encodeMap["𝒩"]="&Nscr;"
-        encodeMap["Ñ"]="&Ntilde"
-        encodeMap["Ñ"]="&Ntilde;"
-        encodeMap["Ν"]="&Nu;"
-        encodeMap["Œ"]="&OElig;"
-        encodeMap["Ó"]="&Oacute"
-        encodeMap["Ó"]="&Oacute;"
-        encodeMap["Ô"]="&Ocirc"
-        encodeMap["Ô"]="&Ocirc;"
-        encodeMap["О"]="&Ocy;"
-        encodeMap["Ő"]="&Odblac;"
-        encodeMap["𝔒"]="&Ofr;"
-        encodeMap["Ò"]="&Ograve"
-        encodeMap["Ò"]="&Ograve;"
-        encodeMap["Ō"]="&Omacr;"
-        encodeMap["Ω"]="&Omega;"
-        encodeMap["Ο"]="&Omicron;"
-        encodeMap["𝕆"]="&Oopf;"
-        encodeMap["“"]="&OpenCurlyDoubleQuote;"
-        encodeMap["‘"]="&OpenCurlyQuote;"
-        encodeMap["⩔"]="&Or;"
-        encodeMap["𝒪"]="&Oscr;"
-        encodeMap["Ø"]="&Oslash"
-        encodeMap["Ø"]="&Oslash;"
-        encodeMap["Õ"]="&Otilde"
-        encodeMap["Õ"]="&Otilde;"
-        encodeMap["⨷"]="&Otimes;"
-        encodeMap["Ö"]="&Ouml"
-        encodeMap["Ö"]="&Ouml;"
-        encodeMap["‾"]="&OverBar;"
-        encodeMap["⏞"]="&OverBrace;"
-        encodeMap["⎴"]="&OverBracket;"
-        encodeMap["⏜"]="&OverParenthesis;"
-        encodeMap["∂"]="&PartialD;"
-        encodeMap["П"]="&Pcy;"
-        encodeMap["𝔓"]="&Pfr;"
-        encodeMap["Φ"]="&Phi;"
-        encodeMap["Π"]="&Pi;"
-        encodeMap["±"]="&PlusMinus;"
-        encodeMap["ℌ"]="&Poincareplane;"
-        encodeMap["ℙ"]="&Popf;"
-        encodeMap["⪻"]="&Pr;"
-        encodeMap["≺"]="&Precedes;"
-        encodeMap["⪯"]="&PrecedesEqual;"
-        encodeMap["≼"]="&PrecedesSlantEqual;"
-        encodeMap["≾"]="&PrecedesTilde;"
-        encodeMap["″"]="&Prime;"
-        encodeMap["∏"]="&Product;"
-        encodeMap["∷"]="&Proportion;"
-        encodeMap["∝"]="&Proportional;"
-        encodeMap["𝒫"]="&Pscr;"
-        encodeMap["Ψ"]="&Psi;"
-        encodeMap["\""]="&QUOT"
-        encodeMap["\""]="&QUOT;"
-        encodeMap["𝔔"]="&Qfr;"
-        encodeMap["ℚ"]="&Qopf;"
-        encodeMap["𝒬"]="&Qscr;"
-        encodeMap["⤐"]="&RBarr;"
-        encodeMap["®"]="&REG"
-        encodeMap["®"]="&REG;"
-        encodeMap["Ŕ"]="&Racute;"
-        encodeMap["⟫"]="&Rang;"
-        encodeMap["↠"]="&Rarr;"
-        encodeMap["⤖"]="&Rarrtl;"
-        encodeMap["Ř"]="&Rcaron;"
-        encodeMap["Ŗ"]="&Rcedil;"
-        encodeMap["Р"]="&Rcy;"
-        encodeMap["ℜ"]="&Re;"
-        encodeMap["∋"]="&ReverseElement;"
-        encodeMap["⇋"]="&ReverseEquilibrium;"
-        encodeMap["⥯"]="&ReverseUpEquilibrium;"
-        encodeMap["ℜ"]="&Rfr;"
-        encodeMap["Ρ"]="&Rho;"
-        encodeMap["⟩"]="&RightAngleBracket;"
-        encodeMap["→"]="&RightArrow;"
-        encodeMap["⇥"]="&RightArrowBar;"
-        encodeMap["⇄"]="&RightArrowLeftArrow;"
-        encodeMap["⌉"]="&RightCeiling;"
-        encodeMap["⟧"]="&RightDoubleBracket;"
-        encodeMap["⥝"]="&RightDownTeeVector;"
-        encodeMap["⇂"]="&RightDownVector;"
-        encodeMap["⥕"]="&RightDownVectorBar;"
-        encodeMap["⌋"]="&RightFloor;"
-        encodeMap["⊢"]="&RightTee;"
-        encodeMap["↦"]="&RightTeeArrow;"
-        encodeMap["⥛"]="&RightTeeVector;"
-        encodeMap["⊳"]="&RightTriangle;"
-        encodeMap["⧐"]="&RightTriangleBar;"
-        encodeMap["⊵"]="&RightTriangleEqual;"
-        encodeMap["⥏"]="&RightUpDownVector;"
-        encodeMap["⥜"]="&RightUpTeeVector;"
-        encodeMap["↾"]="&RightUpVector;"
-        encodeMap["⥔"]="&RightUpVectorBar;"
-        encodeMap["⇀"]="&RightVector;"
-        encodeMap["⥓"]="&RightVectorBar;"
-        encodeMap["⇒"]="&Rightarrow;"
-        encodeMap["ℝ"]="&Ropf;"
-        encodeMap["⥰"]="&RoundImplies;"
-        encodeMap["⇛"]="&Rrightarrow;"
-        encodeMap["ℛ"]="&Rscr;"
-        encodeMap["↱"]="&Rsh;"
-        encodeMap["⧴"]="&RuleDelayed;"
-        encodeMap["Щ"]="&SHCHcy;"
-        encodeMap["Ш"]="&SHcy;"
-        encodeMap["Ь"]="&SOFTcy;"
-        encodeMap["Ś"]="&Sacute;"
-        encodeMap["⪼"]="&Sc;"
-        encodeMap["Š"]="&Scaron;"
-        encodeMap["Ş"]="&Scedil;"
-        encodeMap["Ŝ"]="&Scirc;"
-        encodeMap["С"]="&Scy;"
-        encodeMap["𝔖"]="&Sfr;"
-        encodeMap["↓"]="&ShortDownArrow;"
-        encodeMap["←"]="&ShortLeftArrow;"
-        encodeMap["→"]="&ShortRightArrow;"
-        encodeMap["↑"]="&ShortUpArrow;"
-        encodeMap["Σ"]="&Sigma;"
-        encodeMap["∘"]="&SmallCircle;"
-        encodeMap["𝕊"]="&Sopf;"
-        encodeMap["√"]="&Sqrt;"
-        encodeMap["□"]="&Square;"
-        encodeMap["⊓"]="&SquareIntersection;"
-        encodeMap["⊏"]="&SquareSubset;"
-        encodeMap["⊑"]="&SquareSubsetEqual;"
-        encodeMap["⊐"]="&SquareSuperset;"
-        encodeMap["⊒"]="&SquareSupersetEqual;"
-        encodeMap["⊔"]="&SquareUnion;"
-        encodeMap["𝒮"]="&Sscr;"
-        encodeMap["⋆"]="&Star;"
-        encodeMap["⋐"]="&Sub;"
-        encodeMap["⋐"]="&Subset;"
-        encodeMap["⊆"]="&SubsetEqual;"
-        encodeMap["≻"]="&Succeeds;"
-        encodeMap["⪰"]="&SucceedsEqual;"
-        encodeMap["≽"]="&SucceedsSlantEqual;"
-        encodeMap["≿"]="&SucceedsTilde;"
-        encodeMap["∋"]="&SuchThat;"
-        encodeMap["∑"]="&Sum;"
-        encodeMap["⋑"]="&Sup;"
-        encodeMap["⊃"]="&Superset;"
-        encodeMap["⊇"]="&SupersetEqual;"
-        encodeMap["⋑"]="&Supset;"
-        encodeMap["Þ"]="&THORN"
-        encodeMap["Þ"]="&THORN;"
-        encodeMap["™"]="&TRADE;"
-        encodeMap["Ћ"]="&TSHcy;"
-        encodeMap["Ц"]="&TScy;"
-        encodeMap["	"]="&Tab;"
-        encodeMap["Τ"]="&Tau;"
-        encodeMap["Ť"]="&Tcaron;"
-        encodeMap["Ţ"]="&Tcedil;"
-        encodeMap["Т"]="&Tcy;"
-        encodeMap["𝔗"]="&Tfr;"
-        encodeMap["∴"]="&Therefore;"
-        encodeMap["Θ"]="&Theta;"
-        encodeMap["  "]="&ThickSpace;"
-        encodeMap[" "]="&ThinSpace;"
-        encodeMap["∼"]="&Tilde;"
-        encodeMap["≃"]="&TildeEqual;"
-        encodeMap["≅"]="&TildeFullEqual;"
-        encodeMap["≈"]="&TildeTilde;"
-        encodeMap["𝕋"]="&Topf;"
-        encodeMap["⃛"]="&TripleDot;"
-        encodeMap["𝒯"]="&Tscr;"
-        encodeMap["Ŧ"]="&Tstrok;"
-        encodeMap["Ú"]="&Uacute"
-        encodeMap["Ú"]="&Uacute;"
-        encodeMap["↟"]="&Uarr;"
-        encodeMap["⥉"]="&Uarrocir;"
-        encodeMap["Ў"]="&Ubrcy;"
-        encodeMap["Ŭ"]="&Ubreve;"
-        encodeMap["Û"]="&Ucirc"
-        encodeMap["Û"]="&Ucirc;"
-        encodeMap["У"]="&Ucy;"
-        encodeMap["Ű"]="&Udblac;"
-        encodeMap["𝔘"]="&Ufr;"
-        encodeMap["Ù"]="&Ugrave"
-        encodeMap["Ù"]="&Ugrave;"
-        encodeMap["Ū"]="&Umacr;"
-        encodeMap["_"]="&UnderBar;"
-        encodeMap["⏟"]="&UnderBrace;"
-        encodeMap["⎵"]="&UnderBracket;"
-        encodeMap["⏝"]="&UnderParenthesis;"
-        encodeMap["⋃"]="&Union;"
-        encodeMap["⊎"]="&UnionPlus;"
-        encodeMap["Ų"]="&Uogon;"
-        encodeMap["𝕌"]="&Uopf;"
-        encodeMap["↑"]="&UpArrow;"
-        encodeMap["⤒"]="&UpArrowBar;"
-        encodeMap["⇅"]="&UpArrowDownArrow;"
-        encodeMap["↕"]="&UpDownArrow;"
-        encodeMap["⥮"]="&UpEquilibrium;"
-        encodeMap["⊥"]="&UpTee;"
-        encodeMap["↥"]="&UpTeeArrow;"
-        encodeMap["⇑"]="&Uparrow;"
-        encodeMap["⇕"]="&Updownarrow;"
-        encodeMap["↖"]="&UpperLeftArrow;"
-        encodeMap["↗"]="&UpperRightArrow;"
-        encodeMap["ϒ"]="&Upsi;"
-        encodeMap["Υ"]="&Upsilon;"
-        encodeMap["Ů"]="&Uring;"
-        encodeMap["𝒰"]="&Uscr;"
-        encodeMap["Ũ"]="&Utilde;"
-        encodeMap["Ü"]="&Uuml"
-        encodeMap["Ü"]="&Uuml;"
-        encodeMap["⊫"]="&VDash;"
-        encodeMap["⫫"]="&Vbar;"
-        encodeMap["В"]="&Vcy;"
-        encodeMap["⊩"]="&Vdash;"
-        encodeMap["⫦"]="&Vdashl;"
-        encodeMap["⋁"]="&Vee;"
-        encodeMap["‖"]="&Verbar;"
-        encodeMap["‖"]="&Vert;"
-        encodeMap["∣"]="&VerticalBar;"
-        encodeMap["|"]="&VerticalLine;"
-        encodeMap["❘"]="&VerticalSeparator;"
-        encodeMap["≀"]="&VerticalTilde;"
-        encodeMap[" "]="&VeryThinSpace;"
-        encodeMap["𝔙"]="&Vfr;"
-        encodeMap["𝕍"]="&Vopf;"
-        encodeMap["𝒱"]="&Vscr;"
-        encodeMap["⊪"]="&Vvdash;"
-        encodeMap["Ŵ"]="&Wcirc;"
-        encodeMap["⋀"]="&Wedge;"
-        encodeMap["𝔚"]="&Wfr;"
-        encodeMap["𝕎"]="&Wopf;"
-        encodeMap["𝒲"]="&Wscr;"
-        encodeMap["𝔛"]="&Xfr;"
-        encodeMap["Ξ"]="&Xi;"
-        encodeMap["𝕏"]="&Xopf;"
-        encodeMap["𝒳"]="&Xscr;"
-        encodeMap["Я"]="&YAcy;"
-        encodeMap["Ї"]="&YIcy;"
-        encodeMap["Ю"]="&YUcy;"
-        encodeMap["Ý"]="&Yacute"
-        encodeMap["Ý"]="&Yacute;"
-        encodeMap["Ŷ"]="&Ycirc;"
-        encodeMap["Ы"]="&Ycy;"
-        encodeMap["𝔜"]="&Yfr;"
-        encodeMap["𝕐"]="&Yopf;"
-        encodeMap["𝒴"]="&Yscr;"
-        encodeMap["Ÿ"]="&Yuml;"
-        encodeMap["Ж"]="&ZHcy;"
-        encodeMap["Ź"]="&Zacute;"
-        encodeMap["Ž"]="&Zcaron;"
-        encodeMap["З"]="&Zcy;"
-        encodeMap["Ż"]="&Zdot;"
-        encodeMap["​"]="&ZeroWidthSpace;"
-        encodeMap["Ζ"]="&Zeta;"
-        encodeMap["ℨ"]="&Zfr;"
-        encodeMap["ℤ"]="&Zopf;"
-        encodeMap["𝒵"]="&Zscr;"
-        encodeMap["á"]="&aacute"
-        encodeMap["á"]="&aacute;"
-        encodeMap["ă"]="&abreve;"
-        encodeMap["∾"]="&ac;"
-        encodeMap["∾̳"]="&acE;"
-        encodeMap["∿"]="&acd;"
-        encodeMap["â"]="&acirc"
-        encodeMap["â"]="&acirc;"
-        encodeMap["´"]="&acute"
-        encodeMap["´"]="&acute;"
-        encodeMap["а"]="&acy;"
-        encodeMap["æ"]="&aelig"
-        encodeMap["æ"]="&aelig;"
-        encodeMap["⁡"]="&af;"
-        encodeMap["𝔞"]="&afr;"
-        encodeMap["à"]="&agrave"
-        encodeMap["à"]="&agrave;"
-        encodeMap["ℵ"]="&alefsym;"
-        encodeMap["ℵ"]="&aleph;"
-        encodeMap["α"]="&alpha;"
-        encodeMap["ā"]="&amacr;"
-        encodeMap["⨿"]="&amalg;"
-        encodeMap["&"]="&amp"
-        encodeMap["&"]="&amp;"
-        encodeMap["∧"]="&and;"
-        encodeMap["⩕"]="&andand;"
-        encodeMap["⩜"]="&andd;"
-        encodeMap["⩘"]="&andslope;"
-        encodeMap["⩚"]="&andv;"
-        encodeMap["∠"]="&ang;"
-        encodeMap["⦤"]="&ange;"
-        encodeMap["∠"]="&angle;"
-        encodeMap["∡"]="&angmsd;"
-        encodeMap["⦨"]="&angmsdaa;"
-        encodeMap["⦩"]="&angmsdab;"
-        encodeMap["⦪"]="&angmsdac;"
-        encodeMap["⦫"]="&angmsdad;"
-        encodeMap["⦬"]="&angmsdae;"
-        encodeMap["⦭"]="&angmsdaf;"
-        encodeMap["⦮"]="&angmsdag;"
-        encodeMap["⦯"]="&angmsdah;"
-        encodeMap["∟"]="&angrt;"
-        encodeMap["⊾"]="&angrtvb;"
-        encodeMap["⦝"]="&angrtvbd;"
-        encodeMap["∢"]="&angsph;"
-        encodeMap["Å"]="&angst;"
-        encodeMap["⍼"]="&angzarr;"
-        encodeMap["ą"]="&aogon;"
-        encodeMap["𝕒"]="&aopf;"
-        encodeMap["≈"]="&ap;"
-        encodeMap["⩰"]="&apE;"
-        encodeMap["⩯"]="&apacir;"
-        encodeMap["≊"]="&ape;"
-        encodeMap["≋"]="&apid;"
-        encodeMap["'"]="&apos;"
-        encodeMap["≈"]="&approx;"
-        encodeMap["≊"]="&approxeq;"
-        encodeMap["å"]="&aring"
-        encodeMap["å"]="&aring;"
-        encodeMap["𝒶"]="&ascr;"
-        encodeMap["*"]="&ast;"
-        encodeMap["≈"]="&asymp;"
-        encodeMap["≍"]="&asympeq;"
-        encodeMap["ã"]="&atilde"
-        encodeMap["ã"]="&atilde;"
-        encodeMap["ä"]="&auml"
-        encodeMap["ä"]="&auml;"
-        encodeMap["∳"]="&awconint;"
-        encodeMap["⨑"]="&awint;"
-        encodeMap["⫭"]="&bNot;"
-        encodeMap["≌"]="&backcong;"
-        encodeMap["϶"]="&backepsilon;"
-        encodeMap["‵"]="&backprime;"
-        encodeMap["∽"]="&backsim;"
-        encodeMap["⋍"]="&backsimeq;"
-        encodeMap["⊽"]="&barvee;"
-        encodeMap["⌅"]="&barwed;"
-        encodeMap["⌅"]="&barwedge;"
-        encodeMap["⎵"]="&bbrk;"
-        encodeMap["⎶"]="&bbrktbrk;"
-        encodeMap["≌"]="&bcong;"
-        encodeMap["б"]="&bcy;"
-        encodeMap["„"]="&bdquo;"
-        encodeMap["∵"]="&becaus;"
-        encodeMap["∵"]="&because;"
-        encodeMap["⦰"]="&bemptyv;"
-        encodeMap["϶"]="&bepsi;"
-        encodeMap["ℬ"]="&bernou;"
-        encodeMap["β"]="&beta;"
-        encodeMap["ℶ"]="&beth;"
-        encodeMap["≬"]="&between;"
-        encodeMap["𝔟"]="&bfr;"
-        encodeMap["⋂"]="&bigcap;"
-        encodeMap["◯"]="&bigcirc;"
-        encodeMap["⋃"]="&bigcup;"
-        encodeMap["⨀"]="&bigodot;"
-        encodeMap["⨁"]="&bigoplus;"
-        encodeMap["⨂"]="&bigotimes;"
-        encodeMap["⨆"]="&bigsqcup;"
-        encodeMap["★"]="&bigstar;"
-        encodeMap["▽"]="&bigtriangledown;"
-        encodeMap["△"]="&bigtriangleup;"
-        encodeMap["⨄"]="&biguplus;"
-        encodeMap["⋁"]="&bigvee;"
-        encodeMap["⋀"]="&bigwedge;"
-        encodeMap["⤍"]="&bkarow;"
-        encodeMap["⧫"]="&blacklozenge;"
-        encodeMap["▪"]="&blacksquare;"
-        encodeMap["▴"]="&blacktriangle;"
-        encodeMap["▾"]="&blacktriangledown;"
-        encodeMap["◂"]="&blacktriangleleft;"
-        encodeMap["▸"]="&blacktriangleright;"
-        encodeMap["␣"]="&blank;"
-        encodeMap["▒"]="&blk12;"
-        encodeMap["░"]="&blk14;"
-        encodeMap["▓"]="&blk34;"
-        encodeMap["█"]="&block;"
-        encodeMap["=⃥"]="&bne;"
-        encodeMap["≡⃥"]="&bnequiv;"
-        encodeMap["⌐"]="&bnot;"
-        encodeMap["𝕓"]="&bopf;"
-        encodeMap["⊥"]="&bot;"
-        encodeMap["⊥"]="&bottom;"
-        encodeMap["⋈"]="&bowtie;"
-        encodeMap["╗"]="&boxDL;"
-        encodeMap["╔"]="&boxDR;"
-        encodeMap["╖"]="&boxDl;"
-        encodeMap["╓"]="&boxDr;"
-        encodeMap["═"]="&boxH;"
-        encodeMap["╦"]="&boxHD;"
-        encodeMap["╩"]="&boxHU;"
-        encodeMap["╤"]="&boxHd;"
-        encodeMap["╧"]="&boxHu;"
-        encodeMap["╝"]="&boxUL;"
-        encodeMap["╚"]="&boxUR;"
-        encodeMap["╜"]="&boxUl;"
-        encodeMap["╙"]="&boxUr;"
-        encodeMap["║"]="&boxV;"
-        encodeMap["╬"]="&boxVH;"
-        encodeMap["╣"]="&boxVL;"
-        encodeMap["╠"]="&boxVR;"
-        encodeMap["╫"]="&boxVh;"
-        encodeMap["╢"]="&boxVl;"
-        encodeMap["╟"]="&boxVr;"
-        encodeMap["⧉"]="&boxbox;"
-        encodeMap["╕"]="&boxdL;"
-        encodeMap["╒"]="&boxdR;"
-        encodeMap["┐"]="&boxdl;"
-        encodeMap["┌"]="&boxdr;"
-        encodeMap["─"]="&boxh;"
-        encodeMap["╥"]="&boxhD;"
-        encodeMap["╨"]="&boxhU;"
-        encodeMap["┬"]="&boxhd;"
-        encodeMap["┴"]="&boxhu;"
-        encodeMap["⊟"]="&boxminus;"
-        encodeMap["⊞"]="&boxplus;"
-        encodeMap["⊠"]="&boxtimes;"
-        encodeMap["╛"]="&boxuL;"
-        encodeMap["╘"]="&boxuR;"
-        encodeMap["┘"]="&boxul;"
-        encodeMap["└"]="&boxur;"
-        encodeMap["│"]="&boxv;"
-        encodeMap["╪"]="&boxvH;"
-        encodeMap["╡"]="&boxvL;"
-        encodeMap["╞"]="&boxvR;"
-        encodeMap["┼"]="&boxvh;"
-        encodeMap["┤"]="&boxvl;"
-        encodeMap["├"]="&boxvr;"
-        encodeMap["‵"]="&bprime;"
-        encodeMap["˘"]="&breve;"
-        encodeMap["¦"]="&brvbar"
-        encodeMap["¦"]="&brvbar;"
-        encodeMap["𝒷"]="&bscr;"
-        encodeMap["⁏"]="&bsemi;"
-        encodeMap["∽"]="&bsim;"
-        encodeMap["⋍"]="&bsime;"
-        encodeMap["\\"]="&bsol;"
-        encodeMap["⧅"]="&bsolb;"
-        encodeMap["⟈"]="&bsolhsub;"
-        encodeMap["•"]="&bull;"
-        encodeMap["•"]="&bullet;"
-        encodeMap["≎"]="&bump;"
-        encodeMap["⪮"]="&bumpE;"
-        encodeMap["≏"]="&bumpe;"
-        encodeMap["≏"]="&bumpeq;"
-        encodeMap["ć"]="&cacute;"
-        encodeMap["∩"]="&cap;"
-        encodeMap["⩄"]="&capand;"
-        encodeMap["⩉"]="&capbrcup;"
-        encodeMap["⩋"]="&capcap;"
-        encodeMap["⩇"]="&capcup;"
-        encodeMap["⩀"]="&capdot;"
-        encodeMap["∩︀"]="&caps;"
-        encodeMap["⁁"]="&caret;"
-        encodeMap["ˇ"]="&caron;"
-        encodeMap["⩍"]="&ccaps;"
-        encodeMap["č"]="&ccaron;"
-        encodeMap["ç"]="&ccedil"
-        encodeMap["ç"]="&ccedil;"
-        encodeMap["ĉ"]="&ccirc;"
-        encodeMap["⩌"]="&ccups;"
-        encodeMap["⩐"]="&ccupssm;"
-        encodeMap["ċ"]="&cdot;"
-        encodeMap["¸"]="&cedil"
-        encodeMap["¸"]="&cedil;"
-        encodeMap["⦲"]="&cemptyv;"
-        encodeMap["¢"]="&cent"
-        encodeMap["¢"]="&cent;"
-        encodeMap["·"]="&centerdot;"
-        encodeMap["𝔠"]="&cfr;"
-        encodeMap["ч"]="&chcy;"
-        encodeMap["✓"]="&check;"
-        encodeMap["✓"]="&checkmark;"
-        encodeMap["χ"]="&chi;"
-        encodeMap["○"]="&cir;"
-        encodeMap["⧃"]="&cirE;"
-        encodeMap["ˆ"]="&circ;"
-        encodeMap["≗"]="&circeq;"
-        encodeMap["↺"]="&circlearrowleft;"
-        encodeMap["↻"]="&circlearrowright;"
-        encodeMap["®"]="&circledR;"
-        encodeMap["Ⓢ"]="&circledS;"
-        encodeMap["⊛"]="&circledast;"
-        encodeMap["⊚"]="&circledcirc;"
-        encodeMap["⊝"]="&circleddash;"
-        encodeMap["≗"]="&cire;"
-        encodeMap["⨐"]="&cirfnint;"
-        encodeMap["⫯"]="&cirmid;"
-        encodeMap["⧂"]="&cirscir;"
-        encodeMap["♣"]="&clubs;"
-        encodeMap["♣"]="&clubsuit;"
-        encodeMap[":"]="&colon;"
-        encodeMap["≔"]="&colone;"
-        encodeMap["≔"]="&coloneq;"
-        encodeMap[","]="&comma;"
-        encodeMap["@"]="&commat;"
-        encodeMap["∁"]="&comp;"
-        encodeMap["∘"]="&compfn;"
-        encodeMap["∁"]="&complement;"
-        encodeMap["ℂ"]="&complexes;"
-        encodeMap["≅"]="&cong;"
-        encodeMap["⩭"]="&congdot;"
-        encodeMap["∮"]="&conint;"
-        encodeMap["𝕔"]="&copf;"
-        encodeMap["∐"]="&coprod;"
-        encodeMap["©"]="&copy"
-        encodeMap["©"]="&copy;"
-        encodeMap["℗"]="&copysr;"
-        encodeMap["↵"]="&crarr;"
-        encodeMap["✗"]="&cross;"
-        encodeMap["𝒸"]="&cscr;"
-        encodeMap["⫏"]="&csub;"
-        encodeMap["⫑"]="&csube;"
-        encodeMap["⫐"]="&csup;"
-        encodeMap["⫒"]="&csupe;"
-        encodeMap["⋯"]="&ctdot;"
-        encodeMap["⤸"]="&cudarrl;"
-        encodeMap["⤵"]="&cudarrr;"
-        encodeMap["⋞"]="&cuepr;"
-        encodeMap["⋟"]="&cuesc;"
-        encodeMap["↶"]="&cularr;"
-        encodeMap["⤽"]="&cularrp;"
-        encodeMap["∪"]="&cup;"
-        encodeMap["⩈"]="&cupbrcap;"
-        encodeMap["⩆"]="&cupcap;"
-        encodeMap["⩊"]="&cupcup;"
-        encodeMap["⊍"]="&cupdot;"
-        encodeMap["⩅"]="&cupor;"
-        encodeMap["∪︀"]="&cups;"
-        encodeMap["↷"]="&curarr;"
-        encodeMap["⤼"]="&curarrm;"
-        encodeMap["⋞"]="&curlyeqprec;"
-        encodeMap["⋟"]="&curlyeqsucc;"
-        encodeMap["⋎"]="&curlyvee;"
-        encodeMap["⋏"]="&curlywedge;"
-        encodeMap["¤"]="&curren"
-        encodeMap["¤"]="&curren;"
-        encodeMap["↶"]="&curvearrowleft;"
-        encodeMap["↷"]="&curvearrowright;"
-        encodeMap["⋎"]="&cuvee;"
-        encodeMap["⋏"]="&cuwed;"
-        encodeMap["∲"]="&cwconint;"
-        encodeMap["∱"]="&cwint;"
-        encodeMap["⌭"]="&cylcty;"
-        encodeMap["⇓"]="&dArr;"
-        encodeMap["⥥"]="&dHar;"
-        encodeMap["†"]="&dagger;"
-        encodeMap["ℸ"]="&daleth;"
-        encodeMap["↓"]="&darr;"
-        encodeMap["‐"]="&dash;"
-        encodeMap["⊣"]="&dashv;"
-        encodeMap["⤏"]="&dbkarow;"
-        encodeMap["˝"]="&dblac;"
-        encodeMap["ď"]="&dcaron;"
-        encodeMap["д"]="&dcy;"
-        encodeMap["ⅆ"]="&dd;"
-        encodeMap["‡"]="&ddagger;"
-        encodeMap["⇊"]="&ddarr;"
-        encodeMap["⩷"]="&ddotseq;"
-        encodeMap["°"]="&deg"
-        encodeMap["°"]="&deg;"
-        encodeMap["δ"]="&delta;"
-        encodeMap["⦱"]="&demptyv;"
-        encodeMap["⥿"]="&dfisht;"
-        encodeMap["𝔡"]="&dfr;"
-        encodeMap["⇃"]="&dharl;"
-        encodeMap["⇂"]="&dharr;"
-        encodeMap["⋄"]="&diam;"
-        encodeMap["⋄"]="&diamond;"
-        encodeMap["♦"]="&diamondsuit;"
-        encodeMap["♦"]="&diams;"
-        encodeMap["¨"]="&die;"
-        encodeMap["ϝ"]="&digamma;"
-        encodeMap["⋲"]="&disin;"
-        encodeMap["÷"]="&div;"
-        encodeMap["÷"]="&divide"
-        encodeMap["÷"]="&divide;"
-        encodeMap["⋇"]="&divideontimes;"
-        encodeMap["⋇"]="&divonx;"
-        encodeMap["ђ"]="&djcy;"
-        encodeMap["⌞"]="&dlcorn;"
-        encodeMap["⌍"]="&dlcrop;"
-        encodeMap["$"]="&dollar;"
-        encodeMap["𝕕"]="&dopf;"
-        encodeMap["˙"]="&dot;"
-        encodeMap["≐"]="&doteq;"
-        encodeMap["≑"]="&doteqdot;"
-        encodeMap["∸"]="&dotminus;"
-        encodeMap["∔"]="&dotplus;"
-        encodeMap["⊡"]="&dotsquare;"
-        encodeMap["⌆"]="&doublebarwedge;"
-        encodeMap["↓"]="&downarrow;"
-        encodeMap["⇊"]="&downdownarrows;"
-        encodeMap["⇃"]="&downharpoonleft;"
-        encodeMap["⇂"]="&downharpoonright;"
-        encodeMap["⤐"]="&drbkarow;"
-        encodeMap["⌟"]="&drcorn;"
-        encodeMap["⌌"]="&drcrop;"
-        encodeMap["𝒹"]="&dscr;"
-        encodeMap["ѕ"]="&dscy;"
-        encodeMap["⧶"]="&dsol;"
-        encodeMap["đ"]="&dstrok;"
-        encodeMap["⋱"]="&dtdot;"
-        encodeMap["▿"]="&dtri;"
-        encodeMap["▾"]="&dtrif;"
-        encodeMap["⇵"]="&duarr;"
-        encodeMap["⥯"]="&duhar;"
-        encodeMap["⦦"]="&dwangle;"
-        encodeMap["џ"]="&dzcy;"
-        encodeMap["⟿"]="&dzigrarr;"
-        encodeMap["⩷"]="&eDDot;"
-        encodeMap["≑"]="&eDot;"
-        encodeMap["é"]="&eacute"
-        encodeMap["é"]="&eacute;"
-        encodeMap["⩮"]="&easter;"
-        encodeMap["ě"]="&ecaron;"
-        encodeMap["≖"]="&ecir;"
-        encodeMap["ê"]="&ecirc"
-        encodeMap["ê"]="&ecirc;"
-        encodeMap["≕"]="&ecolon;"
-        encodeMap["э"]="&ecy;"
-        encodeMap["ė"]="&edot;"
-        encodeMap["ⅇ"]="&ee;"
-        encodeMap["≒"]="&efDot;"
-        encodeMap["𝔢"]="&efr;"
-        encodeMap["⪚"]="&eg;"
-        encodeMap["è"]="&egrave"
-        encodeMap["è"]="&egrave;"
-        encodeMap["⪖"]="&egs;"
-        encodeMap["⪘"]="&egsdot;"
-        encodeMap["⪙"]="&el;"
-        encodeMap["⏧"]="&elinters;"
-        encodeMap["ℓ"]="&ell;"
-        encodeMap["⪕"]="&els;"
-        encodeMap["⪗"]="&elsdot;"
-        encodeMap["ē"]="&emacr;"
-        encodeMap["∅"]="&empty;"
-        encodeMap["∅"]="&emptyset;"
-        encodeMap["∅"]="&emptyv;"
-        encodeMap[" "]="&emsp13;"
-        encodeMap[" "]="&emsp14;"
-        encodeMap[" "]="&emsp;"
-        encodeMap["ŋ"]="&eng;"
-        encodeMap[" "]="&ensp;"
-        encodeMap["ę"]="&eogon;"
-        encodeMap["𝕖"]="&eopf;"
-        encodeMap["⋕"]="&epar;"
-        encodeMap["⧣"]="&eparsl;"
-        encodeMap["⩱"]="&eplus;"
-        encodeMap["ε"]="&epsi;"
-        encodeMap["ε"]="&epsilon;"
-        encodeMap["ϵ"]="&epsiv;"
-        encodeMap["≖"]="&eqcirc;"
-        encodeMap["≕"]="&eqcolon;"
-        encodeMap["≂"]="&eqsim;"
-        encodeMap["⪖"]="&eqslantgtr;"
-        encodeMap["⪕"]="&eqslantless;"
-        encodeMap["="]="&equals;"
-        encodeMap["≟"]="&equest;"
-        encodeMap["≡"]="&equiv;"
-        encodeMap["⩸"]="&equivDD;"
-        encodeMap["⧥"]="&eqvparsl;"
-        encodeMap["≓"]="&erDot;"
-        encodeMap["⥱"]="&erarr;"
-        encodeMap["ℯ"]="&escr;"
-        encodeMap["≐"]="&esdot;"
-        encodeMap["≂"]="&esim;"
-        encodeMap["η"]="&eta;"
-        encodeMap["ð"]="&eth"
-        encodeMap["ð"]="&eth;"
-        encodeMap["ë"]="&euml"
-        encodeMap["ë"]="&euml;"
-        encodeMap["€"]="&euro;"
-        encodeMap["!"]="&excl;"
-        encodeMap["∃"]="&exist;"
-        encodeMap["ℰ"]="&expectation;"
-        encodeMap["ⅇ"]="&exponentiale;"
-        encodeMap["≒"]="&fallingdotseq;"
-        encodeMap["ф"]="&fcy;"
-        encodeMap["♀"]="&female;"
-        encodeMap["ﬃ"]="&ffilig;"
-        encodeMap["ﬀ"]="&fflig;"
-        encodeMap["ﬄ"]="&ffllig;"
-        encodeMap["𝔣"]="&ffr;"
-        encodeMap["ﬁ"]="&filig;"
-        encodeMap["fj"]="&fjlig;"
-        encodeMap["♭"]="&flat;"
-        encodeMap["ﬂ"]="&fllig;"
-        encodeMap["▱"]="&fltns;"
-        encodeMap["ƒ"]="&fnof;"
-        encodeMap["𝕗"]="&fopf;"
-        encodeMap["∀"]="&forall;"
-        encodeMap["⋔"]="&fork;"
-        encodeMap["⫙"]="&forkv;"
-        encodeMap["⨍"]="&fpartint;"
-        encodeMap["½"]="&frac12"
-        encodeMap["½"]="&frac12;"
-        encodeMap["⅓"]="&frac13;"
-        encodeMap["¼"]="&frac14"
-        encodeMap["¼"]="&frac14;"
-        encodeMap["⅕"]="&frac15;"
-        encodeMap["⅙"]="&frac16;"
-        encodeMap["⅛"]="&frac18;"
-        encodeMap["⅔"]="&frac23;"
-        encodeMap["⅖"]="&frac25;"
-        encodeMap["¾"]="&frac34"
-        encodeMap["¾"]="&frac34;"
-        encodeMap["⅗"]="&frac35;"
-        encodeMap["⅜"]="&frac38;"
-        encodeMap["⅘"]="&frac45;"
-        encodeMap["⅚"]="&frac56;"
-        encodeMap["⅝"]="&frac58;"
-        encodeMap["⅞"]="&frac78;"
-        encodeMap["⁄"]="&frasl;"
-        encodeMap["⌢"]="&frown;"
-        encodeMap["𝒻"]="&fscr;"
-        encodeMap["≧"]="&gE;"
-        encodeMap["⪌"]="&gEl;"
-        encodeMap["ǵ"]="&gacute;"
-        encodeMap["γ"]="&gamma;"
-        encodeMap["ϝ"]="&gammad;"
-        encodeMap["⪆"]="&gap;"
-        encodeMap["ğ"]="&gbreve;"
-        encodeMap["ĝ"]="&gcirc;"
-        encodeMap["г"]="&gcy;"
-        encodeMap["ġ"]="&gdot;"
-        encodeMap["≥"]="&ge;"
-        encodeMap["⋛"]="&gel;"
-        encodeMap["≥"]="&geq;"
-        encodeMap["≧"]="&geqq;"
-        encodeMap["⩾"]="&geqslant;"
-        encodeMap["⩾"]="&ges;"
-        encodeMap["⪩"]="&gescc;"
-        encodeMap["⪀"]="&gesdot;"
-        encodeMap["⪂"]="&gesdoto;"
-        encodeMap["⪄"]="&gesdotol;"
-        encodeMap["⋛︀"]="&gesl;"
-        encodeMap["⪔"]="&gesles;"
-        encodeMap["𝔤"]="&gfr;"
-        encodeMap["≫"]="&gg;"
-        encodeMap["⋙"]="&ggg;"
-        encodeMap["ℷ"]="&gimel;"
-        encodeMap["ѓ"]="&gjcy;"
-        encodeMap["≷"]="&gl;"
-        encodeMap["⪒"]="&glE;"
-        encodeMap["⪥"]="&gla;"
-        encodeMap["⪤"]="&glj;"
-        encodeMap["≩"]="&gnE;"
-        encodeMap["⪊"]="&gnap;"
-        encodeMap["⪊"]="&gnapprox;"
-        encodeMap["⪈"]="&gne;"
-        encodeMap["⪈"]="&gneq;"
-        encodeMap["≩"]="&gneqq;"
-        encodeMap["⋧"]="&gnsim;"
-        encodeMap["𝕘"]="&gopf;"
-        encodeMap["`"]="&grave;"
-        encodeMap["ℊ"]="&gscr;"
-        encodeMap["≳"]="&gsim;"
-        encodeMap["⪎"]="&gsime;"
-        encodeMap["⪐"]="&gsiml;"
-        encodeMap[">"]="&gt"
-        encodeMap[">"]="&gt;"
-        encodeMap["⪧"]="&gtcc;"
-        encodeMap["⩺"]="&gtcir;"
-        encodeMap["⋗"]="&gtdot;"
-        encodeMap["⦕"]="&gtlPar;"
-        encodeMap["⩼"]="&gtquest;"
-        encodeMap["⪆"]="&gtrapprox;"
-        encodeMap["⥸"]="&gtrarr;"
-        encodeMap["⋗"]="&gtrdot;"
-        encodeMap["⋛"]="&gtreqless;"
-        encodeMap["⪌"]="&gtreqqless;"
-        encodeMap["≷"]="&gtrless;"
-        encodeMap["≳"]="&gtrsim;"
-        encodeMap["≩︀"]="&gvertneqq;"
-        encodeMap["≩︀"]="&gvnE;"
-        encodeMap["⇔"]="&hArr;"
-        encodeMap[" "]="&hairsp;"
-        encodeMap["½"]="&half;"
-        encodeMap["ℋ"]="&hamilt;"
-        encodeMap["ъ"]="&hardcy;"
-        encodeMap["↔"]="&harr;"
-        encodeMap["⥈"]="&harrcir;"
-        encodeMap["↭"]="&harrw;"
-        encodeMap["ℏ"]="&hbar;"
-        encodeMap["ĥ"]="&hcirc;"
-        encodeMap["♥"]="&hearts;"
-        encodeMap["♥"]="&heartsuit;"
-        encodeMap["…"]="&hellip;"
-        encodeMap["⊹"]="&hercon;"
-        encodeMap["𝔥"]="&hfr;"
-        encodeMap["⤥"]="&hksearow;"
-        encodeMap["⤦"]="&hkswarow;"
-        encodeMap["⇿"]="&hoarr;"
-        encodeMap["∻"]="&homtht;"
-        encodeMap["↩"]="&hookleftarrow;"
-        encodeMap["↪"]="&hookrightarrow;"
-        encodeMap["𝕙"]="&hopf;"
-        encodeMap["―"]="&horbar;"
-        encodeMap["𝒽"]="&hscr;"
-        encodeMap["ℏ"]="&hslash;"
-        encodeMap["ħ"]="&hstrok;"
-        encodeMap["⁃"]="&hybull;"
-        encodeMap["‐"]="&hyphen;"
-        encodeMap["í"]="&iacute"
-        encodeMap["í"]="&iacute;"
-        encodeMap["⁣"]="&ic;"
-        encodeMap["î"]="&icirc"
-        encodeMap["î"]="&icirc;"
-        encodeMap["и"]="&icy;"
-        encodeMap["е"]="&iecy;"
-        encodeMap["¡"]="&iexcl"
-        encodeMap["¡"]="&iexcl;"
-        encodeMap["⇔"]="&iff;"
-        encodeMap["𝔦"]="&ifr;"
-        encodeMap["ì"]="&igrave"
-        encodeMap["ì"]="&igrave;"
-        encodeMap["ⅈ"]="&ii;"
-        encodeMap["⨌"]="&iiiint;"
-        encodeMap["∭"]="&iiint;"
-        encodeMap["⧜"]="&iinfin;"
-        encodeMap["℩"]="&iiota;"
-        encodeMap["ĳ"]="&ijlig;"
-        encodeMap["ī"]="&imacr;"
-        encodeMap["ℑ"]="&image;"
-        encodeMap["ℐ"]="&imagline;"
-        encodeMap["ℑ"]="&imagpart;"
-        encodeMap["ı"]="&imath;"
-        encodeMap["⊷"]="&imof;"
-        encodeMap["Ƶ"]="&imped;"
-        encodeMap["∈"]="&in;"
-        encodeMap["℅"]="&incare;"
-        encodeMap["∞"]="&infin;"
-        encodeMap["⧝"]="&infintie;"
-        encodeMap["ı"]="&inodot;"
-        encodeMap["∫"]="&int;"
-        encodeMap["⊺"]="&intcal;"
-        encodeMap["ℤ"]="&integers;"
-        encodeMap["⊺"]="&intercal;"
-        encodeMap["⨗"]="&intlarhk;"
-        encodeMap["⨼"]="&intprod;"
-        encodeMap["ё"]="&iocy;"
-        encodeMap["į"]="&iogon;"
-        encodeMap["𝕚"]="&iopf;"
-        encodeMap["ι"]="&iota;"
-        encodeMap["⨼"]="&iprod;"
-        encodeMap["¿"]="&iquest"
-        encodeMap["¿"]="&iquest;"
-        encodeMap["𝒾"]="&iscr;"
-        encodeMap["∈"]="&isin;"
-        encodeMap["⋹"]="&isinE;"
-        encodeMap["⋵"]="&isindot;"
-        encodeMap["⋴"]="&isins;"
-        encodeMap["⋳"]="&isinsv;"
-        encodeMap["∈"]="&isinv;"
-        encodeMap["⁢"]="&it;"
-        encodeMap["ĩ"]="&itilde;"
-        encodeMap["і"]="&iukcy;"
-        encodeMap["ï"]="&iuml"
-        encodeMap["ï"]="&iuml;"
-        encodeMap["ĵ"]="&jcirc;"
-        encodeMap["й"]="&jcy;"
-        encodeMap["𝔧"]="&jfr;"
-        encodeMap["ȷ"]="&jmath;"
-        encodeMap["𝕛"]="&jopf;"
-        encodeMap["𝒿"]="&jscr;"
-        encodeMap["ј"]="&jsercy;"
-        encodeMap["є"]="&jukcy;"
-        encodeMap["κ"]="&kappa;"
-        encodeMap["ϰ"]="&kappav;"
-        encodeMap["ķ"]="&kcedil;"
-        encodeMap["к"]="&kcy;"
-        encodeMap["𝔨"]="&kfr;"
-        encodeMap["ĸ"]="&kgreen;"
-        encodeMap["х"]="&khcy;"
-        encodeMap["ќ"]="&kjcy;"
-        encodeMap["𝕜"]="&kopf;"
-        encodeMap["𝓀"]="&kscr;"
-        encodeMap["⇚"]="&lAarr;"
-        encodeMap["⇐"]="&lArr;"
-        encodeMap["⤛"]="&lAtail;"
-        encodeMap["⤎"]="&lBarr;"
-        encodeMap["≦"]="&lE;"
-        encodeMap["⪋"]="&lEg;"
-        encodeMap["⥢"]="&lHar;"
-        encodeMap["ĺ"]="&lacute;"
-        encodeMap["⦴"]="&laemptyv;"
-        encodeMap["ℒ"]="&lagran;"
-        encodeMap["λ"]="&lambda;"
-        encodeMap["⟨"]="&lang;"
-        encodeMap["⦑"]="&langd;"
-        encodeMap["⟨"]="&langle;"
-        encodeMap["⪅"]="&lap;"
-        encodeMap["«"]="&laquo"
-        encodeMap["«"]="&laquo;"
-        encodeMap["←"]="&larr;"
-        encodeMap["⇤"]="&larrb;"
-        encodeMap["⤟"]="&larrbfs;"
-        encodeMap["⤝"]="&larrfs;"
-        encodeMap["↩"]="&larrhk;"
-        encodeMap["↫"]="&larrlp;"
-        encodeMap["⤹"]="&larrpl;"
-        encodeMap["⥳"]="&larrsim;"
-        encodeMap["↢"]="&larrtl;"
-        encodeMap["⪫"]="&lat;"
-        encodeMap["⤙"]="&latail;"
-        encodeMap["⪭"]="&late;"
-        encodeMap["⪭︀"]="&lates;"
-        encodeMap["⤌"]="&lbarr;"
-        encodeMap["❲"]="&lbbrk;"
-        encodeMap["{"]="&lbrace;"
-        encodeMap["["]="&lbrack;"
-        encodeMap["⦋"]="&lbrke;"
-        encodeMap["⦏"]="&lbrksld;"
-        encodeMap["⦍"]="&lbrkslu;"
-        encodeMap["ľ"]="&lcaron;"
-        encodeMap["ļ"]="&lcedil;"
-        encodeMap["⌈"]="&lceil;"
-        encodeMap["{"]="&lcub;"
-        encodeMap["л"]="&lcy;"
-        encodeMap["⤶"]="&ldca;"
-        encodeMap["“"]="&ldquo;"
-        encodeMap["„"]="&ldquor;"
-        encodeMap["⥧"]="&ldrdhar;"
-        encodeMap["⥋"]="&ldrushar;"
-        encodeMap["↲"]="&ldsh;"
-        encodeMap["≤"]="&le;"
-        encodeMap["←"]="&leftarrow;"
-        encodeMap["↢"]="&leftarrowtail;"
-        encodeMap["↽"]="&leftharpoondown;"
-        encodeMap["↼"]="&leftharpoonup;"
-        encodeMap["⇇"]="&leftleftarrows;"
-        encodeMap["↔"]="&leftrightarrow;"
-        encodeMap["⇆"]="&leftrightarrows;"
-        encodeMap["⇋"]="&leftrightharpoons;"
-        encodeMap["↭"]="&leftrightsquigarrow;"
-        encodeMap["⋋"]="&leftthreetimes;"
-        encodeMap["⋚"]="&leg;"
-        encodeMap["≤"]="&leq;"
-        encodeMap["≦"]="&leqq;"
-        encodeMap["⩽"]="&leqslant;"
-        encodeMap["⩽"]="&les;"
-        encodeMap["⪨"]="&lescc;"
-        encodeMap["⩿"]="&lesdot;"
-        encodeMap["⪁"]="&lesdoto;"
-        encodeMap["⪃"]="&lesdotor;"
-        encodeMap["⋚︀"]="&lesg;"
-        encodeMap["⪓"]="&lesges;"
-        encodeMap["⪅"]="&lessapprox;"
-        encodeMap["⋖"]="&lessdot;"
-        encodeMap["⋚"]="&lesseqgtr;"
-        encodeMap["⪋"]="&lesseqqgtr;"
-        encodeMap["≶"]="&lessgtr;"
-        encodeMap["≲"]="&lesssim;"
-        encodeMap["⥼"]="&lfisht;"
-        encodeMap["⌊"]="&lfloor;"
-        encodeMap["𝔩"]="&lfr;"
-        encodeMap["≶"]="&lg;"
-        encodeMap["⪑"]="&lgE;"
-        encodeMap["↽"]="&lhard;"
-        encodeMap["↼"]="&lharu;"
-        encodeMap["⥪"]="&lharul;"
-        encodeMap["▄"]="&lhblk;"
-        encodeMap["љ"]="&ljcy;"
-        encodeMap["≪"]="&ll;"
-        encodeMap["⇇"]="&llarr;"
-        encodeMap["⌞"]="&llcorner;"
-        encodeMap["⥫"]="&llhard;"
-        encodeMap["◺"]="&lltri;"
-        encodeMap["ŀ"]="&lmidot;"
-        encodeMap["⎰"]="&lmoust;"
-        encodeMap["⎰"]="&lmoustache;"
-        encodeMap["≨"]="&lnE;"
-        encodeMap["⪉"]="&lnap;"
-        encodeMap["⪉"]="&lnapprox;"
-        encodeMap["⪇"]="&lne;"
-        encodeMap["⪇"]="&lneq;"
-        encodeMap["≨"]="&lneqq;"
-        encodeMap["⋦"]="&lnsim;"
-        encodeMap["⟬"]="&loang;"
-        encodeMap["⇽"]="&loarr;"
-        encodeMap["⟦"]="&lobrk;"
-        encodeMap["⟵"]="&longleftarrow;"
-        encodeMap["⟷"]="&longleftrightarrow;"
-        encodeMap["⟼"]="&longmapsto;"
-        encodeMap["⟶"]="&longrightarrow;"
-        encodeMap["↫"]="&looparrowleft;"
-        encodeMap["↬"]="&looparrowright;"
-        encodeMap["⦅"]="&lopar;"
-        encodeMap["𝕝"]="&lopf;"
-        encodeMap["⨭"]="&loplus;"
-        encodeMap["⨴"]="&lotimes;"
-        encodeMap["∗"]="&lowast;"
-        encodeMap["_"]="&lowbar;"
-        encodeMap["◊"]="&loz;"
-        encodeMap["◊"]="&lozenge;"
-        encodeMap["⧫"]="&lozf;"
-        encodeMap["("]="&lpar;"
-        encodeMap["⦓"]="&lparlt;"
-        encodeMap["⇆"]="&lrarr;"
-        encodeMap["⌟"]="&lrcorner;"
-        encodeMap["⇋"]="&lrhar;"
-        encodeMap["⥭"]="&lrhard;"
-        encodeMap["‎"]="&lrm;"
-        encodeMap["⊿"]="&lrtri;"
-        encodeMap["‹"]="&lsaquo;"
-        encodeMap["𝓁"]="&lscr;"
-        encodeMap["↰"]="&lsh;"
-        encodeMap["≲"]="&lsim;"
-        encodeMap["⪍"]="&lsime;"
-        encodeMap["⪏"]="&lsimg;"
-        encodeMap["["]="&lsqb;"
-        encodeMap["‘"]="&lsquo;"
-        encodeMap["‚"]="&lsquor;"
-        encodeMap["ł"]="&lstrok;"
-        encodeMap["<"]="&lt"
-        encodeMap["<"]="&lt;"
-        encodeMap["⪦"]="&ltcc;"
-        encodeMap["⩹"]="&ltcir;"
-        encodeMap["⋖"]="&ltdot;"
-        encodeMap["⋋"]="&lthree;"
-        encodeMap["⋉"]="&ltimes;"
-        encodeMap["⥶"]="&ltlarr;"
-        encodeMap["⩻"]="&ltquest;"
-        encodeMap["⦖"]="&ltrPar;"
-        encodeMap["◃"]="&ltri;"
-        encodeMap["⊴"]="&ltrie;"
-        encodeMap["◂"]="&ltrif;"
-        encodeMap["⥊"]="&lurdshar;"
-        encodeMap["⥦"]="&luruhar;"
-        encodeMap["≨︀"]="&lvertneqq;"
-        encodeMap["≨︀"]="&lvnE;"
-        encodeMap["∺"]="&mDDot;"
-        encodeMap["¯"]="&macr"
-        encodeMap["¯"]="&macr;"
-        encodeMap["♂"]="&male;"
-        encodeMap["✠"]="&malt;"
-        encodeMap["✠"]="&maltese;"
-        encodeMap["↦"]="&map;"
-        encodeMap["↦"]="&mapsto;"
-        encodeMap["↧"]="&mapstodown;"
-        encodeMap["↤"]="&mapstoleft;"
-        encodeMap["↥"]="&mapstoup;"
-        encodeMap["▮"]="&marker;"
-        encodeMap["⨩"]="&mcomma;"
-        encodeMap["м"]="&mcy;"
-        encodeMap["—"]="&mdash;"
-        encodeMap["∡"]="&measuredangle;"
-        encodeMap["𝔪"]="&mfr;"
-        encodeMap["℧"]="&mho;"
-        encodeMap["µ"]="&micro"
-        encodeMap["µ"]="&micro;"
-        encodeMap["∣"]="&mid;"
-        encodeMap["*"]="&midast;"
-        encodeMap["⫰"]="&midcir;"
-        encodeMap["·"]="&middot"
-        encodeMap["·"]="&middot;"
-        encodeMap["−"]="&minus;"
-        encodeMap["⊟"]="&minusb;"
-        encodeMap["∸"]="&minusd;"
-        encodeMap["⨪"]="&minusdu;"
-        encodeMap["⫛"]="&mlcp;"
-        encodeMap["…"]="&mldr;"
-        encodeMap["∓"]="&mnplus;"
-        encodeMap["⊧"]="&models;"
-        encodeMap["𝕞"]="&mopf;"
-        encodeMap["∓"]="&mp;"
-        encodeMap["𝓂"]="&mscr;"
-        encodeMap["∾"]="&mstpos;"
-        encodeMap["μ"]="&mu;"
-        encodeMap["⊸"]="&multimap;"
-        encodeMap["⊸"]="&mumap;"
-        encodeMap["⋙̸"]="&nGg;"
-        encodeMap["≫⃒"]="&nGt;"
-        encodeMap["≫̸"]="&nGtv;"
-        encodeMap["⇍"]="&nLeftarrow;"
-        encodeMap["⇎"]="&nLeftrightarrow;"
-        encodeMap["⋘̸"]="&nLl;"
-        encodeMap["≪⃒"]="&nLt;"
-        encodeMap["≪̸"]="&nLtv;"
-        encodeMap["⇏"]="&nRightarrow;"
-        encodeMap["⊯"]="&nVDash;"
-        encodeMap["⊮"]="&nVdash;"
-        encodeMap["∇"]="&nabla;"
-        encodeMap["ń"]="&nacute;"
-        encodeMap["∠⃒"]="&nang;"
-        encodeMap["≉"]="&nap;"
-        encodeMap["⩰̸"]="&napE;"
-        encodeMap["≋̸"]="&napid;"
-        encodeMap["ŉ"]="&napos;"
-        encodeMap["≉"]="&napprox;"
-        encodeMap["♮"]="&natur;"
-        encodeMap["♮"]="&natural;"
-        encodeMap["ℕ"]="&naturals;"
-        encodeMap[" "]="&nbsp"
-        encodeMap[" "]="&nbsp;"
-        encodeMap["≎̸"]="&nbump;"
-        encodeMap["≏̸"]="&nbumpe;"
-        encodeMap["⩃"]="&ncap;"
-        encodeMap["ň"]="&ncaron;"
-        encodeMap["ņ"]="&ncedil;"
-        encodeMap["≇"]="&ncong;"
-        encodeMap["⩭̸"]="&ncongdot;"
-        encodeMap["⩂"]="&ncup;"
-        encodeMap["н"]="&ncy;"
-        encodeMap["–"]="&ndash;"
-        encodeMap["≠"]="&ne;"
-        encodeMap["⇗"]="&neArr;"
-        encodeMap["⤤"]="&nearhk;"
-        encodeMap["↗"]="&nearr;"
-        encodeMap["↗"]="&nearrow;"
-        encodeMap["≐̸"]="&nedot;"
-        encodeMap["≢"]="&nequiv;"
-        encodeMap["⤨"]="&nesear;"
-        encodeMap["≂̸"]="&nesim;"
-        encodeMap["∄"]="&nexist;"
-        encodeMap["∄"]="&nexists;"
-        encodeMap["𝔫"]="&nfr;"
-        encodeMap["≧̸"]="&ngE;"
-        encodeMap["≱"]="&nge;"
-        encodeMap["≱"]="&ngeq;"
-        encodeMap["≧̸"]="&ngeqq;"
-        encodeMap["⩾̸"]="&ngeqslant;"
-        encodeMap["⩾̸"]="&nges;"
-        encodeMap["≵"]="&ngsim;"
-        encodeMap["≯"]="&ngt;"
-        encodeMap["≯"]="&ngtr;"
-        encodeMap["⇎"]="&nhArr;"
-        encodeMap["↮"]="&nharr;"
-        encodeMap["⫲"]="&nhpar;"
-        encodeMap["∋"]="&ni;"
-        encodeMap["⋼"]="&nis;"
-        encodeMap["⋺"]="&nisd;"
-        encodeMap["∋"]="&niv;"
-        encodeMap["њ"]="&njcy;"
-        encodeMap["⇍"]="&nlArr;"
-        encodeMap["≦̸"]="&nlE;"
-        encodeMap["↚"]="&nlarr;"
-        encodeMap["‥"]="&nldr;"
-        encodeMap["≰"]="&nle;"
-        encodeMap["↚"]="&nleftarrow;"
-        encodeMap["↮"]="&nleftrightarrow;"
-        encodeMap["≰"]="&nleq;"
-        encodeMap["≦̸"]="&nleqq;"
-        encodeMap["⩽̸"]="&nleqslant;"
-        encodeMap["⩽̸"]="&nles;"
-        encodeMap["≮"]="&nless;"
-        encodeMap["≴"]="&nlsim;"
-        encodeMap["≮"]="&nlt;"
-        encodeMap["⋪"]="&nltri;"
-        encodeMap["⋬"]="&nltrie;"
-        encodeMap["∤"]="&nmid;"
-        encodeMap["𝕟"]="&nopf;"
-        encodeMap["¬"]="&not"
-        encodeMap["¬"]="&not;"
-        encodeMap["∉"]="&notin;"
-        encodeMap["⋹̸"]="&notinE;"
-        encodeMap["⋵̸"]="&notindot;"
-        encodeMap["∉"]="&notinva;"
-        encodeMap["⋷"]="&notinvb;"
-        encodeMap["⋶"]="&notinvc;"
-        encodeMap["∌"]="&notni;"
-        encodeMap["∌"]="&notniva;"
-        encodeMap["⋾"]="&notnivb;"
-        encodeMap["⋽"]="&notnivc;"
-        encodeMap["∦"]="&npar;"
-        encodeMap["∦"]="&nparallel;"
-        encodeMap["⫽⃥"]="&nparsl;"
-        encodeMap["∂̸"]="&npart;"
-        encodeMap["⨔"]="&npolint;"
-        encodeMap["⊀"]="&npr;"
-        encodeMap["⋠"]="&nprcue;"
-        encodeMap["⪯̸"]="&npre;"
-        encodeMap["⊀"]="&nprec;"
-        encodeMap["⪯̸"]="&npreceq;"
-        encodeMap["⇏"]="&nrArr;"
-        encodeMap["↛"]="&nrarr;"
-        encodeMap["⤳̸"]="&nrarrc;"
-        encodeMap["↝̸"]="&nrarrw;"
-        encodeMap["↛"]="&nrightarrow;"
-        encodeMap["⋫"]="&nrtri;"
-        encodeMap["⋭"]="&nrtrie;"
-        encodeMap["⊁"]="&nsc;"
-        encodeMap["⋡"]="&nsccue;"
-        encodeMap["⪰̸"]="&nsce;"
-        encodeMap["𝓃"]="&nscr;"
-        encodeMap["∤"]="&nshortmid;"
-        encodeMap["∦"]="&nshortparallel;"
-        encodeMap["≁"]="&nsim;"
-        encodeMap["≄"]="&nsime;"
-        encodeMap["≄"]="&nsimeq;"
-        encodeMap["∤"]="&nsmid;"
-        encodeMap["∦"]="&nspar;"
-        encodeMap["⋢"]="&nsqsube;"
-        encodeMap["⋣"]="&nsqsupe;"
-        encodeMap["⊄"]="&nsub;"
-        encodeMap["⫅̸"]="&nsubE;"
-        encodeMap["⊈"]="&nsube;"
-        encodeMap["⊂⃒"]="&nsubset;"
-        encodeMap["⊈"]="&nsubseteq;"
-        encodeMap["⫅̸"]="&nsubseteqq;"
-        encodeMap["⊁"]="&nsucc;"
-        encodeMap["⪰̸"]="&nsucceq;"
-        encodeMap["⊅"]="&nsup;"
-        encodeMap["⫆̸"]="&nsupE;"
-        encodeMap["⊉"]="&nsupe;"
-        encodeMap["⊃⃒"]="&nsupset;"
-        encodeMap["⊉"]="&nsupseteq;"
-        encodeMap["⫆̸"]="&nsupseteqq;"
-        encodeMap["≹"]="&ntgl;"
-        encodeMap["ñ"]="&ntilde"
-        encodeMap["ñ"]="&ntilde;"
-        encodeMap["≸"]="&ntlg;"
-        encodeMap["⋪"]="&ntriangleleft;"
-        encodeMap["⋬"]="&ntrianglelefteq;"
-        encodeMap["⋫"]="&ntriangleright;"
-        encodeMap["⋭"]="&ntrianglerighteq;"
-        encodeMap["ν"]="&nu;"
-        encodeMap["#"]="&num;"
-        encodeMap["№"]="&numero;"
-        encodeMap[" "]="&numsp;"
-        encodeMap["⊭"]="&nvDash;"
-        encodeMap["⤄"]="&nvHarr;"
-        encodeMap["≍⃒"]="&nvap;"
-        encodeMap["⊬"]="&nvdash;"
-        encodeMap["≥⃒"]="&nvge;"
-        encodeMap[">⃒"]="&nvgt;"
-        encodeMap["⧞"]="&nvinfin;"
-        encodeMap["⤂"]="&nvlArr;"
-        encodeMap["≤⃒"]="&nvle;"
-        encodeMap["<⃒"]="&nvlt;"
-        encodeMap["⊴⃒"]="&nvltrie;"
-        encodeMap["⤃"]="&nvrArr;"
-        encodeMap["⊵⃒"]="&nvrtrie;"
-        encodeMap["∼⃒"]="&nvsim;"
-        encodeMap["⇖"]="&nwArr;"
-        encodeMap["⤣"]="&nwarhk;"
-        encodeMap["↖"]="&nwarr;"
-        encodeMap["↖"]="&nwarrow;"
-        encodeMap["⤧"]="&nwnear;"
-        encodeMap["Ⓢ"]="&oS;"
-        encodeMap["ó"]="&oacute"
-        encodeMap["ó"]="&oacute;"
-        encodeMap["⊛"]="&oast;"
-        encodeMap["⊚"]="&ocir;"
-        encodeMap["ô"]="&ocirc"
-        encodeMap["ô"]="&ocirc;"
-        encodeMap["о"]="&ocy;"
-        encodeMap["⊝"]="&odash;"
-        encodeMap["ő"]="&odblac;"
-        encodeMap["⨸"]="&odiv;"
-        encodeMap["⊙"]="&odot;"
-        encodeMap["⦼"]="&odsold;"
-        encodeMap["œ"]="&oelig;"
-        encodeMap["⦿"]="&ofcir;"
-        encodeMap["𝔬"]="&ofr;"
-        encodeMap["˛"]="&ogon;"
-        encodeMap["ò"]="&ograve"
-        encodeMap["ò"]="&ograve;"
-        encodeMap["⧁"]="&ogt;"
-        encodeMap["⦵"]="&ohbar;"
-        encodeMap["Ω"]="&ohm;"
-        encodeMap["∮"]="&oint;"
-        encodeMap["↺"]="&olarr;"
-        encodeMap["⦾"]="&olcir;"
-        encodeMap["⦻"]="&olcross;"
-        encodeMap["‾"]="&oline;"
-        encodeMap["⧀"]="&olt;"
-        encodeMap["ō"]="&omacr;"
-        encodeMap["ω"]="&omega;"
-        encodeMap["ο"]="&omicron;"
-        encodeMap["⦶"]="&omid;"
-        encodeMap["⊖"]="&ominus;"
-        encodeMap["𝕠"]="&oopf;"
-        encodeMap["⦷"]="&opar;"
-        encodeMap["⦹"]="&operp;"
-        encodeMap["⊕"]="&oplus;"
-        encodeMap["∨"]="&or;"
-        encodeMap["↻"]="&orarr;"
-        encodeMap["⩝"]="&ord;"
-        encodeMap["ℴ"]="&order;"
-        encodeMap["ℴ"]="&orderof;"
-        encodeMap["ª"]="&ordf"
-        encodeMap["ª"]="&ordf;"
-        encodeMap["º"]="&ordm"
-        encodeMap["º"]="&ordm;"
-        encodeMap["⊶"]="&origof;"
-        encodeMap["⩖"]="&oror;"
-        encodeMap["⩗"]="&orslope;"
-        encodeMap["⩛"]="&orv;"
-        encodeMap["ℴ"]="&oscr;"
-        encodeMap["ø"]="&oslash"
-        encodeMap["ø"]="&oslash;"
-        encodeMap["⊘"]="&osol;"
-        encodeMap["õ"]="&otilde"
-        encodeMap["õ"]="&otilde;"
-        encodeMap["⊗"]="&otimes;"
-        encodeMap["⨶"]="&otimesas;"
-        encodeMap["ö"]="&ouml"
-        encodeMap["ö"]="&ouml;"
-        encodeMap["⌽"]="&ovbar;"
-        encodeMap["∥"]="&par;"
-        encodeMap["¶"]="&para"
-        encodeMap["¶"]="&para;"
-        encodeMap["∥"]="&parallel;"
-        encodeMap["⫳"]="&parsim;"
-        encodeMap["⫽"]="&parsl;"
-        encodeMap["∂"]="&part;"
-        encodeMap["п"]="&pcy;"
-        encodeMap["%"]="&percnt;"
-        encodeMap["."]="&period;"
-        encodeMap["‰"]="&permil;"
-        encodeMap["⊥"]="&perp;"
-        encodeMap["‱"]="&pertenk;"
-        encodeMap["𝔭"]="&pfr;"
-        encodeMap["φ"]="&phi;"
-        encodeMap["ϕ"]="&phiv;"
-        encodeMap["ℳ"]="&phmmat;"
-        encodeMap["☎"]="&phone;"
-        encodeMap["π"]="&pi;"
-        encodeMap["⋔"]="&pitchfork;"
-        encodeMap["ϖ"]="&piv;"
-        encodeMap["ℏ"]="&planck;"
-        encodeMap["ℎ"]="&planckh;"
-        encodeMap["ℏ"]="&plankv;"
-        encodeMap["+"]="&plus;"
-        encodeMap["⨣"]="&plusacir;"
-        encodeMap["⊞"]="&plusb;"
-        encodeMap["⨢"]="&pluscir;"
-        encodeMap["∔"]="&plusdo;"
-        encodeMap["⨥"]="&plusdu;"
-        encodeMap["⩲"]="&pluse;"
-        encodeMap["±"]="&plusmn"
-        encodeMap["±"]="&plusmn;"
-        encodeMap["⨦"]="&plussim;"
-        encodeMap["⨧"]="&plustwo;"
-        encodeMap["±"]="&pm;"
-        encodeMap["⨕"]="&pointint;"
-        encodeMap["𝕡"]="&popf;"
-        encodeMap["£"]="&pound"
-        encodeMap["£"]="&pound;"
-        encodeMap["≺"]="&pr;"
-        encodeMap["⪳"]="&prE;"
-        encodeMap["⪷"]="&prap;"
-        encodeMap["≼"]="&prcue;"
-        encodeMap["⪯"]="&pre;"
-        encodeMap["≺"]="&prec;"
-        encodeMap["⪷"]="&precapprox;"
-        encodeMap["≼"]="&preccurlyeq;"
-        encodeMap["⪯"]="&preceq;"
-        encodeMap["⪹"]="&precnapprox;"
-        encodeMap["⪵"]="&precneqq;"
-        encodeMap["⋨"]="&precnsim;"
-        encodeMap["≾"]="&precsim;"
-        encodeMap["′"]="&prime;"
-        encodeMap["ℙ"]="&primes;"
-        encodeMap["⪵"]="&prnE;"
-        encodeMap["⪹"]="&prnap;"
-        encodeMap["⋨"]="&prnsim;"
-        encodeMap["∏"]="&prod;"
-        encodeMap["⌮"]="&profalar;"
-        encodeMap["⌒"]="&profline;"
-        encodeMap["⌓"]="&profsurf;"
-        encodeMap["∝"]="&prop;"
-        encodeMap["∝"]="&propto;"
-        encodeMap["≾"]="&prsim;"
-        encodeMap["⊰"]="&prurel;"
-        encodeMap["𝓅"]="&pscr;"
-        encodeMap["ψ"]="&psi;"
-        encodeMap[" "]="&puncsp;"
-        encodeMap["𝔮"]="&qfr;"
-        encodeMap["⨌"]="&qint;"
-        encodeMap["𝕢"]="&qopf;"
-        encodeMap["⁗"]="&qprime;"
-        encodeMap["𝓆"]="&qscr;"
-        encodeMap["ℍ"]="&quaternions;"
-        encodeMap["⨖"]="&quatint;"
-        encodeMap["?"]="&quest;"
-        encodeMap["≟"]="&questeq;"
-        encodeMap["\""]="&quot"
-        encodeMap["\""]="&quot;"
-        encodeMap["⇛"]="&rAarr;"
-        encodeMap["⇒"]="&rArr;"
-        encodeMap["⤜"]="&rAtail;"
-        encodeMap["⤏"]="&rBarr;"
-        encodeMap["⥤"]="&rHar;"
-        encodeMap["∽̱"]="&race;"
-        encodeMap["ŕ"]="&racute;"
-        encodeMap["√"]="&radic;"
-        encodeMap["⦳"]="&raemptyv;"
-        encodeMap["⟩"]="&rang;"
-        encodeMap["⦒"]="&rangd;"
-        encodeMap["⦥"]="&range;"
-        encodeMap["⟩"]="&rangle;"
-        encodeMap["»"]="&raquo"
-        encodeMap["»"]="&raquo;"
-        encodeMap["→"]="&rarr;"
-        encodeMap["⥵"]="&rarrap;"
-        encodeMap["⇥"]="&rarrb;"
-        encodeMap["⤠"]="&rarrbfs;"
-        encodeMap["⤳"]="&rarrc;"
-        encodeMap["⤞"]="&rarrfs;"
-        encodeMap["↪"]="&rarrhk;"
-        encodeMap["↬"]="&rarrlp;"
-        encodeMap["⥅"]="&rarrpl;"
-        encodeMap["⥴"]="&rarrsim;"
-        encodeMap["↣"]="&rarrtl;"
-        encodeMap["↝"]="&rarrw;"
-        encodeMap["⤚"]="&ratail;"
-        encodeMap["∶"]="&ratio;"
-        encodeMap["ℚ"]="&rationals;"
-        encodeMap["⤍"]="&rbarr;"
-        encodeMap["❳"]="&rbbrk;"
-        encodeMap["}"]="&rbrace;"
-        encodeMap["]"]="&rbrack;"
-        encodeMap["⦌"]="&rbrke;"
-        encodeMap["⦎"]="&rbrksld;"
-        encodeMap["⦐"]="&rbrkslu;"
-        encodeMap["ř"]="&rcaron;"
-        encodeMap["ŗ"]="&rcedil;"
-        encodeMap["⌉"]="&rceil;"
-        encodeMap["}"]="&rcub;"
-        encodeMap["р"]="&rcy;"
-        encodeMap["⤷"]="&rdca;"
-        encodeMap["⥩"]="&rdldhar;"
-        encodeMap["”"]="&rdquo;"
-        encodeMap["”"]="&rdquor;"
-        encodeMap["↳"]="&rdsh;"
-        encodeMap["ℜ"]="&real;"
-        encodeMap["ℛ"]="&realine;"
-        encodeMap["ℜ"]="&realpart;"
-        encodeMap["ℝ"]="&reals;"
-        encodeMap["▭"]="&rect;"
-        encodeMap["®"]="&reg"
-        encodeMap["®"]="&reg;"
-        encodeMap["⥽"]="&rfisht;"
-        encodeMap["⌋"]="&rfloor;"
-        encodeMap["𝔯"]="&rfr;"
-        encodeMap["⇁"]="&rhard;"
-        encodeMap["⇀"]="&rharu;"
-        encodeMap["⥬"]="&rharul;"
-        encodeMap["ρ"]="&rho;"
-        encodeMap["ϱ"]="&rhov;"
-        encodeMap["→"]="&rightarrow;"
-        encodeMap["↣"]="&rightarrowtail;"
-        encodeMap["⇁"]="&rightharpoondown;"
-        encodeMap["⇀"]="&rightharpoonup;"
-        encodeMap["⇄"]="&rightleftarrows;"
-        encodeMap["⇌"]="&rightleftharpoons;"
-        encodeMap["⇉"]="&rightrightarrows;"
-        encodeMap["↝"]="&rightsquigarrow;"
-        encodeMap["⋌"]="&rightthreetimes;"
-        encodeMap["˚"]="&ring;"
-        encodeMap["≓"]="&risingdotseq;"
-        encodeMap["⇄"]="&rlarr;"
-        encodeMap["⇌"]="&rlhar;"
-        encodeMap["‏"]="&rlm;"
-        encodeMap["⎱"]="&rmoust;"
-        encodeMap["⎱"]="&rmoustache;"
-        encodeMap["⫮"]="&rnmid;"
-        encodeMap["⟭"]="&roang;"
-        encodeMap["⇾"]="&roarr;"
-        encodeMap["⟧"]="&robrk;"
-        encodeMap["⦆"]="&ropar;"
-        encodeMap["𝕣"]="&ropf;"
-        encodeMap["⨮"]="&roplus;"
-        encodeMap["⨵"]="&rotimes;"
-        encodeMap[")"]="&rpar;"
-        encodeMap["⦔"]="&rpargt;"
-        encodeMap["⨒"]="&rppolint;"
-        encodeMap["⇉"]="&rrarr;"
-        encodeMap["›"]="&rsaquo;"
-        encodeMap["𝓇"]="&rscr;"
-        encodeMap["↱"]="&rsh;"
-        encodeMap["]"]="&rsqb;"
-        encodeMap["’"]="&rsquo;"
-        encodeMap["’"]="&rsquor;"
-        encodeMap["⋌"]="&rthree;"
-        encodeMap["⋊"]="&rtimes;"
-        encodeMap["▹"]="&rtri;"
-        encodeMap["⊵"]="&rtrie;"
-        encodeMap["▸"]="&rtrif;"
-        encodeMap["⧎"]="&rtriltri;"
-        encodeMap["⥨"]="&ruluhar;"
-        encodeMap["℞"]="&rx;"
-        encodeMap["ś"]="&sacute;"
-        encodeMap["‚"]="&sbquo;"
-        encodeMap["≻"]="&sc;"
-        encodeMap["⪴"]="&scE;"
-        encodeMap["⪸"]="&scap;"
-        encodeMap["š"]="&scaron;"
-        encodeMap["≽"]="&sccue;"
-        encodeMap["⪰"]="&sce;"
-        encodeMap["ş"]="&scedil;"
-        encodeMap["ŝ"]="&scirc;"
-        encodeMap["⪶"]="&scnE;"
-        encodeMap["⪺"]="&scnap;"
-        encodeMap["⋩"]="&scnsim;"
-        encodeMap["⨓"]="&scpolint;"
-        encodeMap["≿"]="&scsim;"
-        encodeMap["с"]="&scy;"
-        encodeMap["⋅"]="&sdot;"
-        encodeMap["⊡"]="&sdotb;"
-        encodeMap["⩦"]="&sdote;"
-        encodeMap["⇘"]="&seArr;"
-        encodeMap["⤥"]="&searhk;"
-        encodeMap["↘"]="&searr;"
-        encodeMap["↘"]="&searrow;"
-        encodeMap["§"]="&sect"
-        encodeMap["§"]="&sect;"
-        encodeMap[";"]="&semi;"
-        encodeMap["⤩"]="&seswar;"
-        encodeMap["∖"]="&setminus;"
-        encodeMap["∖"]="&setmn;"
-        encodeMap["✶"]="&sext;"
-        encodeMap["𝔰"]="&sfr;"
-        encodeMap["⌢"]="&sfrown;"
-        encodeMap["♯"]="&sharp;"
-        encodeMap["щ"]="&shchcy;"
-        encodeMap["ш"]="&shcy;"
-        encodeMap["∣"]="&shortmid;"
-        encodeMap["∥"]="&shortparallel;"
-        encodeMap["­"]="&shy"
-        encodeMap["­"]="&shy;"
-        encodeMap["σ"]="&sigma;"
-        encodeMap["ς"]="&sigmaf;"
-        encodeMap["ς"]="&sigmav;"
-        encodeMap["∼"]="&sim;"
-        encodeMap["⩪"]="&simdot;"
-        encodeMap["≃"]="&sime;"
-        encodeMap["≃"]="&simeq;"
-        encodeMap["⪞"]="&simg;"
-        encodeMap["⪠"]="&simgE;"
-        encodeMap["⪝"]="&siml;"
-        encodeMap["⪟"]="&simlE;"
-        encodeMap["≆"]="&simne;"
-        encodeMap["⨤"]="&simplus;"
-        encodeMap["⥲"]="&simrarr;"
-        encodeMap["←"]="&slarr;"
-        encodeMap["∖"]="&smallsetminus;"
-        encodeMap["⨳"]="&smashp;"
-        encodeMap["⧤"]="&smeparsl;"
-        encodeMap["∣"]="&smid;"
-        encodeMap["⌣"]="&smile;"
-        encodeMap["⪪"]="&smt;"
-        encodeMap["⪬"]="&smte;"
-        encodeMap["⪬︀"]="&smtes;"
-        encodeMap["ь"]="&softcy;"
-        encodeMap["/"]="&sol;"
-        encodeMap["⧄"]="&solb;"
-        encodeMap["⌿"]="&solbar;"
-        encodeMap["𝕤"]="&sopf;"
-        encodeMap["♠"]="&spades;"
-        encodeMap["♠"]="&spadesuit;"
-        encodeMap["∥"]="&spar;"
-        encodeMap["⊓"]="&sqcap;"
-        encodeMap["⊓︀"]="&sqcaps;"
-        encodeMap["⊔"]="&sqcup;"
-        encodeMap["⊔︀"]="&sqcups;"
-        encodeMap["⊏"]="&sqsub;"
-        encodeMap["⊑"]="&sqsube;"
-        encodeMap["⊏"]="&sqsubset;"
-        encodeMap["⊑"]="&sqsubseteq;"
-        encodeMap["⊐"]="&sqsup;"
-        encodeMap["⊒"]="&sqsupe;"
-        encodeMap["⊐"]="&sqsupset;"
-        encodeMap["⊒"]="&sqsupseteq;"
-        encodeMap["□"]="&squ;"
-        encodeMap["□"]="&square;"
-        encodeMap["▪"]="&squarf;"
-        encodeMap["▪"]="&squf;"
-        encodeMap["→"]="&srarr;"
-        encodeMap["𝓈"]="&sscr;"
-        encodeMap["∖"]="&ssetmn;"
-        encodeMap["⌣"]="&ssmile;"
-        encodeMap["⋆"]="&sstarf;"
-        encodeMap["☆"]="&star;"
-        encodeMap["★"]="&starf;"
-        encodeMap["ϵ"]="&straightepsilon;"
-        encodeMap["ϕ"]="&straightphi;"
-        encodeMap["¯"]="&strns;"
-        encodeMap["⊂"]="&sub;"
-        encodeMap["⫅"]="&subE;"
-        encodeMap["⪽"]="&subdot;"
-        encodeMap["⊆"]="&sube;"
-        encodeMap["⫃"]="&subedot;"
-        encodeMap["⫁"]="&submult;"
-        encodeMap["⫋"]="&subnE;"
-        encodeMap["⊊"]="&subne;"
-        encodeMap["⪿"]="&subplus;"
-        encodeMap["⥹"]="&subrarr;"
-        encodeMap["⊂"]="&subset;"
-        encodeMap["⊆"]="&subseteq;"
-        encodeMap["⫅"]="&subseteqq;"
-        encodeMap["⊊"]="&subsetneq;"
-        encodeMap["⫋"]="&subsetneqq;"
-        encodeMap["⫇"]="&subsim;"
-        encodeMap["⫕"]="&subsub;"
-        encodeMap["⫓"]="&subsup;"
-        encodeMap["≻"]="&succ;"
-        encodeMap["⪸"]="&succapprox;"
-        encodeMap["≽"]="&succcurlyeq;"
-        encodeMap["⪰"]="&succeq;"
-        encodeMap["⪺"]="&succnapprox;"
-        encodeMap["⪶"]="&succneqq;"
-        encodeMap["⋩"]="&succnsim;"
-        encodeMap["≿"]="&succsim;"
-        encodeMap["∑"]="&sum;"
-        encodeMap["♪"]="&sung;"
-        encodeMap["¹"]="&sup1"
-        encodeMap["¹"]="&sup1;"
-        encodeMap["²"]="&sup2"
-        encodeMap["²"]="&sup2;"
-        encodeMap["³"]="&sup3"
-        encodeMap["³"]="&sup3;"
-        encodeMap["⊃"]="&sup;"
-        encodeMap["⫆"]="&supE;"
-        encodeMap["⪾"]="&supdot;"
-        encodeMap["⫘"]="&supdsub;"
-        encodeMap["⊇"]="&supe;"
-        encodeMap["⫄"]="&supedot;"
-        encodeMap["⟉"]="&suphsol;"
-        encodeMap["⫗"]="&suphsub;"
-        encodeMap["⥻"]="&suplarr;"
-        encodeMap["⫂"]="&supmult;"
-        encodeMap["⫌"]="&supnE;"
-        encodeMap["⊋"]="&supne;"
-        encodeMap["⫀"]="&supplus;"
-        encodeMap["⊃"]="&supset;"
-        encodeMap["⊇"]="&supseteq;"
-        encodeMap["⫆"]="&supseteqq;"
-        encodeMap["⊋"]="&supsetneq;"
-        encodeMap["⫌"]="&supsetneqq;"
-        encodeMap["⫈"]="&supsim;"
-        encodeMap["⫔"]="&supsub;"
-        encodeMap["⫖"]="&supsup;"
-        encodeMap["⇙"]="&swArr;"
-        encodeMap["⤦"]="&swarhk;"
-        encodeMap["↙"]="&swarr;"
-        encodeMap["↙"]="&swarrow;"
-        encodeMap["⤪"]="&swnwar;"
-        encodeMap["ß"]="&szlig"
-        encodeMap["ß"]="&szlig;"
-        encodeMap["⌖"]="&target;"
-        encodeMap["τ"]="&tau;"
-        encodeMap["⎴"]="&tbrk;"
-        encodeMap["ť"]="&tcaron;"
-        encodeMap["ţ"]="&tcedil;"
-        encodeMap["т"]="&tcy;"
-        encodeMap["⃛"]="&tdot;"
-        encodeMap["⌕"]="&telrec;"
-        encodeMap["𝔱"]="&tfr;"
-        encodeMap["∴"]="&there4;"
-        encodeMap["∴"]="&therefore;"
-        encodeMap["θ"]="&theta;"
-        encodeMap["ϑ"]="&thetasym;"
-        encodeMap["ϑ"]="&thetav;"
-        encodeMap["≈"]="&thickapprox;"
-        encodeMap["∼"]="&thicksim;"
-        encodeMap[" "]="&thinsp;"
-        encodeMap["≈"]="&thkap;"
-        encodeMap["∼"]="&thksim;"
-        encodeMap["þ"]="&thorn"
-        encodeMap["þ"]="&thorn;"
-        encodeMap["˜"]="&tilde;"
-        encodeMap["×"]="&times"
-        encodeMap["×"]="&times;"
-        encodeMap["⊠"]="&timesb;"
-        encodeMap["⨱"]="&timesbar;"
-        encodeMap["⨰"]="&timesd;"
-        encodeMap["∭"]="&tint;"
-        encodeMap["⤨"]="&toea;"
-        encodeMap["⊤"]="&top;"
-        encodeMap["⌶"]="&topbot;"
-        encodeMap["⫱"]="&topcir;"
-        encodeMap["𝕥"]="&topf;"
-        encodeMap["⫚"]="&topfork;"
-        encodeMap["⤩"]="&tosa;"
-        encodeMap["‴"]="&tprime;"
-        encodeMap["™"]="&trade;"
-        encodeMap["▵"]="&triangle;"
-        encodeMap["▿"]="&triangledown;"
-        encodeMap["◃"]="&triangleleft;"
-        encodeMap["⊴"]="&trianglelefteq;"
-        encodeMap["≜"]="&triangleq;"
-        encodeMap["▹"]="&triangleright;"
-        encodeMap["⊵"]="&trianglerighteq;"
-        encodeMap["◬"]="&tridot;"
-        encodeMap["≜"]="&trie;"
-        encodeMap["⨺"]="&triminus;"
-        encodeMap["⨹"]="&triplus;"
-        encodeMap["⧍"]="&trisb;"
-        encodeMap["⨻"]="&tritime;"
-        encodeMap["⏢"]="&trpezium;"
-        encodeMap["𝓉"]="&tscr;"
-        encodeMap["ц"]="&tscy;"
-        encodeMap["ћ"]="&tshcy;"
-        encodeMap["ŧ"]="&tstrok;"
-        encodeMap["≬"]="&twixt;"
-        encodeMap["↞"]="&twoheadleftarrow;"
-        encodeMap["↠"]="&twoheadrightarrow;"
-        encodeMap["⇑"]="&uArr;"
-        encodeMap["⥣"]="&uHar;"
-        encodeMap["ú"]="&uacute"
-        encodeMap["ú"]="&uacute;"
-        encodeMap["↑"]="&uarr;"
-        encodeMap["ў"]="&ubrcy;"
-        encodeMap["ŭ"]="&ubreve;"
-        encodeMap["û"]="&ucirc"
-        encodeMap["û"]="&ucirc;"
-        encodeMap["у"]="&ucy;"
-        encodeMap["⇅"]="&udarr;"
-        encodeMap["ű"]="&udblac;"
-        encodeMap["⥮"]="&udhar;"
-        encodeMap["⥾"]="&ufisht;"
-        encodeMap["𝔲"]="&ufr;"
-        encodeMap["ù"]="&ugrave"
-        encodeMap["ù"]="&ugrave;"
-        encodeMap["↿"]="&uharl;"
-        encodeMap["↾"]="&uharr;"
-        encodeMap["▀"]="&uhblk;"
-        encodeMap["⌜"]="&ulcorn;"
-        encodeMap["⌜"]="&ulcorner;"
-        encodeMap["⌏"]="&ulcrop;"
-        encodeMap["◸"]="&ultri;"
-        encodeMap["ū"]="&umacr;"
-        encodeMap["¨"]="&uml"
-        encodeMap["¨"]="&uml;"
-        encodeMap["ų"]="&uogon;"
-        encodeMap["𝕦"]="&uopf;"
-        encodeMap["↑"]="&uparrow;"
-        encodeMap["↕"]="&updownarrow;"
-        encodeMap["↿"]="&upharpoonleft;"
-        encodeMap["↾"]="&upharpoonright;"
-        encodeMap["⊎"]="&uplus;"
-        encodeMap["υ"]="&upsi;"
-        encodeMap["ϒ"]="&upsih;"
-        encodeMap["υ"]="&upsilon;"
-        encodeMap["⇈"]="&upuparrows;"
-        encodeMap["⌝"]="&urcorn;"
-        encodeMap["⌝"]="&urcorner;"
-        encodeMap["⌎"]="&urcrop;"
-        encodeMap["ů"]="&uring;"
-        encodeMap["◹"]="&urtri;"
-        encodeMap["𝓊"]="&uscr;"
-        encodeMap["⋰"]="&utdot;"
-        encodeMap["ũ"]="&utilde;"
-        encodeMap["▵"]="&utri;"
-        encodeMap["▴"]="&utrif;"
-        encodeMap["⇈"]="&uuarr;"
-        encodeMap["ü"]="&uuml"
-        encodeMap["ü"]="&uuml;"
-        encodeMap["⦧"]="&uwangle;"
-        encodeMap["⇕"]="&vArr;"
-        encodeMap["⫨"]="&vBar;"
-        encodeMap["⫩"]="&vBarv;"
-        encodeMap["⊨"]="&vDash;"
-        encodeMap["⦜"]="&vangrt;"
-        encodeMap["ϵ"]="&varepsilon;"
-        encodeMap["ϰ"]="&varkappa;"
-        encodeMap["∅"]="&varnothing;"
-        encodeMap["ϕ"]="&varphi;"
-        encodeMap["ϖ"]="&varpi;"
-        encodeMap["∝"]="&varpropto;"
-        encodeMap["↕"]="&varr;"
-        encodeMap["ϱ"]="&varrho;"
-        encodeMap["ς"]="&varsigma;"
-        encodeMap["⊊︀"]="&varsubsetneq;"
-        encodeMap["⫋︀"]="&varsubsetneqq;"
-        encodeMap["⊋︀"]="&varsupsetneq;"
-        encodeMap["⫌︀"]="&varsupsetneqq;"
-        encodeMap["ϑ"]="&vartheta;"
-        encodeMap["⊲"]="&vartriangleleft;"
-        encodeMap["⊳"]="&vartriangleright;"
-        encodeMap["в"]="&vcy;"
-        encodeMap["⊢"]="&vdash;"
-        encodeMap["∨"]="&vee;"
-        encodeMap["⊻"]="&veebar;"
-        encodeMap["≚"]="&veeeq;"
-        encodeMap["⋮"]="&vellip;"
-        encodeMap["|"]="&verbar;"
-        encodeMap["|"]="&vert;"
-        encodeMap["𝔳"]="&vfr;"
-        encodeMap["⊲"]="&vltri;"
-        encodeMap["⊂⃒"]="&vnsub;"
-        encodeMap["⊃⃒"]="&vnsup;"
-        encodeMap["𝕧"]="&vopf;"
-        encodeMap["∝"]="&vprop;"
-        encodeMap["⊳"]="&vrtri;"
-        encodeMap["𝓋"]="&vscr;"
-        encodeMap["⫋︀"]="&vsubnE;"
-        encodeMap["⊊︀"]="&vsubne;"
-        encodeMap["⫌︀"]="&vsupnE;"
-        encodeMap["⊋︀"]="&vsupne;"
-        encodeMap["⦚"]="&vzigzag;"
-        encodeMap["ŵ"]="&wcirc;"
-        encodeMap["⩟"]="&wedbar;"
-        encodeMap["∧"]="&wedge;"
-        encodeMap["≙"]="&wedgeq;"
-        encodeMap["℘"]="&weierp;"
-        encodeMap["𝔴"]="&wfr;"
-        encodeMap["𝕨"]="&wopf;"
-        encodeMap["℘"]="&wp;"
-        encodeMap["≀"]="&wr;"
-        encodeMap["≀"]="&wreath;"
-        encodeMap["𝓌"]="&wscr;"
-        encodeMap["⋂"]="&xcap;"
-        encodeMap["◯"]="&xcirc;"
-        encodeMap["⋃"]="&xcup;"
-        encodeMap["▽"]="&xdtri;"
-        encodeMap["𝔵"]="&xfr;"
-        encodeMap["⟺"]="&xhArr;"
-        encodeMap["⟷"]="&xharr;"
-        encodeMap["ξ"]="&xi;"
-        encodeMap["⟸"]="&xlArr;"
-        encodeMap["⟵"]="&xlarr;"
-        encodeMap["⟼"]="&xmap;"
-        encodeMap["⋻"]="&xnis;"
-        encodeMap["⨀"]="&xodot;"
-        encodeMap["𝕩"]="&xopf;"
-        encodeMap["⨁"]="&xoplus;"
-        encodeMap["⨂"]="&xotime;"
-        encodeMap["⟹"]="&xrArr;"
-        encodeMap["⟶"]="&xrarr;"
-        encodeMap["𝓍"]="&xscr;"
-        encodeMap["⨆"]="&xsqcup;"
-        encodeMap["⨄"]="&xuplus;"
-        encodeMap["△"]="&xutri;"
-        encodeMap["⋁"]="&xvee;"
-        encodeMap["⋀"]="&xwedge;"
-        encodeMap["ý"]="&yacute"
-        encodeMap["ý"]="&yacute;"
-        encodeMap["я"]="&yacy;"
-        encodeMap["ŷ"]="&ycirc;"
-        encodeMap["ы"]="&ycy;"
-        encodeMap["¥"]="&yen"
-        encodeMap["¥"]="&yen;"
-        encodeMap["𝔶"]="&yfr;"
-        encodeMap["ї"]="&yicy;"
-        encodeMap["𝕪"]="&yopf;"
-        encodeMap["𝓎"]="&yscr;"
-        encodeMap["ю"]="&yucy;"
-        encodeMap["ÿ"]="&yuml"
-        encodeMap["ÿ"]="&yuml;"
-        encodeMap["ź"]="&zacute;"
-        encodeMap["ž"]="&zcaron;"
-        encodeMap["з"]="&zcy;"
-        encodeMap["ż"]="&zdot;"
-        encodeMap["ℨ"]="&zeetrf;"
-        encodeMap["ζ"]="&zeta;"
-        encodeMap["𝔷"]="&zfr;"
-        encodeMap["ж"]="&zhcy;"
-        encodeMap["⇝"]="&zigrarr;"
-        encodeMap["𝕫"]="&zopf;"
-        encodeMap["𝓏"]="&zscr;"
-        encodeMap["‍"]="&zwj;"
-        encodeMap["‌"]="&zwnj;"
-        encodeMap
+    val HTML5Encode: List<Pair<String, String>> = run {
+        val encodeMap = mutableListOf<Pair<String, String>>()
+        encodeMap.add("Æ" to "&AElig")
+        encodeMap.add("Æ" to "&AElig;")
+        encodeMap.add("&" to "&AMP")
+        encodeMap.add("&" to "&AMP;")
+        encodeMap.add("Á" to "&Aacute")
+        encodeMap.add("Á" to "&Aacute;")
+        encodeMap.add("Ă" to "&Abreve;")
+        encodeMap.add("Â" to "&Acirc")
+        encodeMap.add("Â" to "&Acirc;")
+        encodeMap.add("А" to "&Acy;")
+        encodeMap.add("𝔄" to "&Afr;")
+        encodeMap.add("À" to "&Agrave")
+        encodeMap.add("À" to "&Agrave;")
+        encodeMap.add("Α" to "&Alpha;")
+        encodeMap.add("Ā" to "&Amacr;")
+        encodeMap.add("⩓" to "&And;")
+        encodeMap.add("Ą" to "&Aogon;")
+        encodeMap.add("𝔸" to "&Aopf;")
+        encodeMap.add("⁡" to "&ApplyFunction;")
+        encodeMap.add("Å" to "&Aring")
+        encodeMap.add("Å" to "&Aring;")
+        encodeMap.add("𝒜" to "&Ascr;")
+        encodeMap.add("≔" to "&Assign;")
+        encodeMap.add("Ã" to "&Atilde")
+        encodeMap.add("Ã" to "&Atilde;")
+        encodeMap.add("Ä" to "&Auml")
+        encodeMap.add("Ä" to "&Auml;")
+        encodeMap.add("∖" to "&Backslash;")
+        encodeMap.add("⫧" to "&Barv;")
+        encodeMap.add("⌆" to "&Barwed;")
+        encodeMap.add("Б" to "&Bcy;")
+        encodeMap.add("∵" to "&Because;")
+        encodeMap.add("ℬ" to "&Bernoullis;")
+        encodeMap.add("Β" to "&Beta;")
+        encodeMap.add("𝔅" to "&Bfr;")
+        encodeMap.add("𝔹" to "&Bopf;")
+        encodeMap.add("˘" to "&Breve;")
+        encodeMap.add("ℬ" to "&Bscr;")
+        encodeMap.add("≎" to "&Bumpeq;")
+        encodeMap.add("Ч" to "&CHcy;")
+        encodeMap.add("©" to "&COPY")
+        encodeMap.add("©" to "&COPY;")
+        encodeMap.add("Ć" to "&Cacute;")
+        encodeMap.add("⋒" to "&Cap;")
+        encodeMap.add("ⅅ" to "&CapitalDifferentialD;")
+        encodeMap.add("ℭ" to "&Cayleys;")
+        encodeMap.add("Č" to "&Ccaron;")
+        encodeMap.add("Ç" to "&Ccedil")
+        encodeMap.add("Ç" to "&Ccedil;")
+        encodeMap.add("Ĉ" to "&Ccirc;")
+        encodeMap.add("∰" to "&Cconint;")
+        encodeMap.add("Ċ" to "&Cdot;")
+        encodeMap.add("¸" to "&Cedilla;")
+        encodeMap.add("·" to "&CenterDot;")
+        encodeMap.add("ℭ" to "&Cfr;")
+        encodeMap.add("Χ" to "&Chi;")
+        encodeMap.add("⊙" to "&CircleDot;")
+        encodeMap.add("⊖" to "&CircleMinus;")
+        encodeMap.add("⊕" to "&CirclePlus;")
+        encodeMap.add("⊗" to "&CircleTimes;")
+        encodeMap.add("∲" to "&ClockwiseContourIntegral;")
+        encodeMap.add("”" to "&CloseCurlyDoubleQuote;")
+        encodeMap.add("’" to "&CloseCurlyQuote;")
+        encodeMap.add("∷" to "&Colon;")
+        encodeMap.add("⩴" to "&Colone;")
+        encodeMap.add("≡" to "&Congruent;")
+        encodeMap.add("∯" to "&Conint;")
+        encodeMap.add("∮" to "&ContourIntegral;")
+        encodeMap.add("ℂ" to "&Copf;")
+        encodeMap.add("∐" to "&Coproduct;")
+        encodeMap.add("∳" to "&CounterClockwiseContourIntegral;")
+        encodeMap.add("⨯" to "&Cross;")
+        encodeMap.add("𝒞" to "&Cscr;")
+        encodeMap.add("⋓" to "&Cup;")
+        encodeMap.add("≍" to "&CupCap;")
+        encodeMap.add("ⅅ" to "&DD;")
+        encodeMap.add("⤑" to "&DDotrahd;")
+        encodeMap.add("Ђ" to "&DJcy;")
+        encodeMap.add("Ѕ" to "&DScy;")
+        encodeMap.add("Џ" to "&DZcy;")
+        encodeMap.add("‡" to "&Dagger;")
+        encodeMap.add("↡" to "&Darr;")
+        encodeMap.add("⫤" to "&Dashv;")
+        encodeMap.add("Ď" to "&Dcaron;")
+        encodeMap.add("Д" to "&Dcy;")
+        encodeMap.add("∇" to "&Del;")
+        encodeMap.add("Δ" to "&Delta;")
+        encodeMap.add("𝔇" to "&Dfr;")
+        encodeMap.add("´" to "&DiacriticalAcute;")
+        encodeMap.add("˙" to "&DiacriticalDot;")
+        encodeMap.add("˝" to "&DiacriticalDoubleAcute;")
+        encodeMap.add("`" to "&DiacriticalGrave;")
+        encodeMap.add("˜" to "&DiacriticalTilde;")
+        encodeMap.add("⋄" to "&Diamond;")
+        encodeMap.add("ⅆ" to "&DifferentialD;")
+        encodeMap.add("𝔻" to "&Dopf;")
+        encodeMap.add("¨" to "&Dot;")
+        encodeMap.add("⃜" to "&DotDot;")
+        encodeMap.add("≐" to "&DotEqual;")
+        encodeMap.add("∯" to "&DoubleContourIntegral;")
+        encodeMap.add("¨" to "&DoubleDot;")
+        encodeMap.add("⇓" to "&DoubleDownArrow;")
+        encodeMap.add("⇐" to "&DoubleLeftArrow;")
+        encodeMap.add("⇔" to "&DoubleLeftRightArrow;")
+        encodeMap.add("⫤" to "&DoubleLeftTee;")
+        encodeMap.add("⟸" to "&DoubleLongLeftArrow;")
+        encodeMap.add("⟺" to "&DoubleLongLeftRightArrow;")
+        encodeMap.add("⟹" to "&DoubleLongRightArrow;")
+        encodeMap.add("⇒" to "&DoubleRightArrow;")
+        encodeMap.add("⊨" to "&DoubleRightTee;")
+        encodeMap.add("⇑" to "&DoubleUpArrow;")
+        encodeMap.add("⇕" to "&DoubleUpDownArrow;")
+        encodeMap.add("∥" to "&DoubleVerticalBar;")
+        encodeMap.add("↓" to "&DownArrow;")
+        encodeMap.add("⤓" to "&DownArrowBar;")
+        encodeMap.add("⇵" to "&DownArrowUpArrow;")
+        encodeMap.add("̑" to "&DownBreve;")
+        encodeMap.add("⥐" to "&DownLeftRightVector;")
+        encodeMap.add("⥞" to "&DownLeftTeeVector;")
+        encodeMap.add("↽" to "&DownLeftVector;")
+        encodeMap.add("⥖" to "&DownLeftVectorBar;")
+        encodeMap.add("⥟" to "&DownRightTeeVector;")
+        encodeMap.add("⇁" to "&DownRightVector;")
+        encodeMap.add("⥗" to "&DownRightVectorBar;")
+        encodeMap.add("⊤" to "&DownTee;")
+        encodeMap.add("↧" to "&DownTeeArrow;")
+        encodeMap.add("⇓" to "&Downarrow;")
+        encodeMap.add("𝒟" to "&Dscr;")
+        encodeMap.add("Đ" to "&Dstrok;")
+        encodeMap.add("Ŋ" to "&ENG;")
+        encodeMap.add("Ð" to "&ETH")
+        encodeMap.add("Ð" to "&ETH;")
+        encodeMap.add("É" to "&Eacute")
+        encodeMap.add("É" to "&Eacute;")
+        encodeMap.add("Ě" to "&Ecaron;")
+        encodeMap.add("Ê" to "&Ecirc")
+        encodeMap.add("Ê" to "&Ecirc;")
+        encodeMap.add("Э" to "&Ecy;")
+        encodeMap.add("Ė" to "&Edot;")
+        encodeMap.add("𝔈" to "&Efr;")
+        encodeMap.add("È" to "&Egrave")
+        encodeMap.add("È" to "&Egrave;")
+        encodeMap.add("∈" to "&Element;")
+        encodeMap.add("Ē" to "&Emacr;")
+        encodeMap.add("◻" to "&EmptySmallSquare;")
+        encodeMap.add("▫" to "&EmptyVerySmallSquare;")
+        encodeMap.add("Ę" to "&Eogon;")
+        encodeMap.add("𝔼" to "&Eopf;")
+        encodeMap.add("Ε" to "&Epsilon;")
+        encodeMap.add("⩵" to "&Equal;")
+        encodeMap.add("≂" to "&EqualTilde;")
+        encodeMap.add("⇌" to "&Equilibrium;")
+        encodeMap.add("ℰ" to "&Escr;")
+        encodeMap.add("⩳" to "&Esim;")
+        encodeMap.add("Η" to "&Eta;")
+        encodeMap.add("Ë" to "&Euml")
+        encodeMap.add("Ë" to "&Euml;")
+        encodeMap.add("∃" to "&Exists;")
+        encodeMap.add("ⅇ" to "&ExponentialE;")
+        encodeMap.add("Ф" to "&Fcy;")
+        encodeMap.add("𝔉" to "&Ffr;")
+        encodeMap.add("◼" to "&FilledSmallSquare;")
+        encodeMap.add("▪" to "&FilledVerySmallSquare;")
+        encodeMap.add("𝔽" to "&Fopf;")
+        encodeMap.add("∀" to "&ForAll;")
+        encodeMap.add("ℱ" to "&Fouriertrf;")
+        encodeMap.add("ℱ" to "&Fscr;")
+        encodeMap.add("Ѓ" to "&GJcy;")
+        encodeMap.add(">" to "&GT")
+        encodeMap.add(">" to "&GT;")
+        encodeMap.add("Γ" to "&Gamma;")
+        encodeMap.add("Ϝ" to "&Gammad;")
+        encodeMap.add("Ğ" to "&Gbreve;")
+        encodeMap.add("Ģ" to "&Gcedil;")
+        encodeMap.add("Ĝ" to "&Gcirc;")
+        encodeMap.add("Г" to "&Gcy;")
+        encodeMap.add("Ġ" to "&Gdot;")
+        encodeMap.add("𝔊" to "&Gfr;")
+        encodeMap.add("⋙" to "&Gg;")
+        encodeMap.add("𝔾" to "&Gopf;")
+        encodeMap.add("≥" to "&GreaterEqual;")
+        encodeMap.add("⋛" to "&GreaterEqualLess;")
+        encodeMap.add("≧" to "&GreaterFullEqual;")
+        encodeMap.add("⪢" to "&GreaterGreater;")
+        encodeMap.add("≷" to "&GreaterLess;")
+        encodeMap.add("⩾" to "&GreaterSlantEqual;")
+        encodeMap.add("≳" to "&GreaterTilde;")
+        encodeMap.add("𝒢" to "&Gscr;")
+        encodeMap.add("≫" to "&Gt;")
+        encodeMap.add("Ъ" to "&HARDcy;")
+        encodeMap.add("ˇ" to "&Hacek;")
+        encodeMap.add("^" to "&Hat;")
+        encodeMap.add("Ĥ" to "&Hcirc;")
+        encodeMap.add("ℌ" to "&Hfr;")
+        encodeMap.add("ℋ" to "&HilbertSpace;")
+        encodeMap.add("ℍ" to "&Hopf;")
+        encodeMap.add("─" to "&HorizontalLine;")
+        encodeMap.add("ℋ" to "&Hscr;")
+        encodeMap.add("Ħ" to "&Hstrok;")
+        encodeMap.add("≎" to "&HumpDownHump;")
+        encodeMap.add("≏" to "&HumpEqual;")
+        encodeMap.add("Е" to "&IEcy;")
+        encodeMap.add("Ĳ" to "&IJlig;")
+        encodeMap.add("Ё" to "&IOcy;")
+        encodeMap.add("Í" to "&Iacute")
+        encodeMap.add("Í" to "&Iacute;")
+        encodeMap.add("Î" to "&Icirc")
+        encodeMap.add("Î" to "&Icirc;")
+        encodeMap.add("И" to "&Icy;")
+        encodeMap.add("İ" to "&Idot;")
+        encodeMap.add("ℑ" to "&Ifr;")
+        encodeMap.add("Ì" to "&Igrave")
+        encodeMap.add("Ì" to "&Igrave;")
+        encodeMap.add("ℑ" to "&Im;")
+        encodeMap.add("Ī" to "&Imacr;")
+        encodeMap.add("ⅈ" to "&ImaginaryI;")
+        encodeMap.add("⇒" to "&Implies;")
+        encodeMap.add("∬" to "&Int;")
+        encodeMap.add("∫" to "&Integral;")
+        encodeMap.add("⋂" to "&Intersection;")
+        encodeMap.add("⁣" to "&InvisibleComma;")
+        encodeMap.add("⁢" to "&InvisibleTimes;")
+        encodeMap.add("Į" to "&Iogon;")
+        encodeMap.add("𝕀" to "&Iopf;")
+        encodeMap.add("Ι" to "&Iota;")
+        encodeMap.add("ℐ" to "&Iscr;")
+        encodeMap.add("Ĩ" to "&Itilde;")
+        encodeMap.add("І" to "&Iukcy;")
+        encodeMap.add("Ï" to "&Iuml")
+        encodeMap.add("Ï" to "&Iuml;")
+        encodeMap.add("Ĵ" to "&Jcirc;")
+        encodeMap.add("Й" to "&Jcy;")
+        encodeMap.add("𝔍" to "&Jfr;")
+        encodeMap.add("𝕁" to "&Jopf;")
+        encodeMap.add("𝒥" to "&Jscr;")
+        encodeMap.add("Ј" to "&Jsercy;")
+        encodeMap.add("Є" to "&Jukcy;")
+        encodeMap.add("Х" to "&KHcy;")
+        encodeMap.add("Ќ" to "&KJcy;")
+        encodeMap.add("Κ" to "&Kappa;")
+        encodeMap.add("Ķ" to "&Kcedil;")
+        encodeMap.add("К" to "&Kcy;")
+        encodeMap.add("𝔎" to "&Kfr;")
+        encodeMap.add("𝕂" to "&Kopf;")
+        encodeMap.add("𝒦" to "&Kscr;")
+        encodeMap.add("Љ" to "&LJcy;")
+        encodeMap.add("<" to "&LT")
+        encodeMap.add("<" to "&LT;")
+        encodeMap.add("Ĺ" to "&Lacute;")
+        encodeMap.add("Λ" to "&Lambda;")
+        encodeMap.add("⟪" to "&Lang;")
+        encodeMap.add("ℒ" to "&Laplacetrf;")
+        encodeMap.add("↞" to "&Larr;")
+        encodeMap.add("Ľ" to "&Lcaron;")
+        encodeMap.add("Ļ" to "&Lcedil;")
+        encodeMap.add("Л" to "&Lcy;")
+        encodeMap.add("⟨" to "&LeftAngleBracket;")
+        encodeMap.add("←" to "&LeftArrow;")
+        encodeMap.add("⇤" to "&LeftArrowBar;")
+        encodeMap.add("⇆" to "&LeftArrowRightArrow;")
+        encodeMap.add("⌈" to "&LeftCeiling;")
+        encodeMap.add("⟦" to "&LeftDoubleBracket;")
+        encodeMap.add("⥡" to "&LeftDownTeeVector;")
+        encodeMap.add("⇃" to "&LeftDownVector;")
+        encodeMap.add("⥙" to "&LeftDownVectorBar;")
+        encodeMap.add("⌊" to "&LeftFloor;")
+        encodeMap.add("↔" to "&LeftRightArrow;")
+        encodeMap.add("⥎" to "&LeftRightVector;")
+        encodeMap.add("⊣" to "&LeftTee;")
+        encodeMap.add("↤" to "&LeftTeeArrow;")
+        encodeMap.add("⥚" to "&LeftTeeVector;")
+        encodeMap.add("⊲" to "&LeftTriangle;")
+        encodeMap.add("⧏" to "&LeftTriangleBar;")
+        encodeMap.add("⊴" to "&LeftTriangleEqual;")
+        encodeMap.add("⥑" to "&LeftUpDownVector;")
+        encodeMap.add("⥠" to "&LeftUpTeeVector;")
+        encodeMap.add("↿" to "&LeftUpVector;")
+        encodeMap.add("⥘" to "&LeftUpVectorBar;")
+        encodeMap.add("↼" to "&LeftVector;")
+        encodeMap.add("⥒" to "&LeftVectorBar;")
+        encodeMap.add("⇐" to "&Leftarrow;")
+        encodeMap.add("⇔" to "&Leftrightarrow;")
+        encodeMap.add("⋚" to "&LessEqualGreater;")
+        encodeMap.add("≦" to "&LessFullEqual;")
+        encodeMap.add("≶" to "&LessGreater;")
+        encodeMap.add("⪡" to "&LessLess;")
+        encodeMap.add("⩽" to "&LessSlantEqual;")
+        encodeMap.add("≲" to "&LessTilde;")
+        encodeMap.add("𝔏" to "&Lfr;")
+        encodeMap.add("⋘" to "&Ll;")
+        encodeMap.add("⇚" to "&Lleftarrow;")
+        encodeMap.add("Ŀ" to "&Lmidot;")
+        encodeMap.add("⟵" to "&LongLeftArrow;")
+        encodeMap.add("⟷" to "&LongLeftRightArrow;")
+        encodeMap.add("⟶" to "&LongRightArrow;")
+        encodeMap.add("⟸" to "&Longleftarrow;")
+        encodeMap.add("⟺" to "&Longleftrightarrow;")
+        encodeMap.add("⟹" to "&Longrightarrow;")
+        encodeMap.add("𝕃" to "&Lopf;")
+        encodeMap.add("↙" to "&LowerLeftArrow;")
+        encodeMap.add("↘" to "&LowerRightArrow;")
+        encodeMap.add("ℒ" to "&Lscr;")
+        encodeMap.add("↰" to "&Lsh;")
+        encodeMap.add("Ł" to "&Lstrok;")
+        encodeMap.add("≪" to "&Lt;")
+        encodeMap.add("⤅" to "&Map;")
+        encodeMap.add("М" to "&Mcy;")
+        encodeMap.add(" " to "&MediumSpace;")
+        encodeMap.add("ℳ" to "&Mellintrf;")
+        encodeMap.add("𝔐" to "&Mfr;")
+        encodeMap.add("∓" to "&MinusPlus;")
+        encodeMap.add("𝕄" to "&Mopf;")
+        encodeMap.add("ℳ" to "&Mscr;")
+        encodeMap.add("Μ" to "&Mu;")
+        encodeMap.add("Њ" to "&NJcy;")
+        encodeMap.add("Ń" to "&Nacute;")
+        encodeMap.add("Ň" to "&Ncaron;")
+        encodeMap.add("Ņ" to "&Ncedil;")
+        encodeMap.add("Н" to "&Ncy;")
+        encodeMap.add("​" to "&NegativeMediumSpace;")
+        encodeMap.add("​" to "&NegativeThickSpace;")
+        encodeMap.add("​" to "&NegativeThinSpace;")
+        encodeMap.add("​" to "&NegativeVeryThinSpace;")
+        encodeMap.add("≫" to "&NestedGreaterGreater;")
+        encodeMap.add("≪" to "&NestedLessLess;")
+        encodeMap.add("\n" to "&NewLine;")
+        encodeMap.add("𝔑" to "&Nfr;")
+        encodeMap.add("⁠" to "&NoBreak;")
+        encodeMap.add(" " to "&NonBreakingSpace;")
+        encodeMap.add("ℕ" to "&Nopf;")
+        encodeMap.add("⫬" to "&Not;")
+        encodeMap.add("≢" to "&NotCongruent;")
+        encodeMap.add("≭" to "&NotCupCap;")
+        encodeMap.add("∦" to "&NotDoubleVerticalBar;")
+        encodeMap.add("∉" to "&NotElement;")
+        encodeMap.add("≠" to "&NotEqual;")
+        encodeMap.add("≂̸" to "&NotEqualTilde;")
+        encodeMap.add("∄" to "&NotExists;")
+        encodeMap.add("≯" to "&NotGreater;")
+        encodeMap.add("≱" to "&NotGreaterEqual;")
+        encodeMap.add("≧̸" to "&NotGreaterFullEqual;")
+        encodeMap.add("≫̸" to "&NotGreaterGreater;")
+        encodeMap.add("≹" to "&NotGreaterLess;")
+        encodeMap.add("⩾̸" to "&NotGreaterSlantEqual;")
+        encodeMap.add("≵" to "&NotGreaterTilde;")
+        encodeMap.add("≎̸" to "&NotHumpDownHump;")
+        encodeMap.add("≏̸" to "&NotHumpEqual;")
+        encodeMap.add("⋪" to "&NotLeftTriangle;")
+        encodeMap.add("⧏̸" to "&NotLeftTriangleBar;")
+        encodeMap.add("⋬" to "&NotLeftTriangleEqual;")
+        encodeMap.add("≮" to "&NotLess;")
+        encodeMap.add("≰" to "&NotLessEqual;")
+        encodeMap.add("≸" to "&NotLessGreater;")
+        encodeMap.add("≪̸" to "&NotLessLess;")
+        encodeMap.add("⩽̸" to "&NotLessSlantEqual;")
+        encodeMap.add("≴" to "&NotLessTilde;")
+        encodeMap.add("⪢̸" to "&NotNestedGreaterGreater;")
+        encodeMap.add("⪡̸" to "&NotNestedLessLess;")
+        encodeMap.add("⊀" to "&NotPrecedes;")
+        encodeMap.add("⪯̸" to "&NotPrecedesEqual;")
+        encodeMap.add("⋠" to "&NotPrecedesSlantEqual;")
+        encodeMap.add("∌" to "&NotReverseElement;")
+        encodeMap.add("⋫" to "&NotRightTriangle;")
+        encodeMap.add("⧐̸" to "&NotRightTriangleBar;")
+        encodeMap.add("⋭" to "&NotRightTriangleEqual;")
+        encodeMap.add("⊏̸" to "&NotSquareSubset;")
+        encodeMap.add("⋢" to "&NotSquareSubsetEqual;")
+        encodeMap.add("⊐̸" to "&NotSquareSuperset;")
+        encodeMap.add("⋣" to "&NotSquareSupersetEqual;")
+        encodeMap.add("⊂⃒" to "&NotSubset;")
+        encodeMap.add("⊈" to "&NotSubsetEqual;")
+        encodeMap.add("⊁" to "&NotSucceeds;")
+        encodeMap.add("⪰̸" to "&NotSucceedsEqual;")
+        encodeMap.add("⋡" to "&NotSucceedsSlantEqual;")
+        encodeMap.add("≿̸" to "&NotSucceedsTilde;")
+        encodeMap.add("⊃⃒" to "&NotSuperset;")
+        encodeMap.add("⊉" to "&NotSupersetEqual;")
+        encodeMap.add("≁" to "&NotTilde;")
+        encodeMap.add("≄" to "&NotTildeEqual;")
+        encodeMap.add("≇" to "&NotTildeFullEqual;")
+        encodeMap.add("≉" to "&NotTildeTilde;")
+        encodeMap.add("∤" to "&NotVerticalBar;")
+        encodeMap.add("𝒩" to "&Nscr;")
+        encodeMap.add("Ñ" to "&Ntilde")
+        encodeMap.add("Ñ" to "&Ntilde;")
+        encodeMap.add("Ν" to "&Nu;")
+        encodeMap.add("Œ" to "&OElig;")
+        encodeMap.add("Ó" to "&Oacute")
+        encodeMap.add("Ó" to "&Oacute;")
+        encodeMap.add("Ô" to "&Ocirc")
+        encodeMap.add("Ô" to "&Ocirc;")
+        encodeMap.add("О" to "&Ocy;")
+        encodeMap.add("Ő" to "&Odblac;")
+        encodeMap.add("𝔒" to "&Ofr;")
+        encodeMap.add("Ò" to "&Ograve")
+        encodeMap.add("Ò" to "&Ograve;")
+        encodeMap.add("Ō" to "&Omacr;")
+        encodeMap.add("Ω" to "&Omega;")
+        encodeMap.add("Ο" to "&Omicron;")
+        encodeMap.add("𝕆" to "&Oopf;")
+        encodeMap.add("“" to "&OpenCurlyDoubleQuote;")
+        encodeMap.add("‘" to "&OpenCurlyQuote;")
+        encodeMap.add("⩔" to "&Or;")
+        encodeMap.add("𝒪" to "&Oscr;")
+        encodeMap.add("Ø" to "&Oslash")
+        encodeMap.add("Ø" to "&Oslash;")
+        encodeMap.add("Õ" to "&Otilde")
+        encodeMap.add("Õ" to "&Otilde;")
+        encodeMap.add("⨷" to "&Otimes;")
+        encodeMap.add("Ö" to "&Ouml")
+        encodeMap.add("Ö" to "&Ouml;")
+        encodeMap.add("‾" to "&OverBar;")
+        encodeMap.add("⏞" to "&OverBrace;")
+        encodeMap.add("⎴" to "&OverBracket;")
+        encodeMap.add("⏜" to "&OverParenthesis;")
+        encodeMap.add("∂" to "&PartialD;")
+        encodeMap.add("П" to "&Pcy;")
+        encodeMap.add("𝔓" to "&Pfr;")
+        encodeMap.add("Φ" to "&Phi;")
+        encodeMap.add("Π" to "&Pi;")
+        encodeMap.add("±" to "&PlusMinus;")
+        encodeMap.add("ℌ" to "&Poincareplane;")
+        encodeMap.add("ℙ" to "&Popf;")
+        encodeMap.add("⪻" to "&Pr;")
+        encodeMap.add("≺" to "&Precedes;")
+        encodeMap.add("⪯" to "&PrecedesEqual;")
+        encodeMap.add("≼" to "&PrecedesSlantEqual;")
+        encodeMap.add("≾" to "&PrecedesTilde;")
+        encodeMap.add("″" to "&Prime;")
+        encodeMap.add("∏" to "&Product;")
+        encodeMap.add("∷" to "&Proportion;")
+        encodeMap.add("∝" to "&Proportional;")
+        encodeMap.add("𝒫" to "&Pscr;")
+        encodeMap.add("Ψ" to "&Psi;")
+        encodeMap.add("\"" to "&QUOT")
+        encodeMap.add("\"" to "&QUOT;")
+        encodeMap.add("𝔔" to "&Qfr;")
+        encodeMap.add("ℚ" to "&Qopf;")
+        encodeMap.add("𝒬" to "&Qscr;")
+        encodeMap.add("⤐" to "&RBarr;")
+        encodeMap.add("®" to "&REG")
+        encodeMap.add("®" to "&REG;")
+        encodeMap.add("Ŕ" to "&Racute;")
+        encodeMap.add("⟫" to "&Rang;")
+        encodeMap.add("↠" to "&Rarr;")
+        encodeMap.add("⤖" to "&Rarrtl;")
+        encodeMap.add("Ř" to "&Rcaron;")
+        encodeMap.add("Ŗ" to "&Rcedil;")
+        encodeMap.add("Р" to "&Rcy;")
+        encodeMap.add("ℜ" to "&Re;")
+        encodeMap.add("∋" to "&ReverseElement;")
+        encodeMap.add("⇋" to "&ReverseEquilibrium;")
+        encodeMap.add("⥯" to "&ReverseUpEquilibrium;")
+        encodeMap.add("ℜ" to "&Rfr;")
+        encodeMap.add("Ρ" to "&Rho;")
+        encodeMap.add("⟩" to "&RightAngleBracket;")
+        encodeMap.add("→" to "&RightArrow;")
+        encodeMap.add("⇥" to "&RightArrowBar;")
+        encodeMap.add("⇄" to "&RightArrowLeftArrow;")
+        encodeMap.add("⌉" to "&RightCeiling;")
+        encodeMap.add("⟧" to "&RightDoubleBracket;")
+        encodeMap.add("⥝" to "&RightDownTeeVector;")
+        encodeMap.add("⇂" to "&RightDownVector;")
+        encodeMap.add("⥕" to "&RightDownVectorBar;")
+        encodeMap.add("⌋" to "&RightFloor;")
+        encodeMap.add("⊢" to "&RightTee;")
+        encodeMap.add("↦" to "&RightTeeArrow;")
+        encodeMap.add("⥛" to "&RightTeeVector;")
+        encodeMap.add("⊳" to "&RightTriangle;")
+        encodeMap.add("⧐" to "&RightTriangleBar;")
+        encodeMap.add("⊵" to "&RightTriangleEqual;")
+        encodeMap.add("⥏" to "&RightUpDownVector;")
+        encodeMap.add("⥜" to "&RightUpTeeVector;")
+        encodeMap.add("↾" to "&RightUpVector;")
+        encodeMap.add("⥔" to "&RightUpVectorBar;")
+        encodeMap.add("⇀" to "&RightVector;")
+        encodeMap.add("⥓" to "&RightVectorBar;")
+        encodeMap.add("⇒" to "&Rightarrow;")
+        encodeMap.add("ℝ" to "&Ropf;")
+        encodeMap.add("⥰" to "&RoundImplies;")
+        encodeMap.add("⇛" to "&Rrightarrow;")
+        encodeMap.add("ℛ" to "&Rscr;")
+        encodeMap.add("↱" to "&Rsh;")
+        encodeMap.add("⧴" to "&RuleDelayed;")
+        encodeMap.add("Щ" to "&SHCHcy;")
+        encodeMap.add("Ш" to "&SHcy;")
+        encodeMap.add("Ь" to "&SOFTcy;")
+        encodeMap.add("Ś" to "&Sacute;")
+        encodeMap.add("⪼" to "&Sc;")
+        encodeMap.add("Š" to "&Scaron;")
+        encodeMap.add("Ş" to "&Scedil;")
+        encodeMap.add("Ŝ" to "&Scirc;")
+        encodeMap.add("С" to "&Scy;")
+        encodeMap.add("𝔖" to "&Sfr;")
+        encodeMap.add("↓" to "&ShortDownArrow;")
+        encodeMap.add("←" to "&ShortLeftArrow;")
+        encodeMap.add("→" to "&ShortRightArrow;")
+        encodeMap.add("↑" to "&ShortUpArrow;")
+        encodeMap.add("Σ" to "&Sigma;")
+        encodeMap.add("∘" to "&SmallCircle;")
+        encodeMap.add("𝕊" to "&Sopf;")
+        encodeMap.add("√" to "&Sqrt;")
+        encodeMap.add("□" to "&Square;")
+        encodeMap.add("⊓" to "&SquareIntersection;")
+        encodeMap.add("⊏" to "&SquareSubset;")
+        encodeMap.add("⊑" to "&SquareSubsetEqual;")
+        encodeMap.add("⊐" to "&SquareSuperset;")
+        encodeMap.add("⊒" to "&SquareSupersetEqual;")
+        encodeMap.add("⊔" to "&SquareUnion;")
+        encodeMap.add("𝒮" to "&Sscr;")
+        encodeMap.add("⋆" to "&Star;")
+        encodeMap.add("⋐" to "&Sub;")
+        encodeMap.add("⋐" to "&Subset;")
+        encodeMap.add("⊆" to "&SubsetEqual;")
+        encodeMap.add("≻" to "&Succeeds;")
+        encodeMap.add("⪰" to "&SucceedsEqual;")
+        encodeMap.add("≽" to "&SucceedsSlantEqual;")
+        encodeMap.add("≿" to "&SucceedsTilde;")
+        encodeMap.add("∋" to "&SuchThat;")
+        encodeMap.add("∑" to "&Sum;")
+        encodeMap.add("⋑" to "&Sup;")
+        encodeMap.add("⊃" to "&Superset;")
+        encodeMap.add("⊇" to "&SupersetEqual;")
+        encodeMap.add("⋑" to "&Supset;")
+        encodeMap.add("Þ" to "&THORN")
+        encodeMap.add("Þ" to "&THORN;")
+        encodeMap.add("™" to "&TRADE;")
+        encodeMap.add("Ћ" to "&TSHcy;")
+        encodeMap.add("Ц" to "&TScy;")
+        encodeMap.add("	" to "&Tab;")
+        encodeMap.add("Τ" to "&Tau;")
+        encodeMap.add("Ť" to "&Tcaron;")
+        encodeMap.add("Ţ" to "&Tcedil;")
+        encodeMap.add("Т" to "&Tcy;")
+        encodeMap.add("𝔗" to "&Tfr;")
+        encodeMap.add("∴" to "&Therefore;")
+        encodeMap.add("Θ" to "&Theta;")
+        encodeMap.add("  " to "&ThickSpace;")
+        encodeMap.add(" " to "&ThinSpace;")
+        encodeMap.add("∼" to "&Tilde;")
+        encodeMap.add("≃" to "&TildeEqual;")
+        encodeMap.add("≅" to "&TildeFullEqual;")
+        encodeMap.add("≈" to "&TildeTilde;")
+        encodeMap.add("𝕋" to "&Topf;")
+        encodeMap.add("⃛" to "&TripleDot;")
+        encodeMap.add("𝒯" to "&Tscr;")
+        encodeMap.add("Ŧ" to "&Tstrok;")
+        encodeMap.add("Ú" to "&Uacute")
+        encodeMap.add("Ú" to "&Uacute;")
+        encodeMap.add("↟" to "&Uarr;")
+        encodeMap.add("⥉" to "&Uarrocir;")
+        encodeMap.add("Ў" to "&Ubrcy;")
+        encodeMap.add("Ŭ" to "&Ubreve;")
+        encodeMap.add("Û" to "&Ucirc")
+        encodeMap.add("Û" to "&Ucirc;")
+        encodeMap.add("У" to "&Ucy;")
+        encodeMap.add("Ű" to "&Udblac;")
+        encodeMap.add("𝔘" to "&Ufr;")
+        encodeMap.add("Ù" to "&Ugrave")
+        encodeMap.add("Ù" to "&Ugrave;")
+        encodeMap.add("Ū" to "&Umacr;")
+        encodeMap.add("_" to "&UnderBar;")
+        encodeMap.add("⏟" to "&UnderBrace;")
+        encodeMap.add("⎵" to "&UnderBracket;")
+        encodeMap.add("⏝" to "&UnderParenthesis;")
+        encodeMap.add("⋃" to "&Union;")
+        encodeMap.add("⊎" to "&UnionPlus;")
+        encodeMap.add("Ų" to "&Uogon;")
+        encodeMap.add("𝕌" to "&Uopf;")
+        encodeMap.add("↑" to "&UpArrow;")
+        encodeMap.add("⤒" to "&UpArrowBar;")
+        encodeMap.add("⇅" to "&UpArrowDownArrow;")
+        encodeMap.add("↕" to "&UpDownArrow;")
+        encodeMap.add("⥮" to "&UpEquilibrium;")
+        encodeMap.add("⊥" to "&UpTee;")
+        encodeMap.add("↥" to "&UpTeeArrow;")
+        encodeMap.add("⇑" to "&Uparrow;")
+        encodeMap.add("⇕" to "&Updownarrow;")
+        encodeMap.add("↖" to "&UpperLeftArrow;")
+        encodeMap.add("↗" to "&UpperRightArrow;")
+        encodeMap.add("ϒ" to "&Upsi;")
+        encodeMap.add("Υ" to "&Upsilon;")
+        encodeMap.add("Ů" to "&Uring;")
+        encodeMap.add("𝒰" to "&Uscr;")
+        encodeMap.add("Ũ" to "&Utilde;")
+        encodeMap.add("Ü" to "&Uuml")
+        encodeMap.add("Ü" to "&Uuml;")
+        encodeMap.add("⊫" to "&VDash;")
+        encodeMap.add("⫫" to "&Vbar;")
+        encodeMap.add("В" to "&Vcy;")
+        encodeMap.add("⊩" to "&Vdash;")
+        encodeMap.add("⫦" to "&Vdashl;")
+        encodeMap.add("⋁" to "&Vee;")
+        encodeMap.add("‖" to "&Verbar;")
+        encodeMap.add("‖" to "&Vert;")
+        encodeMap.add("∣" to "&VerticalBar;")
+        encodeMap.add("|" to "&VerticalLine;")
+        encodeMap.add("❘" to "&VerticalSeparator;")
+        encodeMap.add("≀" to "&VerticalTilde;")
+        encodeMap.add(" " to "&VeryThinSpace;")
+        encodeMap.add("𝔙" to "&Vfr;")
+        encodeMap.add("𝕍" to "&Vopf;")
+        encodeMap.add("𝒱" to "&Vscr;")
+        encodeMap.add("⊪" to "&Vvdash;")
+        encodeMap.add("Ŵ" to "&Wcirc;")
+        encodeMap.add("⋀" to "&Wedge;")
+        encodeMap.add("𝔚" to "&Wfr;")
+        encodeMap.add("𝕎" to "&Wopf;")
+        encodeMap.add("𝒲" to "&Wscr;")
+        encodeMap.add("𝔛" to "&Xfr;")
+        encodeMap.add("Ξ" to "&Xi;")
+        encodeMap.add("𝕏" to "&Xopf;")
+        encodeMap.add("𝒳" to "&Xscr;")
+        encodeMap.add("Я" to "&YAcy;")
+        encodeMap.add("Ї" to "&YIcy;")
+        encodeMap.add("Ю" to "&YUcy;")
+        encodeMap.add("Ý" to "&Yacute")
+        encodeMap.add("Ý" to "&Yacute;")
+        encodeMap.add("Ŷ" to "&Ycirc;")
+        encodeMap.add("Ы" to "&Ycy;")
+        encodeMap.add("𝔜" to "&Yfr;")
+        encodeMap.add("𝕐" to "&Yopf;")
+        encodeMap.add("𝒴" to "&Yscr;")
+        encodeMap.add("Ÿ" to "&Yuml;")
+        encodeMap.add("Ж" to "&ZHcy;")
+        encodeMap.add("Ź" to "&Zacute;")
+        encodeMap.add("Ž" to "&Zcaron;")
+        encodeMap.add("З" to "&Zcy;")
+        encodeMap.add("Ż" to "&Zdot;")
+        encodeMap.add("​" to "&ZeroWidthSpace;")
+        encodeMap.add("Ζ" to "&Zeta;")
+        encodeMap.add("ℨ" to "&Zfr;")
+        encodeMap.add("ℤ" to "&Zopf;")
+        encodeMap.add("𝒵" to "&Zscr;")
+        encodeMap.add("á" to "&aacute")
+        encodeMap.add("á" to "&aacute;")
+        encodeMap.add("ă" to "&abreve;")
+        encodeMap.add("∾" to "&ac;")
+        encodeMap.add("∾̳" to "&acE;")
+        encodeMap.add("∿" to "&acd;")
+        encodeMap.add("â" to "&acirc")
+        encodeMap.add("â" to "&acirc;")
+        encodeMap.add("´" to "&acute")
+        encodeMap.add("´" to "&acute;")
+        encodeMap.add("а" to "&acy;")
+        encodeMap.add("æ" to "&aelig")
+        encodeMap.add("æ" to "&aelig;")
+        encodeMap.add("⁡" to "&af;")
+        encodeMap.add("𝔞" to "&afr;")
+        encodeMap.add("à" to "&agrave")
+        encodeMap.add("à" to "&agrave;")
+        encodeMap.add("ℵ" to "&alefsym;")
+        encodeMap.add("ℵ" to "&aleph;")
+        encodeMap.add("α" to "&alpha;")
+        encodeMap.add("ā" to "&amacr;")
+        encodeMap.add("⨿" to "&amalg;")
+        encodeMap.add("&" to "&amp")
+        encodeMap.add("&" to "&amp;")
+        encodeMap.add("∧" to "&and;")
+        encodeMap.add("⩕" to "&andand;")
+        encodeMap.add("⩜" to "&andd;")
+        encodeMap.add("⩘" to "&andslope;")
+        encodeMap.add("⩚" to "&andv;")
+        encodeMap.add("∠" to "&ang;")
+        encodeMap.add("⦤" to "&ange;")
+        encodeMap.add("∠" to "&angle;")
+        encodeMap.add("∡" to "&angmsd;")
+        encodeMap.add("⦨" to "&angmsdaa;")
+        encodeMap.add("⦩" to "&angmsdab;")
+        encodeMap.add("⦪" to "&angmsdac;")
+        encodeMap.add("⦫" to "&angmsdad;")
+        encodeMap.add("⦬" to "&angmsdae;")
+        encodeMap.add("⦭" to "&angmsdaf;")
+        encodeMap.add("⦮" to "&angmsdag;")
+        encodeMap.add("⦯" to "&angmsdah;")
+        encodeMap.add("∟" to "&angrt;")
+        encodeMap.add("⊾" to "&angrtvb;")
+        encodeMap.add("⦝" to "&angrtvbd;")
+        encodeMap.add("∢" to "&angsph;")
+        encodeMap.add("Å" to "&angst;")
+        encodeMap.add("⍼" to "&angzarr;")
+        encodeMap.add("ą" to "&aogon;")
+        encodeMap.add("𝕒" to "&aopf;")
+        encodeMap.add("≈" to "&ap;")
+        encodeMap.add("⩰" to "&apE;")
+        encodeMap.add("⩯" to "&apacir;")
+        encodeMap.add("≊" to "&ape;")
+        encodeMap.add("≋" to "&apid;")
+        encodeMap.add("'" to "&apos;")
+        encodeMap.add("≈" to "&approx;")
+        encodeMap.add("≊" to "&approxeq;")
+        encodeMap.add("å" to "&aring")
+        encodeMap.add("å" to "&aring;")
+        encodeMap.add("𝒶" to "&ascr;")
+        encodeMap.add("*" to "&ast;")
+        encodeMap.add("≈" to "&asymp;")
+        encodeMap.add("≍" to "&asympeq;")
+        encodeMap.add("ã" to "&atilde")
+        encodeMap.add("ã" to "&atilde;")
+        encodeMap.add("ä" to "&auml")
+        encodeMap.add("ä" to "&auml;")
+        encodeMap.add("∳" to "&awconint;")
+        encodeMap.add("⨑" to "&awint;")
+        encodeMap.add("⫭" to "&bNot;")
+        encodeMap.add("≌" to "&backcong;")
+        encodeMap.add("϶" to "&backepsilon;")
+        encodeMap.add("‵" to "&backprime;")
+        encodeMap.add("∽" to "&backsim;")
+        encodeMap.add("⋍" to "&backsimeq;")
+        encodeMap.add("⊽" to "&barvee;")
+        encodeMap.add("⌅" to "&barwed;")
+        encodeMap.add("⌅" to "&barwedge;")
+        encodeMap.add("⎵" to "&bbrk;")
+        encodeMap.add("⎶" to "&bbrktbrk;")
+        encodeMap.add("≌" to "&bcong;")
+        encodeMap.add("б" to "&bcy;")
+        encodeMap.add("„" to "&bdquo;")
+        encodeMap.add("∵" to "&becaus;")
+        encodeMap.add("∵" to "&because;")
+        encodeMap.add("⦰" to "&bemptyv;")
+        encodeMap.add("϶" to "&bepsi;")
+        encodeMap.add("ℬ" to "&bernou;")
+        encodeMap.add("β" to "&beta;")
+        encodeMap.add("ℶ" to "&beth;")
+        encodeMap.add("≬" to "&between;")
+        encodeMap.add("𝔟" to "&bfr;")
+        encodeMap.add("⋂" to "&bigcap;")
+        encodeMap.add("◯" to "&bigcirc;")
+        encodeMap.add("⋃" to "&bigcup;")
+        encodeMap.add("⨀" to "&bigodot;")
+        encodeMap.add("⨁" to "&bigoplus;")
+        encodeMap.add("⨂" to "&bigotimes;")
+        encodeMap.add("⨆" to "&bigsqcup;")
+        encodeMap.add("★" to "&bigstar;")
+        encodeMap.add("▽" to "&bigtriangledown;")
+        encodeMap.add("△" to "&bigtriangleup;")
+        encodeMap.add("⨄" to "&biguplus;")
+        encodeMap.add("⋁" to "&bigvee;")
+        encodeMap.add("⋀" to "&bigwedge;")
+        encodeMap.add("⤍" to "&bkarow;")
+        encodeMap.add("⧫" to "&blacklozenge;")
+        encodeMap.add("▪" to "&blacksquare;")
+        encodeMap.add("▴" to "&blacktriangle;")
+        encodeMap.add("▾" to "&blacktriangledown;")
+        encodeMap.add("◂" to "&blacktriangleleft;")
+        encodeMap.add("▸" to "&blacktriangleright;")
+        encodeMap.add("␣" to "&blank;")
+        encodeMap.add("▒" to "&blk12;")
+        encodeMap.add("░" to "&blk14;")
+        encodeMap.add("▓" to "&blk34;")
+        encodeMap.add("█" to "&block;")
+        encodeMap.add("=⃥" to "&bne;")
+        encodeMap.add("≡⃥" to "&bnequiv;")
+        encodeMap.add("⌐" to "&bnot;")
+        encodeMap.add("𝕓" to "&bopf;")
+        encodeMap.add("⊥" to "&bot;")
+        encodeMap.add("⊥" to "&bottom;")
+        encodeMap.add("⋈" to "&bowtie;")
+        encodeMap.add("╗" to "&boxDL;")
+        encodeMap.add("╔" to "&boxDR;")
+        encodeMap.add("╖" to "&boxDl;")
+        encodeMap.add("╓" to "&boxDr;")
+        encodeMap.add("═" to "&boxH;")
+        encodeMap.add("╦" to "&boxHD;")
+        encodeMap.add("╩" to "&boxHU;")
+        encodeMap.add("╤" to "&boxHd;")
+        encodeMap.add("╧" to "&boxHu;")
+        encodeMap.add("╝" to "&boxUL;")
+        encodeMap.add("╚" to "&boxUR;")
+        encodeMap.add("╜" to "&boxUl;")
+        encodeMap.add("╙" to "&boxUr;")
+        encodeMap.add("║" to "&boxV;")
+        encodeMap.add("╬" to "&boxVH;")
+        encodeMap.add("╣" to "&boxVL;")
+        encodeMap.add("╠" to "&boxVR;")
+        encodeMap.add("╫" to "&boxVh;")
+        encodeMap.add("╢" to "&boxVl;")
+        encodeMap.add("╟" to "&boxVr;")
+        encodeMap.add("⧉" to "&boxbox;")
+        encodeMap.add("╕" to "&boxdL;")
+        encodeMap.add("╒" to "&boxdR;")
+        encodeMap.add("┐" to "&boxdl;")
+        encodeMap.add("┌" to "&boxdr;")
+        encodeMap.add("─" to "&boxh;")
+        encodeMap.add("╥" to "&boxhD;")
+        encodeMap.add("╨" to "&boxhU;")
+        encodeMap.add("┬" to "&boxhd;")
+        encodeMap.add("┴" to "&boxhu;")
+        encodeMap.add("⊟" to "&boxminus;")
+        encodeMap.add("⊞" to "&boxplus;")
+        encodeMap.add("⊠" to "&boxtimes;")
+        encodeMap.add("╛" to "&boxuL;")
+        encodeMap.add("╘" to "&boxuR;")
+        encodeMap.add("┘" to "&boxul;")
+        encodeMap.add("└" to "&boxur;")
+        encodeMap.add("│" to "&boxv;")
+        encodeMap.add("╪" to "&boxvH;")
+        encodeMap.add("╡" to "&boxvL;")
+        encodeMap.add("╞" to "&boxvR;")
+        encodeMap.add("┼" to "&boxvh;")
+        encodeMap.add("┤" to "&boxvl;")
+        encodeMap.add("├" to "&boxvr;")
+        encodeMap.add("‵" to "&bprime;")
+        encodeMap.add("˘" to "&breve;")
+        encodeMap.add("¦" to "&brvbar")
+        encodeMap.add("¦" to "&brvbar;")
+        encodeMap.add("𝒷" to "&bscr;")
+        encodeMap.add("⁏" to "&bsemi;")
+        encodeMap.add("∽" to "&bsim;")
+        encodeMap.add("⋍" to "&bsime;")
+        encodeMap.add("\\" to "&bsol;")
+        encodeMap.add("⧅" to "&bsolb;")
+        encodeMap.add("⟈" to "&bsolhsub;")
+        encodeMap.add("•" to "&bull;")
+        encodeMap.add("•" to "&bullet;")
+        encodeMap.add("≎" to "&bump;")
+        encodeMap.add("⪮" to "&bumpE;")
+        encodeMap.add("≏" to "&bumpe;")
+        encodeMap.add("≏" to "&bumpeq;")
+        encodeMap.add("ć" to "&cacute;")
+        encodeMap.add("∩" to "&cap;")
+        encodeMap.add("⩄" to "&capand;")
+        encodeMap.add("⩉" to "&capbrcup;")
+        encodeMap.add("⩋" to "&capcap;")
+        encodeMap.add("⩇" to "&capcup;")
+        encodeMap.add("⩀" to "&capdot;")
+        encodeMap.add("∩︀" to "&caps;")
+        encodeMap.add("⁁" to "&caret;")
+        encodeMap.add("ˇ" to "&caron;")
+        encodeMap.add("⩍" to "&ccaps;")
+        encodeMap.add("č" to "&ccaron;")
+        encodeMap.add("ç" to "&ccedil")
+        encodeMap.add("ç" to "&ccedil;")
+        encodeMap.add("ĉ" to "&ccirc;")
+        encodeMap.add("⩌" to "&ccups;")
+        encodeMap.add("⩐" to "&ccupssm;")
+        encodeMap.add("ċ" to "&cdot;")
+        encodeMap.add("¸" to "&cedil")
+        encodeMap.add("¸" to "&cedil;")
+        encodeMap.add("⦲" to "&cemptyv;")
+        encodeMap.add("¢" to "&cent")
+        encodeMap.add("¢" to "&cent;")
+        encodeMap.add("·" to "&centerdot;")
+        encodeMap.add("𝔠" to "&cfr;")
+        encodeMap.add("ч" to "&chcy;")
+        encodeMap.add("✓" to "&check;")
+        encodeMap.add("✓" to "&checkmark;")
+        encodeMap.add("χ" to "&chi;")
+        encodeMap.add("○" to "&cir;")
+        encodeMap.add("⧃" to "&cirE;")
+        encodeMap.add("ˆ" to "&circ;")
+        encodeMap.add("≗" to "&circeq;")
+        encodeMap.add("↺" to "&circlearrowleft;")
+        encodeMap.add("↻" to "&circlearrowright;")
+        encodeMap.add("®" to "&circledR;")
+        encodeMap.add("Ⓢ" to "&circledS;")
+        encodeMap.add("⊛" to "&circledast;")
+        encodeMap.add("⊚" to "&circledcirc;")
+        encodeMap.add("⊝" to "&circleddash;")
+        encodeMap.add("≗" to "&cire;")
+        encodeMap.add("⨐" to "&cirfnint;")
+        encodeMap.add("⫯" to "&cirmid;")
+        encodeMap.add("⧂" to "&cirscir;")
+        encodeMap.add("♣" to "&clubs;")
+        encodeMap.add("♣" to "&clubsuit;")
+        encodeMap.add(":" to "&colon;")
+        encodeMap.add("≔" to "&colone;")
+        encodeMap.add("≔" to "&coloneq;")
+        encodeMap.add("," to "&comma;")
+        encodeMap.add("@" to "&commat;")
+        encodeMap.add("∁" to "&comp;")
+        encodeMap.add("∘" to "&compfn;")
+        encodeMap.add("∁" to "&complement;")
+        encodeMap.add("ℂ" to "&complexes;")
+        encodeMap.add("≅" to "&cong;")
+        encodeMap.add("⩭" to "&congdot;")
+        encodeMap.add("∮" to "&conint;")
+        encodeMap.add("𝕔" to "&copf;")
+        encodeMap.add("∐" to "&coprod;")
+        encodeMap.add("©" to "&copy")
+        encodeMap.add("©" to "&copy;")
+        encodeMap.add("℗" to "&copysr;")
+        encodeMap.add("↵" to "&crarr;")
+        encodeMap.add("✗" to "&cross;")
+        encodeMap.add("𝒸" to "&cscr;")
+        encodeMap.add("⫏" to "&csub;")
+        encodeMap.add("⫑" to "&csube;")
+        encodeMap.add("⫐" to "&csup;")
+        encodeMap.add("⫒" to "&csupe;")
+        encodeMap.add("⋯" to "&ctdot;")
+        encodeMap.add("⤸" to "&cudarrl;")
+        encodeMap.add("⤵" to "&cudarrr;")
+        encodeMap.add("⋞" to "&cuepr;")
+        encodeMap.add("⋟" to "&cuesc;")
+        encodeMap.add("↶" to "&cularr;")
+        encodeMap.add("⤽" to "&cularrp;")
+        encodeMap.add("∪" to "&cup;")
+        encodeMap.add("⩈" to "&cupbrcap;")
+        encodeMap.add("⩆" to "&cupcap;")
+        encodeMap.add("⩊" to "&cupcup;")
+        encodeMap.add("⊍" to "&cupdot;")
+        encodeMap.add("⩅" to "&cupor;")
+        encodeMap.add("∪︀" to "&cups;")
+        encodeMap.add("↷" to "&curarr;")
+        encodeMap.add("⤼" to "&curarrm;")
+        encodeMap.add("⋞" to "&curlyeqprec;")
+        encodeMap.add("⋟" to "&curlyeqsucc;")
+        encodeMap.add("⋎" to "&curlyvee;")
+        encodeMap.add("⋏" to "&curlywedge;")
+        encodeMap.add("¤" to "&curren")
+        encodeMap.add("¤" to "&curren;")
+        encodeMap.add("↶" to "&curvearrowleft;")
+        encodeMap.add("↷" to "&curvearrowright;")
+        encodeMap.add("⋎" to "&cuvee;")
+        encodeMap.add("⋏" to "&cuwed;")
+        encodeMap.add("∲" to "&cwconint;")
+        encodeMap.add("∱" to "&cwint;")
+        encodeMap.add("⌭" to "&cylcty;")
+        encodeMap.add("⇓" to "&dArr;")
+        encodeMap.add("⥥" to "&dHar;")
+        encodeMap.add("†" to "&dagger;")
+        encodeMap.add("ℸ" to "&daleth;")
+        encodeMap.add("↓" to "&darr;")
+        encodeMap.add("‐" to "&dash;")
+        encodeMap.add("⊣" to "&dashv;")
+        encodeMap.add("⤏" to "&dbkarow;")
+        encodeMap.add("˝" to "&dblac;")
+        encodeMap.add("ď" to "&dcaron;")
+        encodeMap.add("д" to "&dcy;")
+        encodeMap.add("ⅆ" to "&dd;")
+        encodeMap.add("‡" to "&ddagger;")
+        encodeMap.add("⇊" to "&ddarr;")
+        encodeMap.add("⩷" to "&ddotseq;")
+        encodeMap.add("°" to "&deg")
+        encodeMap.add("°" to "&deg;")
+        encodeMap.add("δ" to "&delta;")
+        encodeMap.add("⦱" to "&demptyv;")
+        encodeMap.add("⥿" to "&dfisht;")
+        encodeMap.add("𝔡" to "&dfr;")
+        encodeMap.add("⇃" to "&dharl;")
+        encodeMap.add("⇂" to "&dharr;")
+        encodeMap.add("⋄" to "&diam;")
+        encodeMap.add("⋄" to "&diamond;")
+        encodeMap.add("♦" to "&diamondsuit;")
+        encodeMap.add("♦" to "&diams;")
+        encodeMap.add("¨" to "&die;")
+        encodeMap.add("ϝ" to "&digamma;")
+        encodeMap.add("⋲" to "&disin;")
+        encodeMap.add("÷" to "&div;")
+        encodeMap.add("÷" to "&divide")
+        encodeMap.add("÷" to "&divide;")
+        encodeMap.add("⋇" to "&divideontimes;")
+        encodeMap.add("⋇" to "&divonx;")
+        encodeMap.add("ђ" to "&djcy;")
+        encodeMap.add("⌞" to "&dlcorn;")
+        encodeMap.add("⌍" to "&dlcrop;")
+        encodeMap.add("$" to "&dollar;")
+        encodeMap.add("𝕕" to "&dopf;")
+        encodeMap.add("˙" to "&dot;")
+        encodeMap.add("≐" to "&doteq;")
+        encodeMap.add("≑" to "&doteqdot;")
+        encodeMap.add("∸" to "&dotminus;")
+        encodeMap.add("∔" to "&dotplus;")
+        encodeMap.add("⊡" to "&dotsquare;")
+        encodeMap.add("⌆" to "&doublebarwedge;")
+        encodeMap.add("↓" to "&downarrow;")
+        encodeMap.add("⇊" to "&downdownarrows;")
+        encodeMap.add("⇃" to "&downharpoonleft;")
+        encodeMap.add("⇂" to "&downharpoonright;")
+        encodeMap.add("⤐" to "&drbkarow;")
+        encodeMap.add("⌟" to "&drcorn;")
+        encodeMap.add("⌌" to "&drcrop;")
+        encodeMap.add("𝒹" to "&dscr;")
+        encodeMap.add("ѕ" to "&dscy;")
+        encodeMap.add("⧶" to "&dsol;")
+        encodeMap.add("đ" to "&dstrok;")
+        encodeMap.add("⋱" to "&dtdot;")
+        encodeMap.add("▿" to "&dtri;")
+        encodeMap.add("▾" to "&dtrif;")
+        encodeMap.add("⇵" to "&duarr;")
+        encodeMap.add("⥯" to "&duhar;")
+        encodeMap.add("⦦" to "&dwangle;")
+        encodeMap.add("џ" to "&dzcy;")
+        encodeMap.add("⟿" to "&dzigrarr;")
+        encodeMap.add("⩷" to "&eDDot;")
+        encodeMap.add("≑" to "&eDot;")
+        encodeMap.add("é" to "&eacute")
+        encodeMap.add("é" to "&eacute;")
+        encodeMap.add("⩮" to "&easter;")
+        encodeMap.add("ě" to "&ecaron;")
+        encodeMap.add("≖" to "&ecir;")
+        encodeMap.add("ê" to "&ecirc")
+        encodeMap.add("ê" to "&ecirc;")
+        encodeMap.add("≕" to "&ecolon;")
+        encodeMap.add("э" to "&ecy;")
+        encodeMap.add("ė" to "&edot;")
+        encodeMap.add("ⅇ" to "&ee;")
+        encodeMap.add("≒" to "&efDot;")
+        encodeMap.add("𝔢" to "&efr;")
+        encodeMap.add("⪚" to "&eg;")
+        encodeMap.add("è" to "&egrave")
+        encodeMap.add("è" to "&egrave;")
+        encodeMap.add("⪖" to "&egs;")
+        encodeMap.add("⪘" to "&egsdot;")
+        encodeMap.add("⪙" to "&el;")
+        encodeMap.add("⏧" to "&elinters;")
+        encodeMap.add("ℓ" to "&ell;")
+        encodeMap.add("⪕" to "&els;")
+        encodeMap.add("⪗" to "&elsdot;")
+        encodeMap.add("ē" to "&emacr;")
+        encodeMap.add("∅" to "&empty;")
+        encodeMap.add("∅" to "&emptyset;")
+        encodeMap.add("∅" to "&emptyv;")
+        encodeMap.add(" " to "&emsp13;")
+        encodeMap.add(" " to "&emsp14;")
+        encodeMap.add(" " to "&emsp;")
+        encodeMap.add("ŋ" to "&eng;")
+        encodeMap.add(" " to "&ensp;")
+        encodeMap.add("ę" to "&eogon;")
+        encodeMap.add("𝕖" to "&eopf;")
+        encodeMap.add("⋕" to "&epar;")
+        encodeMap.add("⧣" to "&eparsl;")
+        encodeMap.add("⩱" to "&eplus;")
+        encodeMap.add("ε" to "&epsi;")
+        encodeMap.add("ε" to "&epsilon;")
+        encodeMap.add("ϵ" to "&epsiv;")
+        encodeMap.add("≖" to "&eqcirc;")
+        encodeMap.add("≕" to "&eqcolon;")
+        encodeMap.add("≂" to "&eqsim;")
+        encodeMap.add("⪖" to "&eqslantgtr;")
+        encodeMap.add("⪕" to "&eqslantless;")
+        encodeMap.add("=" to "&equals;")
+        encodeMap.add("≟" to "&equest;")
+        encodeMap.add("≡" to "&equiv;")
+        encodeMap.add("⩸" to "&equivDD;")
+        encodeMap.add("⧥" to "&eqvparsl;")
+        encodeMap.add("≓" to "&erDot;")
+        encodeMap.add("⥱" to "&erarr;")
+        encodeMap.add("ℯ" to "&escr;")
+        encodeMap.add("≐" to "&esdot;")
+        encodeMap.add("≂" to "&esim;")
+        encodeMap.add("η" to "&eta;")
+        encodeMap.add("ð" to "&eth")
+        encodeMap.add("ð" to "&eth;")
+        encodeMap.add("ë" to "&euml")
+        encodeMap.add("ë" to "&euml;")
+        encodeMap.add("€" to "&euro;")
+        encodeMap.add("!" to "&excl;")
+        encodeMap.add("∃" to "&exist;")
+        encodeMap.add("ℰ" to "&expectation;")
+        encodeMap.add("ⅇ" to "&exponentiale;")
+        encodeMap.add("≒" to "&fallingdotseq;")
+        encodeMap.add("ф" to "&fcy;")
+        encodeMap.add("♀" to "&female;")
+        encodeMap.add("ﬃ" to "&ffilig;")
+        encodeMap.add("ﬀ" to "&fflig;")
+        encodeMap.add("ﬄ" to "&ffllig;")
+        encodeMap.add("𝔣" to "&ffr;")
+        encodeMap.add("ﬁ" to "&filig;")
+        encodeMap.add("fj" to "&fjlig;")
+        encodeMap.add("♭" to "&flat;")
+        encodeMap.add("ﬂ" to "&fllig;")
+        encodeMap.add("▱" to "&fltns;")
+        encodeMap.add("ƒ" to "&fnof;")
+        encodeMap.add("𝕗" to "&fopf;")
+        encodeMap.add("∀" to "&forall;")
+        encodeMap.add("⋔" to "&fork;")
+        encodeMap.add("⫙" to "&forkv;")
+        encodeMap.add("⨍" to "&fpartint;")
+        encodeMap.add("½" to "&frac12")
+        encodeMap.add("½" to "&frac12;")
+        encodeMap.add("⅓" to "&frac13;")
+        encodeMap.add("¼" to "&frac14")
+        encodeMap.add("¼" to "&frac14;")
+        encodeMap.add("⅕" to "&frac15;")
+        encodeMap.add("⅙" to "&frac16;")
+        encodeMap.add("⅛" to "&frac18;")
+        encodeMap.add("⅔" to "&frac23;")
+        encodeMap.add("⅖" to "&frac25;")
+        encodeMap.add("¾" to "&frac34")
+        encodeMap.add("¾" to "&frac34;")
+        encodeMap.add("⅗" to "&frac35;")
+        encodeMap.add("⅜" to "&frac38;")
+        encodeMap.add("⅘" to "&frac45;")
+        encodeMap.add("⅚" to "&frac56;")
+        encodeMap.add("⅝" to "&frac58;")
+        encodeMap.add("⅞" to "&frac78;")
+        encodeMap.add("⁄" to "&frasl;")
+        encodeMap.add("⌢" to "&frown;")
+        encodeMap.add("𝒻" to "&fscr;")
+        encodeMap.add("≧" to "&gE;")
+        encodeMap.add("⪌" to "&gEl;")
+        encodeMap.add("ǵ" to "&gacute;")
+        encodeMap.add("γ" to "&gamma;")
+        encodeMap.add("ϝ" to "&gammad;")
+        encodeMap.add("⪆" to "&gap;")
+        encodeMap.add("ğ" to "&gbreve;")
+        encodeMap.add("ĝ" to "&gcirc;")
+        encodeMap.add("г" to "&gcy;")
+        encodeMap.add("ġ" to "&gdot;")
+        encodeMap.add("≥" to "&ge;")
+        encodeMap.add("⋛" to "&gel;")
+        encodeMap.add("≥" to "&geq;")
+        encodeMap.add("≧" to "&geqq;")
+        encodeMap.add("⩾" to "&geqslant;")
+        encodeMap.add("⩾" to "&ges;")
+        encodeMap.add("⪩" to "&gescc;")
+        encodeMap.add("⪀" to "&gesdot;")
+        encodeMap.add("⪂" to "&gesdoto;")
+        encodeMap.add("⪄" to "&gesdotol;")
+        encodeMap.add("⋛︀" to "&gesl;")
+        encodeMap.add("⪔" to "&gesles;")
+        encodeMap.add("𝔤" to "&gfr;")
+        encodeMap.add("≫" to "&gg;")
+        encodeMap.add("⋙" to "&ggg;")
+        encodeMap.add("ℷ" to "&gimel;")
+        encodeMap.add("ѓ" to "&gjcy;")
+        encodeMap.add("≷" to "&gl;")
+        encodeMap.add("⪒" to "&glE;")
+        encodeMap.add("⪥" to "&gla;")
+        encodeMap.add("⪤" to "&glj;")
+        encodeMap.add("≩" to "&gnE;")
+        encodeMap.add("⪊" to "&gnap;")
+        encodeMap.add("⪊" to "&gnapprox;")
+        encodeMap.add("⪈" to "&gne;")
+        encodeMap.add("⪈" to "&gneq;")
+        encodeMap.add("≩" to "&gneqq;")
+        encodeMap.add("⋧" to "&gnsim;")
+        encodeMap.add("𝕘" to "&gopf;")
+        encodeMap.add("`" to "&grave;")
+        encodeMap.add("ℊ" to "&gscr;")
+        encodeMap.add("≳" to "&gsim;")
+        encodeMap.add("⪎" to "&gsime;")
+        encodeMap.add("⪐" to "&gsiml;")
+        encodeMap.add(">" to "&gt")
+        encodeMap.add(">" to "&gt;")
+        encodeMap.add("⪧" to "&gtcc;")
+        encodeMap.add("⩺" to "&gtcir;")
+        encodeMap.add("⋗" to "&gtdot;")
+        encodeMap.add("⦕" to "&gtlPar;")
+        encodeMap.add("⩼" to "&gtquest;")
+        encodeMap.add("⪆" to "&gtrapprox;")
+        encodeMap.add("⥸" to "&gtrarr;")
+        encodeMap.add("⋗" to "&gtrdot;")
+        encodeMap.add("⋛" to "&gtreqless;")
+        encodeMap.add("⪌" to "&gtreqqless;")
+        encodeMap.add("≷" to "&gtrless;")
+        encodeMap.add("≳" to "&gtrsim;")
+        encodeMap.add("≩︀" to "&gvertneqq;")
+        encodeMap.add("≩︀" to "&gvnE;")
+        encodeMap.add("⇔" to "&hArr;")
+        encodeMap.add(" " to "&hairsp;")
+        encodeMap.add("½" to "&half;")
+        encodeMap.add("ℋ" to "&hamilt;")
+        encodeMap.add("ъ" to "&hardcy;")
+        encodeMap.add("↔" to "&harr;")
+        encodeMap.add("⥈" to "&harrcir;")
+        encodeMap.add("↭" to "&harrw;")
+        encodeMap.add("ℏ" to "&hbar;")
+        encodeMap.add("ĥ" to "&hcirc;")
+        encodeMap.add("♥" to "&hearts;")
+        encodeMap.add("♥" to "&heartsuit;")
+        encodeMap.add("…" to "&hellip;")
+        encodeMap.add("⊹" to "&hercon;")
+        encodeMap.add("𝔥" to "&hfr;")
+        encodeMap.add("⤥" to "&hksearow;")
+        encodeMap.add("⤦" to "&hkswarow;")
+        encodeMap.add("⇿" to "&hoarr;")
+        encodeMap.add("∻" to "&homtht;")
+        encodeMap.add("↩" to "&hookleftarrow;")
+        encodeMap.add("↪" to "&hookrightarrow;")
+        encodeMap.add("𝕙" to "&hopf;")
+        encodeMap.add("―" to "&horbar;")
+        encodeMap.add("𝒽" to "&hscr;")
+        encodeMap.add("ℏ" to "&hslash;")
+        encodeMap.add("ħ" to "&hstrok;")
+        encodeMap.add("⁃" to "&hybull;")
+        encodeMap.add("‐" to "&hyphen;")
+        encodeMap.add("í" to "&iacute")
+        encodeMap.add("í" to "&iacute;")
+        encodeMap.add("⁣" to "&ic;")
+        encodeMap.add("î" to "&icirc")
+        encodeMap.add("î" to "&icirc;")
+        encodeMap.add("и" to "&icy;")
+        encodeMap.add("е" to "&iecy;")
+        encodeMap.add("¡" to "&iexcl")
+        encodeMap.add("¡" to "&iexcl;")
+        encodeMap.add("⇔" to "&iff;")
+        encodeMap.add("𝔦" to "&ifr;")
+        encodeMap.add("ì" to "&igrave")
+        encodeMap.add("ì" to "&igrave;")
+        encodeMap.add("ⅈ" to "&ii;")
+        encodeMap.add("⨌" to "&iiiint;")
+        encodeMap.add("∭" to "&iiint;")
+        encodeMap.add("⧜" to "&iinfin;")
+        encodeMap.add("℩" to "&iiota;")
+        encodeMap.add("ĳ" to "&ijlig;")
+        encodeMap.add("ī" to "&imacr;")
+        encodeMap.add("ℑ" to "&image;")
+        encodeMap.add("ℐ" to "&imagline;")
+        encodeMap.add("ℑ" to "&imagpart;")
+        encodeMap.add("ı" to "&imath;")
+        encodeMap.add("⊷" to "&imof;")
+        encodeMap.add("Ƶ" to "&imped;")
+        encodeMap.add("∈" to "&in;")
+        encodeMap.add("℅" to "&incare;")
+        encodeMap.add("∞" to "&infin;")
+        encodeMap.add("⧝" to "&infintie;")
+        encodeMap.add("ı" to "&inodot;")
+        encodeMap.add("∫" to "&int;")
+        encodeMap.add("⊺" to "&intcal;")
+        encodeMap.add("ℤ" to "&integers;")
+        encodeMap.add("⊺" to "&intercal;")
+        encodeMap.add("⨗" to "&intlarhk;")
+        encodeMap.add("⨼" to "&intprod;")
+        encodeMap.add("ё" to "&iocy;")
+        encodeMap.add("į" to "&iogon;")
+        encodeMap.add("𝕚" to "&iopf;")
+        encodeMap.add("ι" to "&iota;")
+        encodeMap.add("⨼" to "&iprod;")
+        encodeMap.add("¿" to "&iquest")
+        encodeMap.add("¿" to "&iquest;")
+        encodeMap.add("𝒾" to "&iscr;")
+        encodeMap.add("∈" to "&isin;")
+        encodeMap.add("⋹" to "&isinE;")
+        encodeMap.add("⋵" to "&isindot;")
+        encodeMap.add("⋴" to "&isins;")
+        encodeMap.add("⋳" to "&isinsv;")
+        encodeMap.add("∈" to "&isinv;")
+        encodeMap.add("⁢" to "&it;")
+        encodeMap.add("ĩ" to "&itilde;")
+        encodeMap.add("і" to "&iukcy;")
+        encodeMap.add("ï" to "&iuml")
+        encodeMap.add("ï" to "&iuml;")
+        encodeMap.add("ĵ" to "&jcirc;")
+        encodeMap.add("й" to "&jcy;")
+        encodeMap.add("𝔧" to "&jfr;")
+        encodeMap.add("ȷ" to "&jmath;")
+        encodeMap.add("𝕛" to "&jopf;")
+        encodeMap.add("𝒿" to "&jscr;")
+        encodeMap.add("ј" to "&jsercy;")
+        encodeMap.add("є" to "&jukcy;")
+        encodeMap.add("κ" to "&kappa;")
+        encodeMap.add("ϰ" to "&kappav;")
+        encodeMap.add("ķ" to "&kcedil;")
+        encodeMap.add("к" to "&kcy;")
+        encodeMap.add("𝔨" to "&kfr;")
+        encodeMap.add("ĸ" to "&kgreen;")
+        encodeMap.add("х" to "&khcy;")
+        encodeMap.add("ќ" to "&kjcy;")
+        encodeMap.add("𝕜" to "&kopf;")
+        encodeMap.add("𝓀" to "&kscr;")
+        encodeMap.add("⇚" to "&lAarr;")
+        encodeMap.add("⇐" to "&lArr;")
+        encodeMap.add("⤛" to "&lAtail;")
+        encodeMap.add("⤎" to "&lBarr;")
+        encodeMap.add("≦" to "&lE;")
+        encodeMap.add("⪋" to "&lEg;")
+        encodeMap.add("⥢" to "&lHar;")
+        encodeMap.add("ĺ" to "&lacute;")
+        encodeMap.add("⦴" to "&laemptyv;")
+        encodeMap.add("ℒ" to "&lagran;")
+        encodeMap.add("λ" to "&lambda;")
+        encodeMap.add("⟨" to "&lang;")
+        encodeMap.add("⦑" to "&langd;")
+        encodeMap.add("⟨" to "&langle;")
+        encodeMap.add("⪅" to "&lap;")
+        encodeMap.add("«" to "&laquo")
+        encodeMap.add("«" to "&laquo;")
+        encodeMap.add("←" to "&larr;")
+        encodeMap.add("⇤" to "&larrb;")
+        encodeMap.add("⤟" to "&larrbfs;")
+        encodeMap.add("⤝" to "&larrfs;")
+        encodeMap.add("↩" to "&larrhk;")
+        encodeMap.add("↫" to "&larrlp;")
+        encodeMap.add("⤹" to "&larrpl;")
+        encodeMap.add("⥳" to "&larrsim;")
+        encodeMap.add("↢" to "&larrtl;")
+        encodeMap.add("⪫" to "&lat;")
+        encodeMap.add("⤙" to "&latail;")
+        encodeMap.add("⪭" to "&late;")
+        encodeMap.add("⪭︀" to "&lates;")
+        encodeMap.add("⤌" to "&lbarr;")
+        encodeMap.add("❲" to "&lbbrk;")
+        encodeMap.add("{" to "&lbrace;")
+        encodeMap.add("[" to "&lbrack;")
+        encodeMap.add("⦋" to "&lbrke;")
+        encodeMap.add("⦏" to "&lbrksld;")
+        encodeMap.add("⦍" to "&lbrkslu;")
+        encodeMap.add("ľ" to "&lcaron;")
+        encodeMap.add("ļ" to "&lcedil;")
+        encodeMap.add("⌈" to "&lceil;")
+        encodeMap.add("{" to "&lcub;")
+        encodeMap.add("л" to "&lcy;")
+        encodeMap.add("⤶" to "&ldca;")
+        encodeMap.add("“" to "&ldquo;")
+        encodeMap.add("„" to "&ldquor;")
+        encodeMap.add("⥧" to "&ldrdhar;")
+        encodeMap.add("⥋" to "&ldrushar;")
+        encodeMap.add("↲" to "&ldsh;")
+        encodeMap.add("≤" to "&le;")
+        encodeMap.add("←" to "&leftarrow;")
+        encodeMap.add("↢" to "&leftarrowtail;")
+        encodeMap.add("↽" to "&leftharpoondown;")
+        encodeMap.add("↼" to "&leftharpoonup;")
+        encodeMap.add("⇇" to "&leftleftarrows;")
+        encodeMap.add("↔" to "&leftrightarrow;")
+        encodeMap.add("⇆" to "&leftrightarrows;")
+        encodeMap.add("⇋" to "&leftrightharpoons;")
+        encodeMap.add("↭" to "&leftrightsquigarrow;")
+        encodeMap.add("⋋" to "&leftthreetimes;")
+        encodeMap.add("⋚" to "&leg;")
+        encodeMap.add("≤" to "&leq;")
+        encodeMap.add("≦" to "&leqq;")
+        encodeMap.add("⩽" to "&leqslant;")
+        encodeMap.add("⩽" to "&les;")
+        encodeMap.add("⪨" to "&lescc;")
+        encodeMap.add("⩿" to "&lesdot;")
+        encodeMap.add("⪁" to "&lesdoto;")
+        encodeMap.add("⪃" to "&lesdotor;")
+        encodeMap.add("⋚︀" to "&lesg;")
+        encodeMap.add("⪓" to "&lesges;")
+        encodeMap.add("⪅" to "&lessapprox;")
+        encodeMap.add("⋖" to "&lessdot;")
+        encodeMap.add("⋚" to "&lesseqgtr;")
+        encodeMap.add("⪋" to "&lesseqqgtr;")
+        encodeMap.add("≶" to "&lessgtr;")
+        encodeMap.add("≲" to "&lesssim;")
+        encodeMap.add("⥼" to "&lfisht;")
+        encodeMap.add("⌊" to "&lfloor;")
+        encodeMap.add("𝔩" to "&lfr;")
+        encodeMap.add("≶" to "&lg;")
+        encodeMap.add("⪑" to "&lgE;")
+        encodeMap.add("↽" to "&lhard;")
+        encodeMap.add("↼" to "&lharu;")
+        encodeMap.add("⥪" to "&lharul;")
+        encodeMap.add("▄" to "&lhblk;")
+        encodeMap.add("љ" to "&ljcy;")
+        encodeMap.add("≪" to "&ll;")
+        encodeMap.add("⇇" to "&llarr;")
+        encodeMap.add("⌞" to "&llcorner;")
+        encodeMap.add("⥫" to "&llhard;")
+        encodeMap.add("◺" to "&lltri;")
+        encodeMap.add("ŀ" to "&lmidot;")
+        encodeMap.add("⎰" to "&lmoust;")
+        encodeMap.add("⎰" to "&lmoustache;")
+        encodeMap.add("≨" to "&lnE;")
+        encodeMap.add("⪉" to "&lnap;")
+        encodeMap.add("⪉" to "&lnapprox;")
+        encodeMap.add("⪇" to "&lne;")
+        encodeMap.add("⪇" to "&lneq;")
+        encodeMap.add("≨" to "&lneqq;")
+        encodeMap.add("⋦" to "&lnsim;")
+        encodeMap.add("⟬" to "&loang;")
+        encodeMap.add("⇽" to "&loarr;")
+        encodeMap.add("⟦" to "&lobrk;")
+        encodeMap.add("⟵" to "&longleftarrow;")
+        encodeMap.add("⟷" to "&longleftrightarrow;")
+        encodeMap.add("⟼" to "&longmapsto;")
+        encodeMap.add("⟶" to "&longrightarrow;")
+        encodeMap.add("↫" to "&looparrowleft;")
+        encodeMap.add("↬" to "&looparrowright;")
+        encodeMap.add("⦅" to "&lopar;")
+        encodeMap.add("𝕝" to "&lopf;")
+        encodeMap.add("⨭" to "&loplus;")
+        encodeMap.add("⨴" to "&lotimes;")
+        encodeMap.add("∗" to "&lowast;")
+        encodeMap.add("_" to "&lowbar;")
+        encodeMap.add("◊" to "&loz;")
+        encodeMap.add("◊" to "&lozenge;")
+        encodeMap.add("⧫" to "&lozf;")
+        encodeMap.add("(" to "&lpar;")
+        encodeMap.add("⦓" to "&lparlt;")
+        encodeMap.add("⇆" to "&lrarr;")
+        encodeMap.add("⌟" to "&lrcorner;")
+        encodeMap.add("⇋" to "&lrhar;")
+        encodeMap.add("⥭" to "&lrhard;")
+        encodeMap.add("‎" to "&lrm;")
+        encodeMap.add("⊿" to "&lrtri;")
+        encodeMap.add("‹" to "&lsaquo;")
+        encodeMap.add("𝓁" to "&lscr;")
+        encodeMap.add("↰" to "&lsh;")
+        encodeMap.add("≲" to "&lsim;")
+        encodeMap.add("⪍" to "&lsime;")
+        encodeMap.add("⪏" to "&lsimg;")
+        encodeMap.add("[" to "&lsqb;")
+        encodeMap.add("‘" to "&lsquo;")
+        encodeMap.add("‚" to "&lsquor;")
+        encodeMap.add("ł" to "&lstrok;")
+        encodeMap.add("<" to "&lt")
+        encodeMap.add("<" to "&lt;")
+        encodeMap.add("⪦" to "&ltcc;")
+        encodeMap.add("⩹" to "&ltcir;")
+        encodeMap.add("⋖" to "&ltdot;")
+        encodeMap.add("⋋" to "&lthree;")
+        encodeMap.add("⋉" to "&ltimes;")
+        encodeMap.add("⥶" to "&ltlarr;")
+        encodeMap.add("⩻" to "&ltquest;")
+        encodeMap.add("⦖" to "&ltrPar;")
+        encodeMap.add("◃" to "&ltri;")
+        encodeMap.add("⊴" to "&ltrie;")
+        encodeMap.add("◂" to "&ltrif;")
+        encodeMap.add("⥊" to "&lurdshar;")
+        encodeMap.add("⥦" to "&luruhar;")
+        encodeMap.add("≨︀" to "&lvertneqq;")
+        encodeMap.add("≨︀" to "&lvnE;")
+        encodeMap.add("∺" to "&mDDot;")
+        encodeMap.add("¯" to "&macr")
+        encodeMap.add("¯" to "&macr;")
+        encodeMap.add("♂" to "&male;")
+        encodeMap.add("✠" to "&malt;")
+        encodeMap.add("✠" to "&maltese;")
+        encodeMap.add("↦" to "&map;")
+        encodeMap.add("↦" to "&mapsto;")
+        encodeMap.add("↧" to "&mapstodown;")
+        encodeMap.add("↤" to "&mapstoleft;")
+        encodeMap.add("↥" to "&mapstoup;")
+        encodeMap.add("▮" to "&marker;")
+        encodeMap.add("⨩" to "&mcomma;")
+        encodeMap.add("м" to "&mcy;")
+        encodeMap.add("—" to "&mdash;")
+        encodeMap.add("∡" to "&measuredangle;")
+        encodeMap.add("𝔪" to "&mfr;")
+        encodeMap.add("℧" to "&mho;")
+        encodeMap.add("µ" to "&micro")
+        encodeMap.add("µ" to "&micro;")
+        encodeMap.add("∣" to "&mid;")
+        encodeMap.add("*" to "&midast;")
+        encodeMap.add("⫰" to "&midcir;")
+        encodeMap.add("·" to "&middot")
+        encodeMap.add("·" to "&middot;")
+        encodeMap.add("−" to "&minus;")
+        encodeMap.add("⊟" to "&minusb;")
+        encodeMap.add("∸" to "&minusd;")
+        encodeMap.add("⨪" to "&minusdu;")
+        encodeMap.add("⫛" to "&mlcp;")
+        encodeMap.add("…" to "&mldr;")
+        encodeMap.add("∓" to "&mnplus;")
+        encodeMap.add("⊧" to "&models;")
+        encodeMap.add("𝕞" to "&mopf;")
+        encodeMap.add("∓" to "&mp;")
+        encodeMap.add("𝓂" to "&mscr;")
+        encodeMap.add("∾" to "&mstpos;")
+        encodeMap.add("μ" to "&mu;")
+        encodeMap.add("⊸" to "&multimap;")
+        encodeMap.add("⊸" to "&mumap;")
+        encodeMap.add("⋙̸" to "&nGg;")
+        encodeMap.add("≫⃒" to "&nGt;")
+        encodeMap.add("≫̸" to "&nGtv;")
+        encodeMap.add("⇍" to "&nLeftarrow;")
+        encodeMap.add("⇎" to "&nLeftrightarrow;")
+        encodeMap.add("⋘̸" to "&nLl;")
+        encodeMap.add("≪⃒" to "&nLt;")
+        encodeMap.add("≪̸" to "&nLtv;")
+        encodeMap.add("⇏" to "&nRightarrow;")
+        encodeMap.add("⊯" to "&nVDash;")
+        encodeMap.add("⊮" to "&nVdash;")
+        encodeMap.add("∇" to "&nabla;")
+        encodeMap.add("ń" to "&nacute;")
+        encodeMap.add("∠⃒" to "&nang;")
+        encodeMap.add("≉" to "&nap;")
+        encodeMap.add("⩰̸" to "&napE;")
+        encodeMap.add("≋̸" to "&napid;")
+        encodeMap.add("ŉ" to "&napos;")
+        encodeMap.add("≉" to "&napprox;")
+        encodeMap.add("♮" to "&natur;")
+        encodeMap.add("♮" to "&natural;")
+        encodeMap.add("ℕ" to "&naturals;")
+        encodeMap.add(" " to "&nbsp")
+        encodeMap.add(" " to "&nbsp;")
+        encodeMap.add("≎̸" to "&nbump;")
+        encodeMap.add("≏̸" to "&nbumpe;")
+        encodeMap.add("⩃" to "&ncap;")
+        encodeMap.add("ň" to "&ncaron;")
+        encodeMap.add("ņ" to "&ncedil;")
+        encodeMap.add("≇" to "&ncong;")
+        encodeMap.add("⩭̸" to "&ncongdot;")
+        encodeMap.add("⩂" to "&ncup;")
+        encodeMap.add("н" to "&ncy;")
+        encodeMap.add("–" to "&ndash;")
+        encodeMap.add("≠" to "&ne;")
+        encodeMap.add("⇗" to "&neArr;")
+        encodeMap.add("⤤" to "&nearhk;")
+        encodeMap.add("↗" to "&nearr;")
+        encodeMap.add("↗" to "&nearrow;")
+        encodeMap.add("≐̸" to "&nedot;")
+        encodeMap.add("≢" to "&nequiv;")
+        encodeMap.add("⤨" to "&nesear;")
+        encodeMap.add("≂̸" to "&nesim;")
+        encodeMap.add("∄" to "&nexist;")
+        encodeMap.add("∄" to "&nexists;")
+        encodeMap.add("𝔫" to "&nfr;")
+        encodeMap.add("≧̸" to "&ngE;")
+        encodeMap.add("≱" to "&nge;")
+        encodeMap.add("≱" to "&ngeq;")
+        encodeMap.add("≧̸" to "&ngeqq;")
+        encodeMap.add("⩾̸" to "&ngeqslant;")
+        encodeMap.add("⩾̸" to "&nges;")
+        encodeMap.add("≵" to "&ngsim;")
+        encodeMap.add("≯" to "&ngt;")
+        encodeMap.add("≯" to "&ngtr;")
+        encodeMap.add("⇎" to "&nhArr;")
+        encodeMap.add("↮" to "&nharr;")
+        encodeMap.add("⫲" to "&nhpar;")
+        encodeMap.add("∋" to "&ni;")
+        encodeMap.add("⋼" to "&nis;")
+        encodeMap.add("⋺" to "&nisd;")
+        encodeMap.add("∋" to "&niv;")
+        encodeMap.add("њ" to "&njcy;")
+        encodeMap.add("⇍" to "&nlArr;")
+        encodeMap.add("≦̸" to "&nlE;")
+        encodeMap.add("↚" to "&nlarr;")
+        encodeMap.add("‥" to "&nldr;")
+        encodeMap.add("≰" to "&nle;")
+        encodeMap.add("↚" to "&nleftarrow;")
+        encodeMap.add("↮" to "&nleftrightarrow;")
+        encodeMap.add("≰" to "&nleq;")
+        encodeMap.add("≦̸" to "&nleqq;")
+        encodeMap.add("⩽̸" to "&nleqslant;")
+        encodeMap.add("⩽̸" to "&nles;")
+        encodeMap.add("≮" to "&nless;")
+        encodeMap.add("≴" to "&nlsim;")
+        encodeMap.add("≮" to "&nlt;")
+        encodeMap.add("⋪" to "&nltri;")
+        encodeMap.add("⋬" to "&nltrie;")
+        encodeMap.add("∤" to "&nmid;")
+        encodeMap.add("𝕟" to "&nopf;")
+        encodeMap.add("¬" to "&not")
+        encodeMap.add("¬" to "&not;")
+        encodeMap.add("∉" to "&notin;")
+        encodeMap.add("⋹̸" to "&notinE;")
+        encodeMap.add("⋵̸" to "&notindot;")
+        encodeMap.add("∉" to "&notinva;")
+        encodeMap.add("⋷" to "&notinvb;")
+        encodeMap.add("⋶" to "&notinvc;")
+        encodeMap.add("∌" to "&notni;")
+        encodeMap.add("∌" to "&notniva;")
+        encodeMap.add("⋾" to "&notnivb;")
+        encodeMap.add("⋽" to "&notnivc;")
+        encodeMap.add("∦" to "&npar;")
+        encodeMap.add("∦" to "&nparallel;")
+        encodeMap.add("⫽⃥" to "&nparsl;")
+        encodeMap.add("∂̸" to "&npart;")
+        encodeMap.add("⨔" to "&npolint;")
+        encodeMap.add("⊀" to "&npr;")
+        encodeMap.add("⋠" to "&nprcue;")
+        encodeMap.add("⪯̸" to "&npre;")
+        encodeMap.add("⊀" to "&nprec;")
+        encodeMap.add("⪯̸" to "&npreceq;")
+        encodeMap.add("⇏" to "&nrArr;")
+        encodeMap.add("↛" to "&nrarr;")
+        encodeMap.add("⤳̸" to "&nrarrc;")
+        encodeMap.add("↝̸" to "&nrarrw;")
+        encodeMap.add("↛" to "&nrightarrow;")
+        encodeMap.add("⋫" to "&nrtri;")
+        encodeMap.add("⋭" to "&nrtrie;")
+        encodeMap.add("⊁" to "&nsc;")
+        encodeMap.add("⋡" to "&nsccue;")
+        encodeMap.add("⪰̸" to "&nsce;")
+        encodeMap.add("𝓃" to "&nscr;")
+        encodeMap.add("∤" to "&nshortmid;")
+        encodeMap.add("∦" to "&nshortparallel;")
+        encodeMap.add("≁" to "&nsim;")
+        encodeMap.add("≄" to "&nsime;")
+        encodeMap.add("≄" to "&nsimeq;")
+        encodeMap.add("∤" to "&nsmid;")
+        encodeMap.add("∦" to "&nspar;")
+        encodeMap.add("⋢" to "&nsqsube;")
+        encodeMap.add("⋣" to "&nsqsupe;")
+        encodeMap.add("⊄" to "&nsub;")
+        encodeMap.add("⫅̸" to "&nsubE;")
+        encodeMap.add("⊈" to "&nsube;")
+        encodeMap.add("⊂⃒" to "&nsubset;")
+        encodeMap.add("⊈" to "&nsubseteq;")
+        encodeMap.add("⫅̸" to "&nsubseteqq;")
+        encodeMap.add("⊁" to "&nsucc;")
+        encodeMap.add("⪰̸" to "&nsucceq;")
+        encodeMap.add("⊅" to "&nsup;")
+        encodeMap.add("⫆̸" to "&nsupE;")
+        encodeMap.add("⊉" to "&nsupe;")
+        encodeMap.add("⊃⃒" to "&nsupset;")
+        encodeMap.add("⊉" to "&nsupseteq;")
+        encodeMap.add("⫆̸" to "&nsupseteqq;")
+        encodeMap.add("≹" to "&ntgl;")
+        encodeMap.add("ñ" to "&ntilde")
+        encodeMap.add("ñ" to "&ntilde;")
+        encodeMap.add("≸" to "&ntlg;")
+        encodeMap.add("⋪" to "&ntriangleleft;")
+        encodeMap.add("⋬" to "&ntrianglelefteq;")
+        encodeMap.add("⋫" to "&ntriangleright;")
+        encodeMap.add("⋭" to "&ntrianglerighteq;")
+        encodeMap.add("ν" to "&nu;")
+        encodeMap.add("#" to "&num;")
+        encodeMap.add("№" to "&numero;")
+        encodeMap.add(" " to "&numsp;")
+        encodeMap.add("⊭" to "&nvDash;")
+        encodeMap.add("⤄" to "&nvHarr;")
+        encodeMap.add("≍⃒" to "&nvap;")
+        encodeMap.add("⊬" to "&nvdash;")
+        encodeMap.add("≥⃒" to "&nvge;")
+        encodeMap.add(">⃒" to "&nvgt;")
+        encodeMap.add("⧞" to "&nvinfin;")
+        encodeMap.add("⤂" to "&nvlArr;")
+        encodeMap.add("≤⃒" to "&nvle;")
+        encodeMap.add("<⃒" to "&nvlt;")
+        encodeMap.add("⊴⃒" to "&nvltrie;")
+        encodeMap.add("⤃" to "&nvrArr;")
+        encodeMap.add("⊵⃒" to "&nvrtrie;")
+        encodeMap.add("∼⃒" to "&nvsim;")
+        encodeMap.add("⇖" to "&nwArr;")
+        encodeMap.add("⤣" to "&nwarhk;")
+        encodeMap.add("↖" to "&nwarr;")
+        encodeMap.add("↖" to "&nwarrow;")
+        encodeMap.add("⤧" to "&nwnear;")
+        encodeMap.add("Ⓢ" to "&oS;")
+        encodeMap.add("ó" to "&oacute")
+        encodeMap.add("ó" to "&oacute;")
+        encodeMap.add("⊛" to "&oast;")
+        encodeMap.add("⊚" to "&ocir;")
+        encodeMap.add("ô" to "&ocirc")
+        encodeMap.add("ô" to "&ocirc;")
+        encodeMap.add("о" to "&ocy;")
+        encodeMap.add("⊝" to "&odash;")
+        encodeMap.add("ő" to "&odblac;")
+        encodeMap.add("⨸" to "&odiv;")
+        encodeMap.add("⊙" to "&odot;")
+        encodeMap.add("⦼" to "&odsold;")
+        encodeMap.add("œ" to "&oelig;")
+        encodeMap.add("⦿" to "&ofcir;")
+        encodeMap.add("𝔬" to "&ofr;")
+        encodeMap.add("˛" to "&ogon;")
+        encodeMap.add("ò" to "&ograve")
+        encodeMap.add("ò" to "&ograve;")
+        encodeMap.add("⧁" to "&ogt;")
+        encodeMap.add("⦵" to "&ohbar;")
+        encodeMap.add("Ω" to "&ohm;")
+        encodeMap.add("∮" to "&oint;")
+        encodeMap.add("↺" to "&olarr;")
+        encodeMap.add("⦾" to "&olcir;")
+        encodeMap.add("⦻" to "&olcross;")
+        encodeMap.add("‾" to "&oline;")
+        encodeMap.add("⧀" to "&olt;")
+        encodeMap.add("ō" to "&omacr;")
+        encodeMap.add("ω" to "&omega;")
+        encodeMap.add("ο" to "&omicron;")
+        encodeMap.add("⦶" to "&omid;")
+        encodeMap.add("⊖" to "&ominus;")
+        encodeMap.add("𝕠" to "&oopf;")
+        encodeMap.add("⦷" to "&opar;")
+        encodeMap.add("⦹" to "&operp;")
+        encodeMap.add("⊕" to "&oplus;")
+        encodeMap.add("∨" to "&or;")
+        encodeMap.add("↻" to "&orarr;")
+        encodeMap.add("⩝" to "&ord;")
+        encodeMap.add("ℴ" to "&order;")
+        encodeMap.add("ℴ" to "&orderof;")
+        encodeMap.add("ª" to "&ordf")
+        encodeMap.add("ª" to "&ordf;")
+        encodeMap.add("º" to "&ordm")
+        encodeMap.add("º" to "&ordm;")
+        encodeMap.add("⊶" to "&origof;")
+        encodeMap.add("⩖" to "&oror;")
+        encodeMap.add("⩗" to "&orslope;")
+        encodeMap.add("⩛" to "&orv;")
+        encodeMap.add("ℴ" to "&oscr;")
+        encodeMap.add("ø" to "&oslash")
+        encodeMap.add("ø" to "&oslash;")
+        encodeMap.add("⊘" to "&osol;")
+        encodeMap.add("õ" to "&otilde")
+        encodeMap.add("õ" to "&otilde;")
+        encodeMap.add("⊗" to "&otimes;")
+        encodeMap.add("⨶" to "&otimesas;")
+        encodeMap.add("ö" to "&ouml")
+        encodeMap.add("ö" to "&ouml;")
+        encodeMap.add("⌽" to "&ovbar;")
+        encodeMap.add("∥" to "&par;")
+        encodeMap.add("¶" to "&para")
+        encodeMap.add("¶" to "&para;")
+        encodeMap.add("∥" to "&parallel;")
+        encodeMap.add("⫳" to "&parsim;")
+        encodeMap.add("⫽" to "&parsl;")
+        encodeMap.add("∂" to "&part;")
+        encodeMap.add("п" to "&pcy;")
+        encodeMap.add("%" to "&percnt;")
+        encodeMap.add("." to "&period;")
+        encodeMap.add("‰" to "&permil;")
+        encodeMap.add("⊥" to "&perp;")
+        encodeMap.add("‱" to "&pertenk;")
+        encodeMap.add("𝔭" to "&pfr;")
+        encodeMap.add("φ" to "&phi;")
+        encodeMap.add("ϕ" to "&phiv;")
+        encodeMap.add("ℳ" to "&phmmat;")
+        encodeMap.add("☎" to "&phone;")
+        encodeMap.add("π" to "&pi;")
+        encodeMap.add("⋔" to "&pitchfork;")
+        encodeMap.add("ϖ" to "&piv;")
+        encodeMap.add("ℏ" to "&planck;")
+        encodeMap.add("ℎ" to "&planckh;")
+        encodeMap.add("ℏ" to "&plankv;")
+        encodeMap.add("+" to "&plus;")
+        encodeMap.add("⨣" to "&plusacir;")
+        encodeMap.add("⊞" to "&plusb;")
+        encodeMap.add("⨢" to "&pluscir;")
+        encodeMap.add("∔" to "&plusdo;")
+        encodeMap.add("⨥" to "&plusdu;")
+        encodeMap.add("⩲" to "&pluse;")
+        encodeMap.add("±" to "&plusmn")
+        encodeMap.add("±" to "&plusmn;")
+        encodeMap.add("⨦" to "&plussim;")
+        encodeMap.add("⨧" to "&plustwo;")
+        encodeMap.add("±" to "&pm;")
+        encodeMap.add("⨕" to "&pointint;")
+        encodeMap.add("𝕡" to "&popf;")
+        encodeMap.add("£" to "&pound")
+        encodeMap.add("£" to "&pound;")
+        encodeMap.add("≺" to "&pr;")
+        encodeMap.add("⪳" to "&prE;")
+        encodeMap.add("⪷" to "&prap;")
+        encodeMap.add("≼" to "&prcue;")
+        encodeMap.add("⪯" to "&pre;")
+        encodeMap.add("≺" to "&prec;")
+        encodeMap.add("⪷" to "&precapprox;")
+        encodeMap.add("≼" to "&preccurlyeq;")
+        encodeMap.add("⪯" to "&preceq;")
+        encodeMap.add("⪹" to "&precnapprox;")
+        encodeMap.add("⪵" to "&precneqq;")
+        encodeMap.add("⋨" to "&precnsim;")
+        encodeMap.add("≾" to "&precsim;")
+        encodeMap.add("′" to "&prime;")
+        encodeMap.add("ℙ" to "&primes;")
+        encodeMap.add("⪵" to "&prnE;")
+        encodeMap.add("⪹" to "&prnap;")
+        encodeMap.add("⋨" to "&prnsim;")
+        encodeMap.add("∏" to "&prod;")
+        encodeMap.add("⌮" to "&profalar;")
+        encodeMap.add("⌒" to "&profline;")
+        encodeMap.add("⌓" to "&profsurf;")
+        encodeMap.add("∝" to "&prop;")
+        encodeMap.add("∝" to "&propto;")
+        encodeMap.add("≾" to "&prsim;")
+        encodeMap.add("⊰" to "&prurel;")
+        encodeMap.add("𝓅" to "&pscr;")
+        encodeMap.add("ψ" to "&psi;")
+        encodeMap.add(" " to "&puncsp;")
+        encodeMap.add("𝔮" to "&qfr;")
+        encodeMap.add("⨌" to "&qint;")
+        encodeMap.add("𝕢" to "&qopf;")
+        encodeMap.add("⁗" to "&qprime;")
+        encodeMap.add("𝓆" to "&qscr;")
+        encodeMap.add("ℍ" to "&quaternions;")
+        encodeMap.add("⨖" to "&quatint;")
+        encodeMap.add("?" to "&quest;")
+        encodeMap.add("≟" to "&questeq;")
+        encodeMap.add("\"" to "&quot")
+        encodeMap.add("\"" to "&quot;")
+        encodeMap.add("⇛" to "&rAarr;")
+        encodeMap.add("⇒" to "&rArr;")
+        encodeMap.add("⤜" to "&rAtail;")
+        encodeMap.add("⤏" to "&rBarr;")
+        encodeMap.add("⥤" to "&rHar;")
+        encodeMap.add("∽̱" to "&race;")
+        encodeMap.add("ŕ" to "&racute;")
+        encodeMap.add("√" to "&radic;")
+        encodeMap.add("⦳" to "&raemptyv;")
+        encodeMap.add("⟩" to "&rang;")
+        encodeMap.add("⦒" to "&rangd;")
+        encodeMap.add("⦥" to "&range;")
+        encodeMap.add("⟩" to "&rangle;")
+        encodeMap.add("»" to "&raquo")
+        encodeMap.add("»" to "&raquo;")
+        encodeMap.add("→" to "&rarr;")
+        encodeMap.add("⥵" to "&rarrap;")
+        encodeMap.add("⇥" to "&rarrb;")
+        encodeMap.add("⤠" to "&rarrbfs;")
+        encodeMap.add("⤳" to "&rarrc;")
+        encodeMap.add("⤞" to "&rarrfs;")
+        encodeMap.add("↪" to "&rarrhk;")
+        encodeMap.add("↬" to "&rarrlp;")
+        encodeMap.add("⥅" to "&rarrpl;")
+        encodeMap.add("⥴" to "&rarrsim;")
+        encodeMap.add("↣" to "&rarrtl;")
+        encodeMap.add("↝" to "&rarrw;")
+        encodeMap.add("⤚" to "&ratail;")
+        encodeMap.add("∶" to "&ratio;")
+        encodeMap.add("ℚ" to "&rationals;")
+        encodeMap.add("⤍" to "&rbarr;")
+        encodeMap.add("❳" to "&rbbrk;")
+        encodeMap.add("}" to "&rbrace;")
+        encodeMap.add("]" to "&rbrack;")
+        encodeMap.add("⦌" to "&rbrke;")
+        encodeMap.add("⦎" to "&rbrksld;")
+        encodeMap.add("⦐" to "&rbrkslu;")
+        encodeMap.add("ř" to "&rcaron;")
+        encodeMap.add("ŗ" to "&rcedil;")
+        encodeMap.add("⌉" to "&rceil;")
+        encodeMap.add("}" to "&rcub;")
+        encodeMap.add("р" to "&rcy;")
+        encodeMap.add("⤷" to "&rdca;")
+        encodeMap.add("⥩" to "&rdldhar;")
+        encodeMap.add("”" to "&rdquo;")
+        encodeMap.add("”" to "&rdquor;")
+        encodeMap.add("↳" to "&rdsh;")
+        encodeMap.add("ℜ" to "&real;")
+        encodeMap.add("ℛ" to "&realine;")
+        encodeMap.add("ℜ" to "&realpart;")
+        encodeMap.add("ℝ" to "&reals;")
+        encodeMap.add("▭" to "&rect;")
+        encodeMap.add("®" to "&reg")
+        encodeMap.add("®" to "&reg;")
+        encodeMap.add("⥽" to "&rfisht;")
+        encodeMap.add("⌋" to "&rfloor;")
+        encodeMap.add("𝔯" to "&rfr;")
+        encodeMap.add("⇁" to "&rhard;")
+        encodeMap.add("⇀" to "&rharu;")
+        encodeMap.add("⥬" to "&rharul;")
+        encodeMap.add("ρ" to "&rho;")
+        encodeMap.add("ϱ" to "&rhov;")
+        encodeMap.add("→" to "&rightarrow;")
+        encodeMap.add("↣" to "&rightarrowtail;")
+        encodeMap.add("⇁" to "&rightharpoondown;")
+        encodeMap.add("⇀" to "&rightharpoonup;")
+        encodeMap.add("⇄" to "&rightleftarrows;")
+        encodeMap.add("⇌" to "&rightleftharpoons;")
+        encodeMap.add("⇉" to "&rightrightarrows;")
+        encodeMap.add("↝" to "&rightsquigarrow;")
+        encodeMap.add("⋌" to "&rightthreetimes;")
+        encodeMap.add("˚" to "&ring;")
+        encodeMap.add("≓" to "&risingdotseq;")
+        encodeMap.add("⇄" to "&rlarr;")
+        encodeMap.add("⇌" to "&rlhar;")
+        encodeMap.add("‏" to "&rlm;")
+        encodeMap.add("⎱" to "&rmoust;")
+        encodeMap.add("⎱" to "&rmoustache;")
+        encodeMap.add("⫮" to "&rnmid;")
+        encodeMap.add("⟭" to "&roang;")
+        encodeMap.add("⇾" to "&roarr;")
+        encodeMap.add("⟧" to "&robrk;")
+        encodeMap.add("⦆" to "&ropar;")
+        encodeMap.add("𝕣" to "&ropf;")
+        encodeMap.add("⨮" to "&roplus;")
+        encodeMap.add("⨵" to "&rotimes;")
+        encodeMap.add(")" to "&rpar;")
+        encodeMap.add("⦔" to "&rpargt;")
+        encodeMap.add("⨒" to "&rppolint;")
+        encodeMap.add("⇉" to "&rrarr;")
+        encodeMap.add("›" to "&rsaquo;")
+        encodeMap.add("𝓇" to "&rscr;")
+        encodeMap.add("↱" to "&rsh;")
+        encodeMap.add("]" to "&rsqb;")
+        encodeMap.add("’" to "&rsquo;")
+        encodeMap.add("’" to "&rsquor;")
+        encodeMap.add("⋌" to "&rthree;")
+        encodeMap.add("⋊" to "&rtimes;")
+        encodeMap.add("▹" to "&rtri;")
+        encodeMap.add("⊵" to "&rtrie;")
+        encodeMap.add("▸" to "&rtrif;")
+        encodeMap.add("⧎" to "&rtriltri;")
+        encodeMap.add("⥨" to "&ruluhar;")
+        encodeMap.add("℞" to "&rx;")
+        encodeMap.add("ś" to "&sacute;")
+        encodeMap.add("‚" to "&sbquo;")
+        encodeMap.add("≻" to "&sc;")
+        encodeMap.add("⪴" to "&scE;")
+        encodeMap.add("⪸" to "&scap;")
+        encodeMap.add("š" to "&scaron;")
+        encodeMap.add("≽" to "&sccue;")
+        encodeMap.add("⪰" to "&sce;")
+        encodeMap.add("ş" to "&scedil;")
+        encodeMap.add("ŝ" to "&scirc;")
+        encodeMap.add("⪶" to "&scnE;")
+        encodeMap.add("⪺" to "&scnap;")
+        encodeMap.add("⋩" to "&scnsim;")
+        encodeMap.add("⨓" to "&scpolint;")
+        encodeMap.add("≿" to "&scsim;")
+        encodeMap.add("с" to "&scy;")
+        encodeMap.add("⋅" to "&sdot;")
+        encodeMap.add("⊡" to "&sdotb;")
+        encodeMap.add("⩦" to "&sdote;")
+        encodeMap.add("⇘" to "&seArr;")
+        encodeMap.add("⤥" to "&searhk;")
+        encodeMap.add("↘" to "&searr;")
+        encodeMap.add("↘" to "&searrow;")
+        encodeMap.add("§" to "&sect")
+        encodeMap.add("§" to "&sect;")
+        encodeMap.add(";" to "&semi;")
+        encodeMap.add("⤩" to "&seswar;")
+        encodeMap.add("∖" to "&setminus;")
+        encodeMap.add("∖" to "&setmn;")
+        encodeMap.add("✶" to "&sext;")
+        encodeMap.add("𝔰" to "&sfr;")
+        encodeMap.add("⌢" to "&sfrown;")
+        encodeMap.add("♯" to "&sharp;")
+        encodeMap.add("щ" to "&shchcy;")
+        encodeMap.add("ш" to "&shcy;")
+        encodeMap.add("∣" to "&shortmid;")
+        encodeMap.add("∥" to "&shortparallel;")
+        encodeMap.add("­" to "&shy")
+        encodeMap.add("­" to "&shy;")
+        encodeMap.add("σ" to "&sigma;")
+        encodeMap.add("ς" to "&sigmaf;")
+        encodeMap.add("ς" to "&sigmav;")
+        encodeMap.add("∼" to "&sim;")
+        encodeMap.add("⩪" to "&simdot;")
+        encodeMap.add("≃" to "&sime;")
+        encodeMap.add("≃" to "&simeq;")
+        encodeMap.add("⪞" to "&simg;")
+        encodeMap.add("⪠" to "&simgE;")
+        encodeMap.add("⪝" to "&siml;")
+        encodeMap.add("⪟" to "&simlE;")
+        encodeMap.add("≆" to "&simne;")
+        encodeMap.add("⨤" to "&simplus;")
+        encodeMap.add("⥲" to "&simrarr;")
+        encodeMap.add("←" to "&slarr;")
+        encodeMap.add("∖" to "&smallsetminus;")
+        encodeMap.add("⨳" to "&smashp;")
+        encodeMap.add("⧤" to "&smeparsl;")
+        encodeMap.add("∣" to "&smid;")
+        encodeMap.add("⌣" to "&smile;")
+        encodeMap.add("⪪" to "&smt;")
+        encodeMap.add("⪬" to "&smte;")
+        encodeMap.add("⪬︀" to "&smtes;")
+        encodeMap.add("ь" to "&softcy;")
+        encodeMap.add("/" to "&sol;")
+        encodeMap.add("⧄" to "&solb;")
+        encodeMap.add("⌿" to "&solbar;")
+        encodeMap.add("𝕤" to "&sopf;")
+        encodeMap.add("♠" to "&spades;")
+        encodeMap.add("♠" to "&spadesuit;")
+        encodeMap.add("∥" to "&spar;")
+        encodeMap.add("⊓" to "&sqcap;")
+        encodeMap.add("⊓︀" to "&sqcaps;")
+        encodeMap.add("⊔" to "&sqcup;")
+        encodeMap.add("⊔︀" to "&sqcups;")
+        encodeMap.add("⊏" to "&sqsub;")
+        encodeMap.add("⊑" to "&sqsube;")
+        encodeMap.add("⊏" to "&sqsubset;")
+        encodeMap.add("⊑" to "&sqsubseteq;")
+        encodeMap.add("⊐" to "&sqsup;")
+        encodeMap.add("⊒" to "&sqsupe;")
+        encodeMap.add("⊐" to "&sqsupset;")
+        encodeMap.add("⊒" to "&sqsupseteq;")
+        encodeMap.add("□" to "&squ;")
+        encodeMap.add("□" to "&square;")
+        encodeMap.add("▪" to "&squarf;")
+        encodeMap.add("▪" to "&squf;")
+        encodeMap.add("→" to "&srarr;")
+        encodeMap.add("𝓈" to "&sscr;")
+        encodeMap.add("∖" to "&ssetmn;")
+        encodeMap.add("⌣" to "&ssmile;")
+        encodeMap.add("⋆" to "&sstarf;")
+        encodeMap.add("☆" to "&star;")
+        encodeMap.add("★" to "&starf;")
+        encodeMap.add("ϵ" to "&straightepsilon;")
+        encodeMap.add("ϕ" to "&straightphi;")
+        encodeMap.add("¯" to "&strns;")
+        encodeMap.add("⊂" to "&sub;")
+        encodeMap.add("⫅" to "&subE;")
+        encodeMap.add("⪽" to "&subdot;")
+        encodeMap.add("⊆" to "&sube;")
+        encodeMap.add("⫃" to "&subedot;")
+        encodeMap.add("⫁" to "&submult;")
+        encodeMap.add("⫋" to "&subnE;")
+        encodeMap.add("⊊" to "&subne;")
+        encodeMap.add("⪿" to "&subplus;")
+        encodeMap.add("⥹" to "&subrarr;")
+        encodeMap.add("⊂" to "&subset;")
+        encodeMap.add("⊆" to "&subseteq;")
+        encodeMap.add("⫅" to "&subseteqq;")
+        encodeMap.add("⊊" to "&subsetneq;")
+        encodeMap.add("⫋" to "&subsetneqq;")
+        encodeMap.add("⫇" to "&subsim;")
+        encodeMap.add("⫕" to "&subsub;")
+        encodeMap.add("⫓" to "&subsup;")
+        encodeMap.add("≻" to "&succ;")
+        encodeMap.add("⪸" to "&succapprox;")
+        encodeMap.add("≽" to "&succcurlyeq;")
+        encodeMap.add("⪰" to "&succeq;")
+        encodeMap.add("⪺" to "&succnapprox;")
+        encodeMap.add("⪶" to "&succneqq;")
+        encodeMap.add("⋩" to "&succnsim;")
+        encodeMap.add("≿" to "&succsim;")
+        encodeMap.add("∑" to "&sum;")
+        encodeMap.add("♪" to "&sung;")
+        encodeMap.add("¹" to "&sup1")
+        encodeMap.add("¹" to "&sup1;")
+        encodeMap.add("²" to "&sup2")
+        encodeMap.add("²" to "&sup2;")
+        encodeMap.add("³" to "&sup3")
+        encodeMap.add("³" to "&sup3;")
+        encodeMap.add("⊃" to "&sup;")
+        encodeMap.add("⫆" to "&supE;")
+        encodeMap.add("⪾" to "&supdot;")
+        encodeMap.add("⫘" to "&supdsub;")
+        encodeMap.add("⊇" to "&supe;")
+        encodeMap.add("⫄" to "&supedot;")
+        encodeMap.add("⟉" to "&suphsol;")
+        encodeMap.add("⫗" to "&suphsub;")
+        encodeMap.add("⥻" to "&suplarr;")
+        encodeMap.add("⫂" to "&supmult;")
+        encodeMap.add("⫌" to "&supnE;")
+        encodeMap.add("⊋" to "&supne;")
+        encodeMap.add("⫀" to "&supplus;")
+        encodeMap.add("⊃" to "&supset;")
+        encodeMap.add("⊇" to "&supseteq;")
+        encodeMap.add("⫆" to "&supseteqq;")
+        encodeMap.add("⊋" to "&supsetneq;")
+        encodeMap.add("⫌" to "&supsetneqq;")
+        encodeMap.add("⫈" to "&supsim;")
+        encodeMap.add("⫔" to "&supsub;")
+        encodeMap.add("⫖" to "&supsup;")
+        encodeMap.add("⇙" to "&swArr;")
+        encodeMap.add("⤦" to "&swarhk;")
+        encodeMap.add("↙" to "&swarr;")
+        encodeMap.add("↙" to "&swarrow;")
+        encodeMap.add("⤪" to "&swnwar;")
+        encodeMap.add("ß" to "&szlig")
+        encodeMap.add("ß" to "&szlig;")
+        encodeMap.add("⌖" to "&target;")
+        encodeMap.add("τ" to "&tau;")
+        encodeMap.add("⎴" to "&tbrk;")
+        encodeMap.add("ť" to "&tcaron;")
+        encodeMap.add("ţ" to "&tcedil;")
+        encodeMap.add("т" to "&tcy;")
+        encodeMap.add("⃛" to "&tdot;")
+        encodeMap.add("⌕" to "&telrec;")
+        encodeMap.add("𝔱" to "&tfr;")
+        encodeMap.add("∴" to "&there4;")
+        encodeMap.add("∴" to "&therefore;")
+        encodeMap.add("θ" to "&theta;")
+        encodeMap.add("ϑ" to "&thetasym;")
+        encodeMap.add("ϑ" to "&thetav;")
+        encodeMap.add("≈" to "&thickapprox;")
+        encodeMap.add("∼" to "&thicksim;")
+        encodeMap.add(" " to "&thinsp;")
+        encodeMap.add("≈" to "&thkap;")
+        encodeMap.add("∼" to "&thksim;")
+        encodeMap.add("þ" to "&thorn")
+        encodeMap.add("þ" to "&thorn;")
+        encodeMap.add("˜" to "&tilde;")
+        encodeMap.add("×" to "&times")
+        encodeMap.add("×" to "&times;")
+        encodeMap.add("⊠" to "&timesb;")
+        encodeMap.add("⨱" to "&timesbar;")
+        encodeMap.add("⨰" to "&timesd;")
+        encodeMap.add("∭" to "&tint;")
+        encodeMap.add("⤨" to "&toea;")
+        encodeMap.add("⊤" to "&top;")
+        encodeMap.add("⌶" to "&topbot;")
+        encodeMap.add("⫱" to "&topcir;")
+        encodeMap.add("𝕥" to "&topf;")
+        encodeMap.add("⫚" to "&topfork;")
+        encodeMap.add("⤩" to "&tosa;")
+        encodeMap.add("‴" to "&tprime;")
+        encodeMap.add("™" to "&trade;")
+        encodeMap.add("▵" to "&triangle;")
+        encodeMap.add("▿" to "&triangledown;")
+        encodeMap.add("◃" to "&triangleleft;")
+        encodeMap.add("⊴" to "&trianglelefteq;")
+        encodeMap.add("≜" to "&triangleq;")
+        encodeMap.add("▹" to "&triangleright;")
+        encodeMap.add("⊵" to "&trianglerighteq;")
+        encodeMap.add("◬" to "&tridot;")
+        encodeMap.add("≜" to "&trie;")
+        encodeMap.add("⨺" to "&triminus;")
+        encodeMap.add("⨹" to "&triplus;")
+        encodeMap.add("⧍" to "&trisb;")
+        encodeMap.add("⨻" to "&tritime;")
+        encodeMap.add("⏢" to "&trpezium;")
+        encodeMap.add("𝓉" to "&tscr;")
+        encodeMap.add("ц" to "&tscy;")
+        encodeMap.add("ћ" to "&tshcy;")
+        encodeMap.add("ŧ" to "&tstrok;")
+        encodeMap.add("≬" to "&twixt;")
+        encodeMap.add("↞" to "&twoheadleftarrow;")
+        encodeMap.add("↠" to "&twoheadrightarrow;")
+        encodeMap.add("⇑" to "&uArr;")
+        encodeMap.add("⥣" to "&uHar;")
+        encodeMap.add("ú" to "&uacute")
+        encodeMap.add("ú" to "&uacute;")
+        encodeMap.add("↑" to "&uarr;")
+        encodeMap.add("ў" to "&ubrcy;")
+        encodeMap.add("ŭ" to "&ubreve;")
+        encodeMap.add("û" to "&ucirc")
+        encodeMap.add("û" to "&ucirc;")
+        encodeMap.add("у" to "&ucy;")
+        encodeMap.add("⇅" to "&udarr;")
+        encodeMap.add("ű" to "&udblac;")
+        encodeMap.add("⥮" to "&udhar;")
+        encodeMap.add("⥾" to "&ufisht;")
+        encodeMap.add("𝔲" to "&ufr;")
+        encodeMap.add("ù" to "&ugrave")
+        encodeMap.add("ù" to "&ugrave;")
+        encodeMap.add("↿" to "&uharl;")
+        encodeMap.add("↾" to "&uharr;")
+        encodeMap.add("▀" to "&uhblk;")
+        encodeMap.add("⌜" to "&ulcorn;")
+        encodeMap.add("⌜" to "&ulcorner;")
+        encodeMap.add("⌏" to "&ulcrop;")
+        encodeMap.add("◸" to "&ultri;")
+        encodeMap.add("ū" to "&umacr;")
+        encodeMap.add("¨" to "&uml")
+        encodeMap.add("¨" to "&uml;")
+        encodeMap.add("ų" to "&uogon;")
+        encodeMap.add("𝕦" to "&uopf;")
+        encodeMap.add("↑" to "&uparrow;")
+        encodeMap.add("↕" to "&updownarrow;")
+        encodeMap.add("↿" to "&upharpoonleft;")
+        encodeMap.add("↾" to "&upharpoonright;")
+        encodeMap.add("⊎" to "&uplus;")
+        encodeMap.add("υ" to "&upsi;")
+        encodeMap.add("ϒ" to "&upsih;")
+        encodeMap.add("υ" to "&upsilon;")
+        encodeMap.add("⇈" to "&upuparrows;")
+        encodeMap.add("⌝" to "&urcorn;")
+        encodeMap.add("⌝" to "&urcorner;")
+        encodeMap.add("⌎" to "&urcrop;")
+        encodeMap.add("ů" to "&uring;")
+        encodeMap.add("◹" to "&urtri;")
+        encodeMap.add("𝓊" to "&uscr;")
+        encodeMap.add("⋰" to "&utdot;")
+        encodeMap.add("ũ" to "&utilde;")
+        encodeMap.add("▵" to "&utri;")
+        encodeMap.add("▴" to "&utrif;")
+        encodeMap.add("⇈" to "&uuarr;")
+        encodeMap.add("ü" to "&uuml")
+        encodeMap.add("ü" to "&uuml;")
+        encodeMap.add("⦧" to "&uwangle;")
+        encodeMap.add("⇕" to "&vArr;")
+        encodeMap.add("⫨" to "&vBar;")
+        encodeMap.add("⫩" to "&vBarv;")
+        encodeMap.add("⊨" to "&vDash;")
+        encodeMap.add("⦜" to "&vangrt;")
+        encodeMap.add("ϵ" to "&varepsilon;")
+        encodeMap.add("ϰ" to "&varkappa;")
+        encodeMap.add("∅" to "&varnothing;")
+        encodeMap.add("ϕ" to "&varphi;")
+        encodeMap.add("ϖ" to "&varpi;")
+        encodeMap.add("∝" to "&varpropto;")
+        encodeMap.add("↕" to "&varr;")
+        encodeMap.add("ϱ" to "&varrho;")
+        encodeMap.add("ς" to "&varsigma;")
+        encodeMap.add("⊊︀" to "&varsubsetneq;")
+        encodeMap.add("⫋︀" to "&varsubsetneqq;")
+        encodeMap.add("⊋︀" to "&varsupsetneq;")
+        encodeMap.add("⫌︀" to "&varsupsetneqq;")
+        encodeMap.add("ϑ" to "&vartheta;")
+        encodeMap.add("⊲" to "&vartriangleleft;")
+        encodeMap.add("⊳" to "&vartriangleright;")
+        encodeMap.add("в" to "&vcy;")
+        encodeMap.add("⊢" to "&vdash;")
+        encodeMap.add("∨" to "&vee;")
+        encodeMap.add("⊻" to "&veebar;")
+        encodeMap.add("≚" to "&veeeq;")
+        encodeMap.add("⋮" to "&vellip;")
+        encodeMap.add("|" to "&verbar;")
+        encodeMap.add("|" to "&vert;")
+        encodeMap.add("𝔳" to "&vfr;")
+        encodeMap.add("⊲" to "&vltri;")
+        encodeMap.add("⊂⃒" to "&vnsub;")
+        encodeMap.add("⊃⃒" to "&vnsup;")
+        encodeMap.add("𝕧" to "&vopf;")
+        encodeMap.add("∝" to "&vprop;")
+        encodeMap.add("⊳" to "&vrtri;")
+        encodeMap.add("𝓋" to "&vscr;")
+        encodeMap.add("⫋︀" to "&vsubnE;")
+        encodeMap.add("⊊︀" to "&vsubne;")
+        encodeMap.add("⫌︀" to "&vsupnE;")
+        encodeMap.add("⊋︀" to "&vsupne;")
+        encodeMap.add("⦚" to "&vzigzag;")
+        encodeMap.add("ŵ" to "&wcirc;")
+        encodeMap.add("⩟" to "&wedbar;")
+        encodeMap.add("∧" to "&wedge;")
+        encodeMap.add("≙" to "&wedgeq;")
+        encodeMap.add("℘" to "&weierp;")
+        encodeMap.add("𝔴" to "&wfr;")
+        encodeMap.add("𝕨" to "&wopf;")
+        encodeMap.add("℘" to "&wp;")
+        encodeMap.add("≀" to "&wr;")
+        encodeMap.add("≀" to "&wreath;")
+        encodeMap.add("𝓌" to "&wscr;")
+        encodeMap.add("⋂" to "&xcap;")
+        encodeMap.add("◯" to "&xcirc;")
+        encodeMap.add("⋃" to "&xcup;")
+        encodeMap.add("▽" to "&xdtri;")
+        encodeMap.add("𝔵" to "&xfr;")
+        encodeMap.add("⟺" to "&xhArr;")
+        encodeMap.add("⟷" to "&xharr;")
+        encodeMap.add("ξ" to "&xi;")
+        encodeMap.add("⟸" to "&xlArr;")
+        encodeMap.add("⟵" to "&xlarr;")
+        encodeMap.add("⟼" to "&xmap;")
+        encodeMap.add("⋻" to "&xnis;")
+        encodeMap.add("⨀" to "&xodot;")
+        encodeMap.add("𝕩" to "&xopf;")
+        encodeMap.add("⨁" to "&xoplus;")
+        encodeMap.add("⨂" to "&xotime;")
+        encodeMap.add("⟹" to "&xrArr;")
+        encodeMap.add("⟶" to "&xrarr;")
+        encodeMap.add("𝓍" to "&xscr;")
+        encodeMap.add("⨆" to "&xsqcup;")
+        encodeMap.add("⨄" to "&xuplus;")
+        encodeMap.add("△" to "&xutri;")
+        encodeMap.add("⋁" to "&xvee;")
+        encodeMap.add("⋀" to "&xwedge;")
+        encodeMap.add("ý" to "&yacute")
+        encodeMap.add("ý" to "&yacute;")
+        encodeMap.add("я" to "&yacy;")
+        encodeMap.add("ŷ" to "&ycirc;")
+        encodeMap.add("ы" to "&ycy;")
+        encodeMap.add("¥" to "&yen")
+        encodeMap.add("¥" to "&yen;")
+        encodeMap.add("𝔶" to "&yfr;")
+        encodeMap.add("ї" to "&yicy;")
+        encodeMap.add("𝕪" to "&yopf;")
+        encodeMap.add("𝓎" to "&yscr;")
+        encodeMap.add("ю" to "&yucy;")
+        encodeMap.add("ÿ" to "&yuml")
+        encodeMap.add("ÿ" to "&yuml;")
+        encodeMap.add("ź" to "&zacute;")
+        encodeMap.add("ž" to "&zcaron;")
+        encodeMap.add("з" to "&zcy;")
+        encodeMap.add("ż" to "&zdot;")
+        encodeMap.add("ℨ" to "&zeetrf;")
+        encodeMap.add("ζ" to "&zeta;")
+        encodeMap.add("𝔷" to "&zfr;")
+        encodeMap.add("ж" to "&zhcy;")
+        encodeMap.add("⇝" to "&zigrarr;")
+        encodeMap.add("𝕫" to "&zopf;")
+        encodeMap.add("𝓏" to "&zscr;")
+        encodeMap.add("‍" to "&zwj;")
+        encodeMap.add("‌" to "&zwnj;")
+        encodeMap.toList()
     }
 
     /**
-     * A Map<String, String> to decode all HTML5 entities into their original characters.
+     * A List<Pair<String, String>> to decode all HTML5 entities into their original characters.
      */
-    val HTML5Decode: Map<String, String> = invert(HTML5Encode)
+    val HTML5Decode: List<Pair<String, String>> = invert(HTML5Encode)
 
     /**
-     * Inverts an encode Map into an decode Map.
+     * Inverts an encode List into an decode List.
      *
-     * @param map Map<String, String> to be inverted
-     * @return Map<String, String> inverted array
+     * @param list List<Pair<String, String>> to be inverted
+     * @return List<Pair<String, String>> inverted list
      */
-    private fun invert(map: Map<String, String>): Map<String, String> {
-        return map.entries.associate { (key, value) -> value to key }
+    private fun invert(list: List<Pair<String, String>>): List<Pair<String, String>> {
+        return list.map { (a, b) -> b to a }
     }
 }

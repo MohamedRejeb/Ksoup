@@ -18,7 +18,6 @@ internal object CharsUtils {
      * {@code codePoint} is not a valid Unicode code point.
      */
     fun toChars(codePoint: Int): CharArray {
-
         return if (isBmpCodePoint(codePoint)) {
             charArrayOf(codePoint.toChar())
         } else if (isValidCodePoint(codePoint)) {

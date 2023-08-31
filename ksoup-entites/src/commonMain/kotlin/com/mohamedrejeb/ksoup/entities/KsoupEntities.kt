@@ -18,7 +18,7 @@ public object KsoupEntities {
      * as the foundation for a custom translator.
      */
     private val ENCODE_XML: StringTranslator = run {
-        val encodeXml11Map = mapOf(
+        val encodeXml11Map = listOf(
             "\u0000" to "",
             "\u000b" to "&#11;",
             "\u000c" to "&#12;",
