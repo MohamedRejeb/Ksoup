@@ -6,7 +6,7 @@ package com.mohamedrejeb.ksoup.entities
  * @param lookupMap Map<String, String> table of translator
  * mappings
  */
-internal class LookupTranslator(lookupMap: Map<String, String>) : StringTranslator() {
+internal class LookupTranslator(lookupMap: List<Pair<String, String>>) : StringTranslator() {
     /** The mapping to be used in translation.  */
     private val lookupMap: MutableMap<String, String> = mutableMapOf()
 

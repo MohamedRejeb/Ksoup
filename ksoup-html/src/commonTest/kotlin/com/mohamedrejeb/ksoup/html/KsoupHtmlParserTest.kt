@@ -261,4 +261,13 @@ class KsoupHtmlParserTest {
             expectedString = "&ampa hhhdude test",
         )
     }
+
+    @Test
+    fun testWrongHtml3() {
+        runHtmlTest(
+            input = """<html><body>First line<br/>Second line</body></html>""",
+            expectedOpenTags = listOf("html", "body", "br"),
+            expectedString = "First lineSecond line",
+        )
+    }
 }

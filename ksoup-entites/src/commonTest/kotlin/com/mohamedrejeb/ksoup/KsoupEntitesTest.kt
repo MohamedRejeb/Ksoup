@@ -48,6 +48,11 @@ class KsoupEntitesTest {
         testDecodeHtml5("&nbsp;&nbsp;&nbsp;", "   ")
     }
 
+    @Test
+    fun testDecodeHtml5_6() {
+        testDecodeHtml5("&Aring;", "Å")
+    }
+
     // Encode Test
 
     @Test
@@ -73,6 +78,11 @@ class KsoupEntitesTest {
     @Test
     fun testEncodeHtml5_5() {
         testEncodeHtml5("   ", "&nbsp;&nbsp;&nbsp;")
+    }
+
+    @Test
+    fun testEncodeHtml5_6() {
+        testEncodeHtml5("Å", "&angst;")
     }
 
 }
