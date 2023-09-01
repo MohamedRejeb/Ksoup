@@ -270,4 +270,17 @@ class KsoupHtmlParserTest {
             expectedString = "First lineSecond line",
         )
     }
+
+    @Test
+    fun testBigHtml() {
+        val handler = KsoupHtmlHandler
+            .Builder()
+            .build()
+
+        val ksoupHtmlParser = KsoupHtmlParser(
+            handler = handler,
+        )
+        ksoupHtmlParser.write(TestData.htmlString)
+        ksoupHtmlParser.end()
+    }
 }
