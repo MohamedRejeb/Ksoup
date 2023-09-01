@@ -22,6 +22,7 @@ kotlin {
     watchosArm64()
     watchosSimulatorArm64()
     linuxX64()
+    linuxArm64()
     macosX64()
     macosArm64()
     mingwX64()
@@ -53,7 +54,8 @@ kotlin {
         val watchosArm64Main by getting
         val watchosSimulatorArm64Main by getting
         val linuxX64Main by getting
-        val macosX64Main by getting 
+        val linuxArm64Main by getting
+        val macosX64Main by getting
         val macosArm64Main by getting
         val mingwX64Main by getting
 
@@ -75,6 +77,7 @@ kotlin {
         watchosSimulatorArm64Main.dependsOn(watchosMain)
         linuxMain.dependsOn(nativeMain)
         linuxX64Main.dependsOn(linuxMain)
+        linuxArm64Main.dependsOn(linuxMain)
         macosMain.dependsOn(nativeMain)
         macosX64Main.dependsOn(macosMain)
         macosArm64Main.dependsOn(macosMain)
