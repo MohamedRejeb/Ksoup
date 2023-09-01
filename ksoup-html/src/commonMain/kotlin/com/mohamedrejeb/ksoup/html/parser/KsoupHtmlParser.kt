@@ -184,7 +184,7 @@ public class KsoupHtmlParser(
         this.endOpenTag(isOpenImplied)
 
         // Self-closing tags will be on the top of the stack
-        if (this.stack.getOrNull(this.stack.size - 1) == name) {
+        if (this.stack.size > 0 && this.stack[this.stack.size - 1] == name) {
             // If the opening tag isn't implied, the closing tag has to be implied.
             this.handler.onCloseTag(name, !isOpenImplied)
             this.stack.removeLast()

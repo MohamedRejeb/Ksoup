@@ -318,6 +318,31 @@ class KsoupEntitesTest {
         assertEquals(expected = """🌍""", actual = KsoupEntities.decodeHtml("&#127757;"))
     }
 
+    @Test
+    fun mountainEmoji() {
+        assertEquals(expected = """🗻""", actual = KsoupEntities.decodeHtml("&#128507;"))
+    }
+
+    @Test
+    fun statusEmoji() {
+        assertEquals(expected = """🗿""", actual = KsoupEntities.decodeHtml("&#128511;"))
+    }
+
+    @Test
+    fun smileEmoji() {
+        assertEquals(expected = """😀""", actual = KsoupEntities.decodeHtml("&#128512;"))
+    }
+
+    @Test
+    fun happyEmoji() {
+        assertEquals(expected = """😁""", actual = KsoupEntities.decodeHtml("&#128513;"))
+    }
+
+    @Test
+    fun laughEmoji() {
+        assertEquals(expected = """😂""", actual = KsoupEntities.decodeHtml("&#128514;"))
+    }
+
     // Encode Test
 
     @Test

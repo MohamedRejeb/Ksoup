@@ -27,14 +27,14 @@ Ksoup is a lightweight Kotlin Multiplatform library for parsing HTML, extracting
 Add the dependency below to your **module**'s `build.gradle.kts` or `build.gradle` file:
 
 
-| Kotlin version  | Ksoup version |
-|-----------------|---------------|
-| 1.9.0           | 0.2.0         |
-| 1.8.22 or lower | 0.1.4         |
+| Kotlin version | Ksoup version |
+|----------------|---------------|
+| 1.9.x          | 0.2.1         |
+| 1.8.x          | 0.1.4         |
 
 
 ```kotlin
-val version = "0.2.0"
+val version = "0.2.1"
 
 // For parsing HTML
 implementation("com.mohamedrejeb.ksoup:ksoup-html:$version")
