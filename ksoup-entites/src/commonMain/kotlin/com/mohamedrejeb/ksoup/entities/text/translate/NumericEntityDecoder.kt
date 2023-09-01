@@ -107,9 +107,9 @@ internal class NumericEntityDecoder(vararg options: Option) : StringTranslator()
             }
 
             if (entityValue > 0xFFFF) {
-                val chars: CharArray = CharsUtils.toChars(entityValue)
-                stringBuilder.append(chars[0])
-                stringBuilder.append(chars[1])
+                CharsUtils
+                    .toChars(entityValue)
+                    .forEach { stringBuilder.append(it) }
             } else {
                 stringBuilder.append(Char(entityValue))
             }

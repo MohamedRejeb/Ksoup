@@ -4,17 +4,19 @@ internal object CharsUtils {
 
     /**
      * Converts the specified character (Unicode code point) to its
-     * UTF-16 representation stored in a {@code char} array. If
+     * UTF-16 representation stored in a char array.
+     * If
      * the specified code point is a BMP (Basic Multilingual Plane or
-     * Plane 0) value, the resulting {@code char} array has
-     * the same value as {@code codePoint}. If the specified code
+     * Plane 0) value, the resulting char array has
+     * the same value as [codePoint].
+     * If the specified code
      * point is a supplementary code point, the resulting
-     * {@code char} array has the corresponding surrogate pair.
+     * char array has the corresponding surrogate pair.
      *
      * @param  codePoint a Unicode code point
-     * @return a {@code char} array having
-     *         {@code codePoint}'s UTF-16 representation.
-     * @exception IllegalArgumentException if the specified
+     * @return a char array having
+     *         codePoint's UTF-16 representation.
+     * @throws IllegalArgumentException if the specified
      * {@code codePoint} is not a valid Unicode code point.
      */
     fun toChars(codePoint: Int): CharArray {
@@ -60,9 +62,9 @@ internal object CharsUtils {
      */
     private fun isValidCodePoint(codePoint: Int): Boolean {
         // Optimized form of:
-        //     codePoint >= Char.MIN_VALUE.code && codePoint <= Char.MAX_VALUE.code
+        //     codePoint >= MIN_CODE_POINT && codePoint <= MAX_CODE_POINT
         val plane = codePoint ushr 16
-        return plane < Char.MAX_VALUE.code + 1 ushr 16
+        return plane < ((MAX_CODE_POINT + 1) ushr 16)
     }
 
     private fun toSurrogates(codePoint: Int, dst: CharArray, index: Int) {
@@ -130,5 +132,12 @@ internal object CharsUtils {
      * [Unicode supplementary code point](http://www.unicode.org/glossary/#supplementary_code_point), constant `U+10000`.
      */
     private const val MIN_SUPPLEMENTARY_CODE_POINT = 0x010000
+
+    /**
+     * The maximum value of a
+     * <a href="http://www.unicode.org/glossary/#code_point">
+     * Unicode code point</a>, constant {@code U+10FFFF}.
+     */
+    private const val MAX_CODE_POINT = 0X10FFFF
 
 }
