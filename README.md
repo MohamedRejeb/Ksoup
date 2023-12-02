@@ -40,7 +40,7 @@ val version = "0.2.1"
 implementation("com.mohamedrejeb.ksoup:ksoup-html:$version")
 
 // Only for encoding and decoding HTML entities 
-implementation("com.mohamedrejeb.ksoup:ksoup-entites:$version")
+implementation("com.mohamedrejeb.ksoup:ksoup-entities:$version")
 ```
 
 ## Usage
@@ -156,7 +156,7 @@ val decoded = KsoupEntities.decodeHtml("Hello &amp; World") // return: Hello & W
 ```
 
 `KsoupEntities` also provides methods to encode and decode only XML entities or HTML4.
-The `KsoupEntities` class is available in the `ksoup-entites` module.
+The `KsoupEntities` class is available in the `ksoup-entities` module.
 
 Both `encodeHtml` and `decodeHtml` methods support all HTML5 entities, XML entities, and HTML4 entities.
 
