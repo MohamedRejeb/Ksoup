@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.multiplatform)
-    alias(libs.plugins.androidLibrary)
     id("module.publication")
 }
 
@@ -8,14 +7,6 @@ kotlin {
     applyDefaultHierarchyTemplate()
     explicitApi()
 
-    androidTarget {
-        publishLibraryVariants("release")
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
-    }
     androidNativeArm32()
     androidNativeArm64()
     androidNativeX86()
@@ -63,14 +54,5 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-    }
-}
-
-android {
-    namespace = "com.mohamedrejeb.ksoup.entities"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
-
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
     }
 }
