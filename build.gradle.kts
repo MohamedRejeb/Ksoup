@@ -1,4 +1,5 @@
 plugins {
+    id("root.publication")
     alias(libs.plugins.multiplatform).apply(false)
     alias(libs.plugins.kotlinx.kover).apply(false)
 }
