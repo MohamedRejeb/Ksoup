@@ -4,7 +4,7 @@ import com.mohamedrejeb.ksoup.entities.KsoupEntities
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class KsoupEntitesTest {
+class KsoupEntitiesTest {
 
     fun testDecodeHtml5(input: String, expectedOutput: String) {
         val decoded = KsoupEntities.decodeHtml5(input)

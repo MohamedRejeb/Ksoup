@@ -31,7 +31,7 @@ kotlin {
         /* Main source sets */
         val commonMain by getting {
             dependencies {
-                implementation(project(":ksoup-entites"))
+                implementation(project(":ksoup-entities"))
                 // The library is lightweight, we don't use any other dependencies :D
             }
         }
