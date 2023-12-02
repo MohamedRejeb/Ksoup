@@ -2,7 +2,7 @@
 
 Ksoup is a lightweight Kotlin Multiplatform library for parsing HTML, extracting HTML tags, attributes, and text, and encoding and decoding HTML entities.
 
-[![Kotlin](https://img.shields.io/badge/kotlin-1.9.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-1.9.21-blue.svg?logo=kotlin)](http://kotlinlang.org)
 [![MohamedRejeb](https://raw.githubusercontent.com/MohamedRejeb/MohamedRejeb/main/badges/mohamedrejeb.svg)](https://github.com/MohamedRejeb)
 [![Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
 [![BuildPassing](https://shields.io/badge/build-passing-brightgreen)](https://github.com/MohamedRejeb/ksoup/actions)
@@ -29,12 +29,13 @@ Add the dependency below to your **module**'s `build.gradle.kts` or `build.gradl
 
 | Kotlin version | Ksoup version |
 |----------------|---------------|
+| 1.9.2x         | 0.3.0         |
 | 1.9.x          | 0.2.1         |
 | 1.8.x          | 0.1.4         |
 
 
 ```kotlin
-val version = "0.2.1"
+val version = "0.3.0"
 
 // For parsing HTML
 implementation("com.mohamedrejeb.ksoup:ksoup-html:$version")
