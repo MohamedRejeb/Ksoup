@@ -4,9 +4,8 @@ plugins {
 
 kotlin {
     applyDefaultHierarchyTemplate()
-
     explicitApi()
-
+    
     jvm {
         jvmToolchain(11)
     }
@@ -24,7 +23,6 @@ kotlin {
     watchosArm64()
     watchosSimulatorArm64()
     linuxX64()
-    linuxArm64()
     macosX64()
     macosArm64()
     mingwX64()
@@ -33,7 +31,6 @@ kotlin {
         /* Main source sets */
         val commonMain by getting {
             dependencies {
-                implementation(project(":ksoup-entities"))
                 // The library is lightweight, we don't use any other dependencies :D
             }
         }

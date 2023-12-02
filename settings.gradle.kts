@@ -17,5 +17,5 @@ dependencyResolutionManagement {
 
 include(
     ":ksoup-html",
-    ":ksoup-entites",
+    ":ksoup-entities",
 )
