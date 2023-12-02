@@ -1,7 +1,4 @@
-rootProject.name = "Ksoup"
-
 pluginManagement {
-    includeBuild("convention-plugins")
     repositories {
         google()
         gradlePluginPortal()
@@ -12,11 +9,13 @@ pluginManagement {
 dependencyResolutionManagement {
     repositories {
         google()
+        gradlePluginPortal()
         mavenCentral()
     }
-}
 
-include(
-    ":ksoup-html",
-    ":ksoup-entities",
-)
+    versionCatalogs {
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
+        }
+    }
+}
