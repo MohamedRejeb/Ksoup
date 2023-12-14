@@ -515,7 +515,7 @@ internal class KsoupTokenizer(
     private fun stateInEntity(c: Int) {
         if (c == CharCodes.Semi.code) {
             val decoded = KsoupEntities.decodeHtml(
-                this.buffer.substring(this.entityStart, this.index + 1)
+                this.buffer.substring(this.entityStart - this.offset, this.index - this.offset + 1)
             )
 
             this.state = this.baseState
