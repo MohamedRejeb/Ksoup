@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension
+import org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask
+
 plugins {
     alias(libs.plugins.multiplatform)
     id("module.publication")
@@ -14,11 +17,7 @@ kotlin {
     jvm {
         jvmToolchain(11)
     }
-    js(IR) {
-        browser()
-        nodejs()
-        binaries.executable()
-    }
+    js(IR).nodejs()
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -36,9 +35,9 @@ kotlin {
     macosArm64()
     mingwX64()
     @OptIn(org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl::class)
-    wasmJs()
+    wasmJs().nodejs()
     @OptIn(org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl::class)
-    wasmWasi()
+    wasmWasi().nodejs()
 
     sourceSets {
         /* Main source sets */
@@ -55,4 +54,13 @@ kotlin {
             }
         }
     }
+}
+
+rootProject.the<NodeJsRootExtension>().apply {
+    nodeVersion = "22.0.0-v8-canary20231127cbafc81f11"
+    nodeDownloadBaseUrl = "https://nodejs.org/download/v8-canary"
+}
+
+rootProject.tasks.withType<KotlinNpmInstallTask>().configureEach {
+    args.add("--ignore-engines")
 }
