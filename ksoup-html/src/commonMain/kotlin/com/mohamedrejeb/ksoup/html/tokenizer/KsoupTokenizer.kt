@@ -274,13 +274,15 @@ internal class KsoupTokenizer(
             // Lowercase the character
             val lower = c or 0x20
             sectionStart = index
-            if (!xmlMode && lower == Sequences.TitleEnd[2].toInt()) {
-                startSpecial(Sequences.TitleEnd, 3)
+
+            if (xmlMode) {
+                state = State.InTagName
+            } else if (lower == Sequences.ScriptEnd[2].toInt()) {
+                this.state = State.BeforeSpecialS
+            } else if (lower == Sequences.TitleEnd[2].toInt()) {
+                this.state = State.BeforeSpecialT
             } else {
-                state = if (!xmlMode && lower == Sequences.ScriptEnd[2].toInt())
-                    State.BeforeSpecialS
-                else
-                    State.InTagName
+                this.state = State.InTagName
             }
         } else if (c == CharCodes.Slash.code) {
             state = State.BeforeClosingTagName
@@ -364,7 +366,7 @@ internal class KsoupTokenizer(
     private fun stateInAttributeName(c: Int) {
         if (c == CharCodes.Eq.code || isEndOfTagSection(c)) {
             this.callbacks.onAttribName(this.sectionStart, this.index)
-            this.sectionStart = -1
+            this.sectionStart = this.index
             this.state = State.AfterAttributeName
             this.stateAfterAttributeName(c)
         }
@@ -374,11 +376,12 @@ internal class KsoupTokenizer(
         if (c == CharCodes.Eq.code) {
             this.state = State.BeforeAttributeValue
         } else if (c == CharCodes.Slash.code || c == CharCodes.Gt.code) {
-            this.callbacks.onAttribEnd(KsoupHtmlParser.QuoteType.NoValue, this.index)
+            this.callbacks.onAttribEnd(KsoupHtmlParser.QuoteType.NoValue, this.sectionStart)
+            this.sectionStart = -1
             this.state = State.BeforeAttributeName
             this.stateBeforeAttributeName(c)
         } else if (!isWhitespace(c)) {
-            this.callbacks.onAttribEnd(KsoupHtmlParser.QuoteType.NoValue, this.index)
+            this.callbacks.onAttribEnd(KsoupHtmlParser.QuoteType.NoValue, this.sectionStart)
             this.state = State.InAttributeName
             this.sectionStart = this.index
         }
@@ -406,9 +409,11 @@ internal class KsoupTokenizer(
             this.callbacks.onAttribData(this.sectionStart, this.index)
             this.sectionStart = -1
             this.callbacks.onAttribEnd(
-                if (quote == CharCodes.DoubleQuote.code) KsoupHtmlParser.QuoteType.Double
-                else KsoupHtmlParser.QuoteType.Single,
-                this.index
+                if (quote == CharCodes.DoubleQuote.code)
+                    KsoupHtmlParser.QuoteType.Double
+                else
+                    KsoupHtmlParser.QuoteType.Single,
+                this.index + 1
             )
             this.state = State.BeforeAttributeName
         } else if (this.decodeEntities && c == CharCodes.Amp.code) {
@@ -498,6 +503,22 @@ internal class KsoupTokenizer(
             }
             Sequences.StyleEnd[3].toInt() -> {
                 this.startSpecial(Sequences.StyleEnd, 4)
+            }
+            else -> {
+                this.state = State.InTagName
+                this.stateInTagName(c) // Consume the token again
+            }
+        }
+    }
+
+    @OptIn(ExperimentalUnsignedTypes::class)
+    private fun stateBeforeSpecialT(c: Int) {
+        when (c or 0x20) {
+            Sequences.TitleEnd[3].toInt() -> {
+                this.startSpecial(Sequences.TitleEnd, 4)
+            }
+            Sequences.TextareaEnd[3].toInt() -> {
+                this.startSpecial(Sequences.TextareaEnd, 4)
             }
             else -> {
                 this.state = State.InTagName
@@ -607,6 +628,8 @@ internal class KsoupTokenizer(
                     this.stateAfterClosingTagName(c)
                 State.BeforeSpecialS ->
                     this.stateBeforeSpecialS(c)
+                State.BeforeSpecialT ->
+                    this.stateBeforeSpecialT(c)
                 State.InAttributeValueNq ->
                     this.stateInAttributeValueNoQuotes(c)
                 State.InSelfClosingTag ->
@@ -763,6 +786,7 @@ internal class KsoupTokenizer(
 
         // Special tags
         BeforeSpecialS, // Decide if we deal with `<script` or `<style`
+        BeforeSpecialT, // Decide if we deal with `<title` or `<textarea`
         SpecialStartSequence,
         InSpecialTag,
 
@@ -811,17 +835,19 @@ internal class KsoupTokenizer(
 
     @OptIn(ExperimentalUnsignedTypes::class)
     private object Sequences {
-        val Cdata = ubyteArrayOf(67u, 68u, 65u, 84u, 65u, 91u)
+        val Cdata = ubyteArrayOf(67u, 68u, 65u, 84u, 65u, 91u) // CDATA[
 
-        val CdataEnd = ubyteArrayOf(93u, 93u, 62u)
+        val CdataEnd = ubyteArrayOf(93u, 93u, 62u) // ]]>
 
-        val CommentEnd = ubyteArrayOf(45u, 45u, 62u)
+        val CommentEnd = ubyteArrayOf(45u, 45u, 62u) // `-->`
 
-        val ScriptEnd = ubyteArrayOf(60u, 47u, 115u, 99u, 114u, 105u, 112u, 116u)
+        val ScriptEnd = ubyteArrayOf(60u, 47u, 115u, 99u, 114u, 105u, 112u, 116u) // `</script`
 
-        val StyleEnd = ubyteArrayOf(60u, 47u, 115u, 116u, 121u, 108u, 101u)
+        val StyleEnd = ubyteArrayOf(60u, 47u, 115u, 116u, 121u, 108u, 101u) // `</style`
 
-        val TitleEnd = ubyteArrayOf(60u, 47u, 116u, 105u, 116u, 108u, 101u)
+        val TitleEnd = ubyteArrayOf(60u, 47u, 116u, 105u, 116u, 108u, 101u) // `</title`
+
+        val TextareaEnd = ubyteArrayOf(60u, 47u, 116u, 101u, 120u, 116u, 97u, 114u, 101u, 97u) // `</textarea`
     }
 
     private companion object {
