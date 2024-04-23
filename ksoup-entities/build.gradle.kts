@@ -9,14 +9,13 @@ plugins {
 kotlin {
     applyDefaultHierarchyTemplate()
     explicitApi()
+    jvmToolchain(8)
 
     androidNativeArm32()
     androidNativeArm64()
     androidNativeX86()
     androidNativeX64()
-    jvm {
-        jvmToolchain(11)
-    }
+    jvm()
     js(IR).nodejs()
     iosX64()
     iosArm64()
@@ -56,11 +55,11 @@ kotlin {
     }
 }
 
-rootProject.the<NodeJsRootExtension>().apply {
-    nodeVersion = "22.0.0-v8-canary20231127cbafc81f11"
-    nodeDownloadBaseUrl = "https://nodejs.org/download/v8-canary"
-}
+//rootProject.the<NodeJsRootExtension>().apply {
+//    version = "22.0.0-v8-canary20231127cbafc81f11"
+//    downloadBaseUrl = "https://nodejs.org/download/v8-canary"
+//}
 
-rootProject.tasks.withType<KotlinNpmInstallTask>().configureEach {
-    args.add("--ignore-engines")
-}
+//rootProject.tasks.withType<KotlinNpmInstallTask>().configureEach {
+//    args.add("--ignore-engines")
+//}
