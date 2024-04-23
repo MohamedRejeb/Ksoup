@@ -1,5 +1,5 @@
 [versions]
-kotlin = "1.9.22"
+kotlin = "1.9.23"
 kotlinx-kover = "0.7.4"
 
 nexus-publish = "2.0.0-rc-1"

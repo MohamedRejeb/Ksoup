@@ -8,16 +8,14 @@ plugins {
 
 kotlin {
     applyDefaultHierarchyTemplate()
-
     explicitApi()
+    jvmToolchain(8)
 
     androidNativeArm32()
     androidNativeArm64()
     androidNativeX86()
     androidNativeX64()
-    jvm {
-        jvmToolchain(11)
-    }
+    jvm()
     js(IR).nodejs()
     iosX64()
     iosArm64()
