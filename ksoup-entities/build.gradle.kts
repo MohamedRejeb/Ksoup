@@ -54,12 +54,3 @@ kotlin {
         }
     }
 }
-
-//rootProject.the<NodeJsRootExtension>().apply {
-//    version = "22.0.0-v8-canary20231127cbafc81f11"
-//    downloadBaseUrl = "https://nodejs.org/download/v8-canary"
-//}
-
-//rootProject.tasks.withType<KotlinNpmInstallTask>().configureEach {
-//    args.add("--ignore-engines")
-//}
