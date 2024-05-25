@@ -2,7 +2,7 @@
 kotlin = "2.0.0"
 kotlinx-kover = "0.7.4"
 
-nexus-publish = "2.0.0-rc-1"
+nexus-publish = "2.0.0"
 
 [libraries]
 nexus-publish = { module = "io.github.gradle-nexus.publish-plugin:io.github.gradle-nexus.publish-plugin.gradle.plugin", version.ref = "nexus-publish" }
