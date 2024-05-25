@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.0.0"
-kotlinx-kover = "0.7.4"
+kotlinx-kover = "0.8.0"
 
 nexus-publish = "2.0.0"
 
