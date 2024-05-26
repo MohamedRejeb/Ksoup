@@ -29,13 +29,14 @@ Add the dependency below to your **module**'s `build.gradle.kts` or `build.gradl
 
 | Kotlin version | Ksoup version |
 |----------------|---------------|
+| 2.0.x          | 0.4.x         |
 | 1.9.2x         | 0.3.x         |
 | 1.9.x          | 0.2.1         |
 | 1.8.x          | 0.1.4         |
 
 
 ```kotlin
-val version = "0.3.1"
+val version = "0.4.0"
 
 // For parsing HTML
 implementation("com.mohamedrejeb.ksoup:ksoup-html:$version")
