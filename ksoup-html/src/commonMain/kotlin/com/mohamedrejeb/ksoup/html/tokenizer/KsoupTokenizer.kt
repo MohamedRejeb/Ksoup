@@ -851,7 +851,7 @@ internal class KsoupTokenizer(
     }
 
     private companion object {
-        val LONGEST_HTML_ENTITY_LENGTH = "&CounterClockwiseContourIntegral;".length
+        const val LONGEST_HTML_ENTITY_LENGTH = "&CounterClockwiseContourIntegral;".length
 
         /**
          * Returns true if the given code point is a whitespace character.
