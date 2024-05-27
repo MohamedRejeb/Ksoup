@@ -1,5 +1,7 @@
 rootProject.name = "Ksoup"
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     includeBuild("convention-plugins")
     repositories {
@@ -24,4 +26,7 @@ plugins {
 include(
     ":ksoup-html",
     ":ksoup-entities",
+
+    // Benchmark module
+    ":ksoup-benchmark",
 )
