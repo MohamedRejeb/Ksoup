@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.multiplatform)
+    alias(libs.plugins.kotlin.multiplatform)
     id("module.publication")
 }
 
@@ -35,20 +35,14 @@ kotlin {
     @OptIn(org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl::class)
     wasmWasi().nodejs()
 
-    sourceSets {
-        /* Main source sets */
-        val commonMain by getting {
-            dependencies {
-                implementation(project(":ksoup-entities"))
-                // The library is lightweight, we don't use any other dependencies :D
-            }
-        }
+    /* Main source sets */
+    sourceSets.commonMain.dependencies {
+        implementation(projects.ksoupEntities)
+        // The library is lightweight, we don't use any other dependencies :D
+    }
 
-        /* Test source sets */
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
+    /* Test source sets */
+    sourceSets.commonTest.dependencies {
+        implementation(kotlin("test"))
     }
 }
