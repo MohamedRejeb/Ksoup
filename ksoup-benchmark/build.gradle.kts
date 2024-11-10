@@ -1,6 +1,7 @@
 import kotlinx.benchmark.gradle.JsBenchmarkTarget
 import kotlinx.benchmark.gradle.JsBenchmarksExecutor
 import kotlinx.benchmark.gradle.JvmBenchmarkTarget
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -25,7 +26,7 @@ kotlin {
         compilations.create("defaultExecutor") { associateWith(mainCompilation) }
         compilations.create("builtInExecutor") { associateWith(mainCompilation) }
     }
-    @OptIn(org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl::class)
+    @OptIn(ExperimentalWasmDsl::class)
     wasmJs().nodejs()
 
     // Native targets
