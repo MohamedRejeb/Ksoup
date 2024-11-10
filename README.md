@@ -36,7 +36,7 @@ Add the dependency below to your **module**'s `build.gradle.kts` or `build.gradl
 
 
 ```kotlin
-val version = "0.4.0"
+val version = "0.4.1"
 
 // For parsing HTML
 implementation("com.mohamedrejeb.ksoup:ksoup-html:$version")
