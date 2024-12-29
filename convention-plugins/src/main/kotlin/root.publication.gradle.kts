@@ -4,7 +4,7 @@ plugins {
 
 allprojects {
     group = "com.mohamedrejeb.ksoup"
-    version = "0.4.1"
+    version = "0.5.0"
 }
 
 nexusPublishing {
