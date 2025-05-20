@@ -1,11 +1,13 @@
 package com.mohamedrejeb.ksoup.html.parser
 
 import com.mohamedrejeb.ksoup.html.tokenizer.KsoupTokenizer
+import com.mohamedrejeb.ksoup.html.tokenizer.KsoupTokenizerCallbacks
 
 public class KsoupHtmlParser(
     public val handler: KsoupHtmlHandler = KsoupHtmlHandler.Default,
     public val options: KsoupHtmlOptions = KsoupHtmlOptions.Default,
-): KsoupTokenizer.Callbacks {
+    public val callbacks: KsoupTokenizerCallbacks = KsoupTokenizerCallbacks.Default,
+) {
 
     /** The start index of the last event. */
     private var startIndex: Int = 0
@@ -34,275 +36,292 @@ public class KsoupHtmlParser(
     private val lowerCaseTagNames get() = options.lowerCaseTags
     private val lowerCaseAttributeNames get() = options.lowerCaseAttributeNames
 
-    private val ksoupTokenizer = KsoupTokenizer(
-        options = options,
-        callbacks = this
-    )
-
     // Tokenizer events
+    private val ksoupTokenizerCallbacks = object : KsoupTokenizerCallbacks {
 
-    override fun onText(start: Int, endIndex: Int) {
-        val data = this.getSlice(start, endIndex)
-        this.endIndex = endIndex - 1
-        this.handler.onText(data)
-        this.startIndex = endIndex
-    }
-
-    override fun onTextEntity(codepoint: Int, endIndex: Int) {
-        this.endIndex = endIndex - 1
-        this.handler.onText(Char(codepoint).toString())
-        this.startIndex = endIndex
-    }
-
-    private fun isVoidElement(name: String): Boolean {
-        return !this.options.xmlMode && name in voidElements
-    }
-
-    override fun onOpenTagName(start: Int, endIndex: Int) {
-        this.endIndex = endIndex
-
-        var name = this.getSlice(start, endIndex)
-
-        if (this.lowerCaseTagNames) {
-            name = name.lowercase()
+        override fun onText(start: Int, endIndex: Int) {
+            this@KsoupHtmlParser.callbacks.onText(start, endIndex)
+            val data = this@KsoupHtmlParser.getSlice(start, endIndex)
+            this@KsoupHtmlParser.endIndex = endIndex - 1
+            this@KsoupHtmlParser.handler.onText(data)
+            this@KsoupHtmlParser.startIndex = endIndex
         }
 
-        this.emitOpenTag(name)
-    }
+        override fun onTextEntity(codepoint: Int, endIndex: Int) {
+            this@KsoupHtmlParser.callbacks.onTextEntity(codepoint, endIndex)
+            this@KsoupHtmlParser.endIndex = endIndex - 1
+            this@KsoupHtmlParser.handler.onText(Char(codepoint).toString())
+            this@KsoupHtmlParser.startIndex = endIndex
+        }
 
-    private fun emitOpenTag(name: String) {
-        this.openTagStart = this.startIndex
-        this.tagName = name
+        private fun isVoidElement(name: String): Boolean {
+            return !this@KsoupHtmlParser.options.xmlMode && name in voidElements
+        }
 
-        val impliesClose = openImpliesClose[name]
+        override fun onOpenTagName(start: Int, endIndex: Int) {
+            this@KsoupHtmlParser.callbacks.onOpenTagName(start, endIndex)
+            this@KsoupHtmlParser.endIndex = endIndex
 
-        if (!this.options.xmlMode && impliesClose != null) {
-            while (
-                this.stack.isNotEmpty() &&
-                impliesClose.contains(this.stack.last())
-            ) {
-                val element = this.stack.removeLast()
+            var name = this@KsoupHtmlParser.getSlice(start, endIndex)
 
-                this.handler.onCloseTag(element, true)
+            if (this@KsoupHtmlParser.lowerCaseTagNames) {
+                name = name.lowercase()
             }
-        }
-        if (!this.isVoidElement(name)) {
-            this.stack.add(name)
 
-            if (name in foreignContextElements) {
-                this.foreignContext.add(true)
-            } else if (name in htmlIntegrationElements) {
-                this.foreignContext.add(false)
-            }
-        }
-        this.handler.onOpenTagName(name)
-        this.attribs = mutableMapOf()
-    }
-
-    private fun endOpenTag(isImplied: Boolean) {
-        this.startIndex = this.openTagStart
-
-        this.attribs?.let {
-            this.handler.onOpenTag(this.tagName, it, isImplied)
-            this.attribs = null
-        }
-        if (this.isVoidElement(this.tagName)) {
-            this.handler.onCloseTag(this.tagName, true)
+            this.emitOpenTag(name)
         }
 
-        this.tagName = ""
-    }
+        private fun emitOpenTag(name: String) {
+            this@KsoupHtmlParser.openTagStart = this@KsoupHtmlParser.startIndex
+            this@KsoupHtmlParser.tagName = name
 
-    override fun onOpenTagEnd(endIndex: Int) {
-        this.endIndex = endIndex
-        this.endOpenTag(false)
+            val impliesClose = openImpliesClose[name]
 
-        // Set the start index for the next node
-        this.startIndex = endIndex + 1
-    }
+            if (!this@KsoupHtmlParser.options.xmlMode && impliesClose != null) {
+                while (
+                    this@KsoupHtmlParser.stack.isNotEmpty() &&
+                    impliesClose.contains(this@KsoupHtmlParser.stack.last())
+                ) {
+                    val element = this@KsoupHtmlParser.stack.removeLast()
 
-    override fun onCloseTag(start: Int, endIndex: Int) {
-        this.endIndex = endIndex
-
-        var name = this.getSlice(start, endIndex)
-
-        if (this.lowerCaseTagNames) {
-            name = name.lowercase()
-        }
-
-        if (
-            name in foreignContextElements &&
-            name in htmlIntegrationElements
-        ) {
-            this.foreignContext.removeLast()
-        }
-
-        if (!this.isVoidElement(name)) {
-            val pos = this.stack.lastIndexOf(name)
-
-            if (pos != -1) {
-                var count = this.stack.size - pos
-                while (count-- > 0) {
-                    val element = this.stack.removeLast()
-                    this.handler.onCloseTag(element, count != 0)
+                    this@KsoupHtmlParser.handler.onCloseTag(element, true)
                 }
-            } else if (!this.options.xmlMode && name == "p") {
-                // Implicit open before close
-                this.emitOpenTag("p")
-                this.closeCurrentTag(true)
             }
-        } else if (!this.options.xmlMode && name == "br") {
-            // We can't use `emitOpenTag` for implicit open, as `br` would be implicitly closed.
-            this.handler.onOpenTagName("br")
-            this.handler.onOpenTag("br", emptyMap(), true)
-            this.handler.onCloseTag("br", false)
+            if (!this.isVoidElement(name)) {
+                this@KsoupHtmlParser.stack.add(name)
+
+                if (name in foreignContextElements) {
+                    this@KsoupHtmlParser.foreignContext.add(true)
+                } else if (name in htmlIntegrationElements) {
+                    this@KsoupHtmlParser.foreignContext.add(false)
+                }
+            }
+            this@KsoupHtmlParser.handler.onOpenTagName(name)
+            this@KsoupHtmlParser.attribs = mutableMapOf()
         }
 
-        // Set the start index for the next node
-        this.startIndex = endIndex + 1
-    }
+        private fun endOpenTag(isImplied: Boolean) {
+            this@KsoupHtmlParser.startIndex = this@KsoupHtmlParser.openTagStart
 
-    override fun onSelfClosingTag(endIndex: Int) {
-        this.endIndex = endIndex
-        if (
-            this.options.xmlMode ||
-            this.options.recognizeSelfClosing ||
-            this.foreignContext.lastOrNull() == true
-        ) {
-            this.closeCurrentTag(false)
+            this@KsoupHtmlParser.attribs?.let {
+                this@KsoupHtmlParser.handler.onOpenTag(this@KsoupHtmlParser.tagName, it, isImplied)
+                this@KsoupHtmlParser.attribs = null
+            }
+            if (this.isVoidElement(this@KsoupHtmlParser.tagName)) {
+                this@KsoupHtmlParser.handler.onCloseTag(this@KsoupHtmlParser.tagName, true)
+            }
+
+            this@KsoupHtmlParser.tagName = ""
+        }
+
+        override fun onOpenTagEnd(endIndex: Int) {
+            this@KsoupHtmlParser.callbacks.onOpenTagEnd(endIndex)
+            this@KsoupHtmlParser.endIndex = endIndex
+            this.endOpenTag(false)
 
             // Set the start index for the next node
-            this.startIndex = endIndex + 1
-        } else {
-            // Ignore the fact that this tag is self-closing
-            this.onOpenTagEnd(endIndex)
+            this@KsoupHtmlParser.startIndex = endIndex + 1
         }
-    }
 
-    private fun closeCurrentTag(isOpenImplied: Boolean) {
-        val name = this.tagName
-        this.endOpenTag(isOpenImplied)
+        override fun onCloseTag(start: Int, endIndex: Int) {
+            this@KsoupHtmlParser.callbacks.onCloseTag(start, endIndex)
+            this@KsoupHtmlParser.endIndex = endIndex
 
-        // Self-closing tags will be on the top of the stack
-        if (this.stack.size > 0 && this.stack[this.stack.size - 1] == name) {
-            // If the opening tag isn't implied, the closing tag has to be implied.
-            this.handler.onCloseTag(name, !isOpenImplied)
-            this.stack.removeLast()
-        }
-    }
+            var name = this@KsoupHtmlParser.getSlice(start, endIndex)
 
-    override fun onAttribName(start: Int, endIndex: Int) {
-        this.startIndex = start
-        val name = this.getSlice(start, endIndex)
-
-        this.attribName = if (this.lowerCaseAttributeNames) {
-            name.lowercase()
-        } else {
-            name
-        }
-    }
-
-    override fun onAttribData(start: Int, endIndex: Int) {
-        this.attribValue += this.getSlice(start, endIndex)
-    }
-
-    override fun onAttribEntity(codepoint: Int) {
-        this.attribValue += Char(codepoint)
-    }
-
-    override fun onAttribEnd(quote: QuoteType, endIndex: Int) {
-        this.endIndex = endIndex
-
-        this.handler.onAttribute(
-            name = this.attribName,
-            value = this.attribValue,
-            quote = when (quote) {
-                QuoteType.Double -> "\""
-                QuoteType.Single -> "'"
-                else -> null
+            if (this@KsoupHtmlParser.lowerCaseTagNames) {
+                name = name.lowercase()
             }
-        )
 
-        this.attribs?.let {
-            it[this.attribName] = this.attribValue
-        }
-        this.attribValue = ""
-    }
+            if (
+                name in foreignContextElements &&
+                name in htmlIntegrationElements
+            ) {
+                this@KsoupHtmlParser.foreignContext.removeLast()
+            }
 
-    private fun getInstructionName(value: String): String {
-        val index = reNameEnd.find(value)?.range?.start ?: -1
+            if (!this.isVoidElement(name)) {
+                val pos = this@KsoupHtmlParser.stack.lastIndexOf(name)
 
-        var name = if (index < 0) {
-            value
-        } else {
-            value.substring(0, index)
-        }
+                if (pos != -1) {
+                    var count = this@KsoupHtmlParser.stack.size - pos
+                    while (count-- > 0) {
+                        val element = this@KsoupHtmlParser.stack.removeLast()
+                        this@KsoupHtmlParser.handler.onCloseTag(element, count != 0)
+                    }
+                } else if (!this@KsoupHtmlParser.options.xmlMode && name == "p") {
+                    // Implicit open before close
+                    this.emitOpenTag("p")
+                    this.closeCurrentTag(true)
+                }
+            } else if (!this@KsoupHtmlParser.options.xmlMode && name == "br") {
+                // We can't use `emitOpenTag` for implicit open, as `br` would be implicitly closed.
+                this@KsoupHtmlParser.handler.onOpenTagName("br")
+                this@KsoupHtmlParser.handler.onOpenTag("br", emptyMap(), true)
+                this@KsoupHtmlParser.handler.onCloseTag("br", false)
+            }
 
-        if (this.lowerCaseTagNames) {
-            name = name.lowercase()
-        }
-
-        return name
-    }
-
-    override fun onDeclaration(start: Int, endIndex: Int) {
-        this.endIndex = endIndex
-        val value = this.getSlice(start, endIndex)
-
-        val name = this.getInstructionName(value)
-        this.handler.onProcessingInstruction(name, value)
-
-        // Set the start index for the next node
-        this.startIndex = endIndex + 1
-    }
-
-    override fun onProcessingInstruction(start: Int, endIndex: Int) {
-        this.endIndex = endIndex
-        val value = this.getSlice(start, endIndex)
-
-        val name = this.getInstructionName(value)
-        this.handler.onProcessingInstruction(name, value)
-
-        // Set the start index for the next node
-        this.startIndex = endIndex + 1
-    }
-
-    override fun onComment(start: Int, endIndex: Int, offset: Int) {
-        this.endIndex = endIndex
-
-        this.handler.onComment(this.getSlice(start, endIndex - offset))
-        this.handler.onCommentEnd()
-
-        // Set the start index for the next node
-        this.startIndex = endIndex + 1
-    }
-
-    override fun onCData(start: Int, endIndex: Int, offset: Int) {
-        this.endIndex = endIndex
-        val value = this.getSlice(start, endIndex - offset)
-
-        if (this.options.xmlMode ||this.options.recognizeCDATA) {
-            this.handler.onCDataStart()
-            this.handler.onText(value)
-            this.handler.onCDataEnd()
-        } else {
-            this.handler.onComment("[CDATA[$value]]")
-            this.handler.onCommentEnd()
+            // Set the start index for the next node
+            this@KsoupHtmlParser.startIndex = endIndex + 1
         }
 
-        // Set the start index for the next node
-        this.startIndex = endIndex + 1
+        override fun onSelfClosingTag(endIndex: Int) {
+            this@KsoupHtmlParser.callbacks.onSelfClosingTag(endIndex)
+            this@KsoupHtmlParser.endIndex = endIndex
+            if (
+                this@KsoupHtmlParser.options.xmlMode ||
+                this@KsoupHtmlParser.options.recognizeSelfClosing ||
+                this@KsoupHtmlParser.foreignContext.lastOrNull() == true
+            ) {
+                this.closeCurrentTag(false)
+
+                // Set the start index for the next node
+                this@KsoupHtmlParser.startIndex = endIndex + 1
+            } else {
+                // Ignore the fact that this tag is self-closing
+                this.onOpenTagEnd(endIndex)
+            }
+        }
+
+        private fun closeCurrentTag(isOpenImplied: Boolean) {
+            val name = this@KsoupHtmlParser.tagName
+            this.endOpenTag(isOpenImplied)
+
+            // Self-closing tags will be on the top of the stack
+            if (this@KsoupHtmlParser.stack.size > 0 && this@KsoupHtmlParser.stack[this@KsoupHtmlParser.stack.size - 1] == name) {
+                // If the opening tag isn't implied, the closing tag has to be implied.
+                this@KsoupHtmlParser.handler.onCloseTag(name, !isOpenImplied)
+                this@KsoupHtmlParser.stack.removeLast()
+            }
+        }
+
+        override fun onAttribName(start: Int, endIndex: Int) {
+            this@KsoupHtmlParser.callbacks.onAttribName(start, endIndex)
+            this@KsoupHtmlParser.startIndex = start
+            val name = this@KsoupHtmlParser.getSlice(start, endIndex)
+
+            this@KsoupHtmlParser.attribName = if (this@KsoupHtmlParser.lowerCaseAttributeNames) {
+                name.lowercase()
+            } else {
+                name
+            }
+        }
+
+        override fun onAttribData(start: Int, endIndex: Int) {
+            this@KsoupHtmlParser.callbacks.onAttribData(start, endIndex)
+            this@KsoupHtmlParser.attribValue += this@KsoupHtmlParser.getSlice(start, endIndex)
+        }
+
+        override fun onAttribEntity(codepoint: Int) {
+            this@KsoupHtmlParser.callbacks.onAttribEntity(codepoint)
+            this@KsoupHtmlParser.attribValue += Char(codepoint)
+        }
+
+        override fun onAttribEnd(quote: QuoteType, endIndex: Int) {
+            this@KsoupHtmlParser.callbacks.onAttribEnd(quote, endIndex)
+            this@KsoupHtmlParser.endIndex = endIndex
+
+            this@KsoupHtmlParser.handler.onAttribute(
+                name = this@KsoupHtmlParser.attribName,
+                value = this@KsoupHtmlParser.attribValue,
+                quote = when (quote) {
+                    QuoteType.Double -> "\""
+                    QuoteType.Single -> "'"
+                    else -> null
+                }
+            )
+
+            this@KsoupHtmlParser.attribs?.let {
+                it[this@KsoupHtmlParser.attribName] = this@KsoupHtmlParser.attribValue
+            }
+            this@KsoupHtmlParser.attribValue = ""
+        }
+
+        private fun getInstructionName(value: String): String {
+            val index = reNameEnd.find(value)?.range?.start ?: -1
+
+            var name = if (index < 0) {
+                value
+            } else {
+                value.substring(0, index)
+            }
+
+            if (this@KsoupHtmlParser.lowerCaseTagNames) {
+                name = name.lowercase()
+            }
+
+            return name
+        }
+
+        override fun onDeclaration(start: Int, endIndex: Int) {
+            this@KsoupHtmlParser.callbacks.onDeclaration(start, endIndex)
+            this@KsoupHtmlParser.endIndex = endIndex
+            val value = this@KsoupHtmlParser.getSlice(start, endIndex)
+
+            val name = this.getInstructionName(value)
+            this@KsoupHtmlParser.handler.onProcessingInstruction(name, value)
+
+            // Set the start index for the next node
+            this@KsoupHtmlParser.startIndex = endIndex + 1
+        }
+
+        override fun onProcessingInstruction(start: Int, endIndex: Int) {
+            this@KsoupHtmlParser.callbacks.onProcessingInstruction(start, endIndex)
+            this@KsoupHtmlParser.endIndex = endIndex
+            val value = this@KsoupHtmlParser.getSlice(start, endIndex)
+
+            val name = this.getInstructionName(value)
+            this@KsoupHtmlParser.handler.onProcessingInstruction(name, value)
+
+            // Set the start index for the next node
+            this@KsoupHtmlParser.startIndex = endIndex + 1
+        }
+
+        override fun onComment(start: Int, endIndex: Int, offset: Int) {
+            this@KsoupHtmlParser.callbacks.onComment(start, endIndex, offset)
+            this@KsoupHtmlParser.endIndex = endIndex
+
+            this@KsoupHtmlParser.handler.onComment(this@KsoupHtmlParser.getSlice(start, endIndex - offset))
+            this@KsoupHtmlParser.handler.onCommentEnd()
+
+            // Set the start index for the next node
+            this@KsoupHtmlParser.startIndex = endIndex + 1
+        }
+
+        override fun onCData(start: Int, endIndex: Int, offset: Int) {
+            this@KsoupHtmlParser.callbacks.onCData(start, endIndex, offset)
+            this@KsoupHtmlParser.endIndex = endIndex
+            val value = this@KsoupHtmlParser.getSlice(start, endIndex - offset)
+
+            if (this@KsoupHtmlParser.options.xmlMode || this@KsoupHtmlParser.options.recognizeCDATA) {
+                this@KsoupHtmlParser.handler.onCDataStart()
+                this@KsoupHtmlParser.handler.onText(value)
+                this@KsoupHtmlParser.handler.onCDataEnd()
+            } else {
+                this@KsoupHtmlParser.handler.onComment("[CDATA[$value]]")
+                this@KsoupHtmlParser.handler.onCommentEnd()
+            }
+
+            // Set the start index for the next node
+            this@KsoupHtmlParser.startIndex = endIndex + 1
+        }
+
+        override fun onEnd() {
+            this@KsoupHtmlParser.callbacks.onEnd()
+            // Set the end index for all remaining tags
+            this@KsoupHtmlParser.endIndex = this@KsoupHtmlParser.startIndex
+            this@KsoupHtmlParser.stack.indices.forEach { i ->
+                val index = this@KsoupHtmlParser.stack.lastIndex - i
+                this@KsoupHtmlParser.handler.onCloseTag(this@KsoupHtmlParser.stack[index], true)
+            }
+            this@KsoupHtmlParser.handler.onEnd()
+        }
     }
 
-    override fun onEnd() {
-        // Set the end index for all remaining tags
-        this.endIndex = this.startIndex
-        this.stack.indices.forEach { i ->
-            val index = this.stack.lastIndex - i
-            this.handler.onCloseTag(this.stack[index], true)
-        }
-        this.handler.onEnd()
-    }
+    private val ksoupTokenizer = KsoupTokenizer(
+        options = options,
+        callbacks = ksoupTokenizerCallbacks
+    )
 
     /**
      * Resets the parser to a blank state, ready to parse a new HTML document
