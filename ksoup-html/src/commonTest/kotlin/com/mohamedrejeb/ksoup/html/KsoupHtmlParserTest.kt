@@ -49,7 +49,7 @@ class KsoupHtmlParserTest {
 
         val ksoupHtmlParser = KsoupHtmlParser(
             handler = handler,
-            options = options
+            options = options,
         )
         ksoupHtmlParser.write(input)
         ksoupHtmlParser.end()
