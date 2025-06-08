@@ -1,7 +1,9 @@
 package com.mohamedrejeb.ksoup.html.tokenizer
 
+import com.mohamedrejeb.ksoup.annotation.ExperimentalKsoupApi
 import com.mohamedrejeb.ksoup.html.parser.KsoupHtmlParser
 
+@SubclassOptInRequired(ExperimentalKsoupApi::class)
 public interface KsoupTokenizerCallbacks {
 
     public fun onAttribData(start: Int, endIndex: Int) {}
@@ -36,6 +38,7 @@ public interface KsoupTokenizerCallbacks {
 
     public object Default : KsoupTokenizerCallbacks
 
+    @ExperimentalKsoupApi
     public class Builder: KsoupTokenizerCallbacks {
 
         private var callbacks: KsoupTokenizerCallbacks = KsoupTokenizerCallbacks.Default

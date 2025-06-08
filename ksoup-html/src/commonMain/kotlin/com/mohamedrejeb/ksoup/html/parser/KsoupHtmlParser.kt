@@ -1,13 +1,23 @@
 package com.mohamedrejeb.ksoup.html.parser
 
+import com.mohamedrejeb.ksoup.annotation.ExperimentalKsoupApi
 import com.mohamedrejeb.ksoup.html.tokenizer.KsoupTokenizer
 import com.mohamedrejeb.ksoup.html.tokenizer.KsoupTokenizerCallbacks
 
-public class KsoupHtmlParser(
+public class KsoupHtmlParser @ExperimentalKsoupApi constructor(
     public val handler: KsoupHtmlHandler = KsoupHtmlHandler.Default,
     public val options: KsoupHtmlOptions = KsoupHtmlOptions.Default,
-    public val callbacks: KsoupTokenizerCallbacks = KsoupTokenizerCallbacks.Default,
+    public val callbacks: KsoupTokenizerCallbacks,
 ) {
+
+    public constructor(
+        handler: KsoupHtmlHandler = KsoupHtmlHandler.Default,
+        options: KsoupHtmlOptions = KsoupHtmlOptions.Default,
+    ): this(
+        handler = handler,
+        options = options,
+        callbacks = KsoupTokenizerCallbacks.Default,
+    )
 
     /** The start index of the last event. */
     private var startIndex: Int = 0
@@ -37,6 +47,7 @@ public class KsoupHtmlParser(
     private val lowerCaseAttributeNames get() = options.lowerCaseAttributeNames
 
     // Tokenizer events
+    @OptIn(ExperimentalKsoupApi::class)
     private val ksoupTokenizerCallbacks = object : KsoupTokenizerCallbacks {
 
         override fun onText(start: Int, endIndex: Int) {
