@@ -29,7 +29,8 @@ Add the dependency below to your **module**'s `build.gradle.kts` or `build.gradl
 
 | Kotlin version | Ksoup version |
 |----------------|---------------|
-| 2.1.x          | 0.5.x         |
+| 2.1.2x         | 0.6.x         |
+| 2.1.0          | 0.5.0         |
 | 2.0.x          | 0.4.1         |
 | 1.9.2x         | 0.3.x         |
 | 1.9.x          | 0.2.1         |
@@ -37,7 +38,7 @@ Add the dependency below to your **module**'s `build.gradle.kts` or `build.gradl
 
 
 ```kotlin
-val version = "0.5.0"
+val version = "0.6.0"
 
 // For parsing HTML
 implementation("com.mohamedrejeb.ksoup:ksoup-html:$version")
