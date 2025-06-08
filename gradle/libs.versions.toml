@@ -1,7 +1,7 @@
 [versions]
 kotlin = "2.1.21"
 kotlinx-kover = "0.9.1"
-kotlinx-benchmark = "0.4.13"
+kotlinx-benchmark = "0.4.14"
 
 nexus-publish = "2.0.0"
 
