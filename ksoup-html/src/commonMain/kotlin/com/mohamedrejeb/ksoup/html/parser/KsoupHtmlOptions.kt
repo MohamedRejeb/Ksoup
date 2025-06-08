@@ -1,7 +1,5 @@
 package com.mohamedrejeb.ksoup.html.parser
 
-import com.mohamedrejeb.ksoup.html.tokenizer.KsoupTokenizer
-
 public data class KsoupHtmlOptions(
 
     /**
