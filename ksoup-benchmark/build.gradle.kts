@@ -132,14 +132,3 @@ benchmark {
         register("mingwX64")
     }
 }
-
-// Node.js with canary v8 that supports recent Wasm GC changes
-rootProject.extensions.findByType<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension>()?.apply {
-    version = "21.0.0-v8-canary202309167e82ab1fa2"
-    downloadBaseUrl = "https://nodejs.org/download/v8-canary"
-}
-
-// Drop this when node js version become stable
-configure(rootProject.tasks.withType(org.jetbrains.kotlin.gradle.targets.js.npm.tasks.KotlinNpmInstallTask::class)) {
-    args.add("--ignore-engines")
-}
