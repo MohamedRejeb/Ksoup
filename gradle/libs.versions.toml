@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.1.21"
+kotlin = "2.2.0-RC3"
 kotlinx-kover = "0.9.1"
 kotlinx-benchmark = "0.4.14"
 
